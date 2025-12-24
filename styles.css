@@ -1,34 +1,154 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
 
-header {
-    background: #35424a;
-    color: #ffffff;
-    padding: 20px 0;
-    text-align: center;
-}
+        /* Custom CSS */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
 
-h1, h2 {
-    margin: 0;
-}
+        /* Neumorphism and Glassmorphism Styles */
+        .neumorphic-card {
+            background: #f0f0f0;
+            border-radius: 10px;
+            box-shadow:  5px 5px 10px #bebebe,
+                         -5px -5px 10px #ffffff;
+            transition: box-shadow 0.3s ease;
+        }
 
-section {
-    padding: 20px;
-    margin: 10px;
-    background: #ffffff;
-    border-radius: 5px;
-}
+        .neumorphic-card:hover {
+            box-shadow:  3px 3px 6px #bebebe,
+                         -3px -3px 6px #ffffff;
+        }
 
-footer {
-    text-align: center;
-    padding: 10px 0;
-    background: #35424a;
-    color: #ffffff;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        .dark-mode .neumorphic-card {
+            background: #2C2C2C;
+            box-shadow:  5px 5px 10px #1A1A1A,
+                         -5px -5px 10px #3E3E3E;
+        }
+
+        .dark-mode .neumorphic-card:hover {
+            box-shadow:  3px 3px 6px #1A1A1A,
+                         -3px -3px 6px #3E3E3E;
+        }
+
+        /* Background Animation */
+        #background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none; /* Allow interaction with elements behind it */
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            animation: float 6s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+                opacity: 0.8;
+            }
+            50% {
+                transform: translateY(-20px);
+                opacity: 0.4;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 0.8;
+            }
+        }
+        /* Additional Styling */
+        .transition-all {
+            transition: all 0.3s ease;
+        }
+
+        .dark-mode .transition-all {
+            transition: all 0.3s ease;
+        }
+
+        /* Adjust text color for dark mode */
+        .dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode p, .dark-mode a {
+            color: #ffffff;
+        }
+
+        /* Ensure icons adjust in dark mode */
+        .dark-mode i {
+            color: #ffffff;
+        }
+
+        /* Button styles */
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            display: inline-block;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background-color: #3490dc;
+            color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary:hover {
+            background-color: #2779bd;
+        }
+
+        .dark-mode .btn-primary {
+            background-color: #5fa8d3;
+            color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .dark-mode .btn-primary:hover {
+            background-color: #7cb9e1;
+        }
+
+        /* Skills Section Styles */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center; /* Center the skills */
+        }
+
+        .skill-item {
+            background-color: #e2e8f0; /* Light gray background */
+            color: #4a5568; /* Dark gray text */
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .dark-mode .skill-item {
+            background-color: #4a5568; /* Dark gray background */
+            color: #e2e8f0; /* Light gray text */
+        }
+
+    
