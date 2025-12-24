@@ -3,52 +3,245 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ethiocodingroom</title>
+    <title>Ethiocodingroom - Asres Gamu Yelia</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <header>
-        <h1>Asres Gamu Yelia</h1>
-        <h2>Welcome to Ethiocodingroom</h2>
+<body class="bg-gray-100 dark:bg-gray-900 transition-all">
+
+    <!-- Background Animation -->
+    <div id="background-animation"></div>
+
+    <!-- Header -->
+    <header class="bg-white dark:bg-gray-800 shadow-md py-4 transition-all">
+        <div class="container mx-auto px-4 flex items-center justify-between">
+            <a href="#" class="text-2xl font-bold text-gray-800 dark:text-white transition-all">Ethiocodingroom</a>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="#about" class="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white transition-all">About</a></li>
+                    <li><a href="#skills" class="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white transition-all">Skills</a></li>
+                    <li><a href="#contact" class="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white transition-all">Contact</a></li>
+                    <li>
+                        <button id="darkModeToggle" class="focus:outline-none">
+                            <i id="darkModeIcon" class="fas fa-sun text-gray-600 dark:text-gray-300 transition-all"></i>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <section id="about">
-        <h3>About Me</h3>
-        <p>Welcome to my personal website! I am a full stack web developer with skills in data analytics and DevOps.</p>
+    <!-- Hero Section -->
+    <section id="hero" class="py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl font-bold text-gray-800 dark:text-white mb-4 transition-all animate__animated animate__fadeInDown">
+                Hello, I'm Asres Gamu Yelia
+            </h1>
+            <h2 class="text-2xl text-gray-600 dark:text-gray-300 mb-8 transition-all animate__animated animate__fadeInUp">
+                Welcome to Ethiocodingroom
+            </h2>
+            <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 transition-all animate__animated animate__fadeInUp">
+                Data Analyst & Python Developer.
+            </p>
+            <a href="#portfolio" class="btn btn-primary animate__animated animate__pulse animate__infinite">View My Work</a>
+        </div>
     </section>
 
-    <section id="skills">
-        <h3>Skills</h3>
-        <ul>
-            <li>Full Stack Web Development</li>
-            <li>Data Analytics</li>
-            <li>DevOps</li>
-            <li>Linux</li>
-            <li>Java</li>
-            <li>React</li>
-            <li>JavaScript</li>
-            <li>SQL</li>
-            <li>Python</li>
-            <li>Excel</li>
-            <li>R</li>
-            <li>HTML</li>
-            <li>CSS</li>
-        </ul>
+    <!-- About Section -->
+    <section id="about" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-6 transition-all">About Me</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="neumorphic-card p-8 transition-all">
+                    <img src="Asres.jpg" alt="About Me" class="rounded-lg shadow-md mb-4">
+                    <p class="text-gray-700 dark:text-gray-300 transition-all">
+                       I am a Data Analyst & Python Developer specializing in ETL pipelines, web scraping, data visualization,
+                      BI dashboards, and Machine Learning. I have strong skills in Python, data analytics, automation, and DevOps, and
+                       I am passionate about transforming raw data into actionable insights and predictive solutions that drive business growth.
+                    <p class="text-gray-700 dark:text-gray-300 transition-all mt-4">
+                        ✔ On-Time Delivery – Projects completed quickly and accurately.<br>
+                        ✔ Clear Communication – I keep you updated and understand your needs.<br>
+                        ✔ Custom Solutions – Scalable for startups and businesses of any size.<br>
+                        ✔ Quality Results – Clean, accurate data ready for insights.
+                    </p>
+                </div>
+                <div class="neumorphic-card p-8 transition-all">
+    <!-- Upwork Link -->
+    <h3 class="text-2xl font-semibold text-gray-800 dark:text-white mb-4 transition-all">
+        <a href="https://www.upwork.com/freelancers/~013847c2b7252ddb3f?viewMode=1" target="_blank" class="text-blue-600 hover:underline">
+            Click here to see my Upwork Profile
+        </a>
+    </h3>
+
+    <p class="text-gray-700 dark:text-gray-300 transition-all">
+        <strong>Data Analyst & Python Developer | ETL, Web Scraping, BI Dashboards</strong><br>
+        $10.00/hr
+    </p>
+
+    <h4 class="text-xl font-semibold text-gray-800 dark:text-white mt-4 transition-all">What I Can Do for You:</h4>
+    <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 transition-all">
+        <li>Data Analysis & Visualization</li>
+        <li>Python Development</li>
+        <li>ETL Pipelines</li>
+        <li>Web Scraping & API Integration</li>
+        <li>Database Management</li>
+        <li>Excel & Google Sheets Automation</li>
+    </ul>
+
+    <!-- Certification Slideshow -->
+    <h4 class="text-xl font-semibold text-gray-800 dark:text-white mt-6 transition-all">My Certifications:</h4>
+    <div class="certification-slider mt-4">
+        <img src="ask_questions_to_make_data_driven_decisions.png" alt="Certification 1" class="w-full rounded mb-2">
+        <img src="data_analysis_and_visualization_with_python.jpg.png" alt="Certification 2" class="w-full rounded mb-2">
+        <img src="foundations_data_data_everywhere.jpg" alt="Certification 3" class="w-full rounded mb-2">
+        <img src="prepare_data_for_exploration.png" alt="Certification 4" class="w-full rounded mb-2">
+        <img src="process_data_from_dirty_to_clean.png" alt="Certification 5" class="w-full rounded mb-2">
+        <img src="python_programming_fundamentals.png" alt="Certification 6" class="w-full rounded mb-2">
+        <img src="version_control.png" alt="Certification 7" class="w-full rounded mb-2">
+    </div>
+</div>
+
     </section>
 
-    <section id="contact">
-        <h3>Contact Me</h3>
-        <ul>
-            <li><a href="https://github.com/ethioCodingRoom">GitHub</a></li>
-            <li><a href="https://www.youtube.com/c/ethioCodingRoom">YouTube</a></li>
-            <li><a href="https://www.facebook.com/ethioCodingRoom">Facebook</a></li>
-            <li><a href="https://t.me/ethioCodingRoom">Telegram</a></li>
-            <li><a href="https://x.com/ethioCodingRoom">X (Twitter)</a></li>
-        </ul>
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50 dark:bg-gray-800 transition-all">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-6 transition-all text-center">Skills</h2>
+            <div class="neumorphic-card p-8 transition-all">
+                <ul class="skills-list">
+                    <li class="skill-item">Full Stack Python Development</li>
+                    <li class="skill-item">Data Analytics</li>
+                    <li class="skill-item">DevOps</li>
+                    <li class="skill-item">Linux</li>
+                    <li class="skill-item">Java</li>
+                  
+                    <li class="skill-item">JavaScript</li>
+                    <li class="skill-item">SQL</li>
+                    <li class="skill-item">Python</li>
+                    <li class="skill-item">Excel</li>
+                    <li class="skill-item">R</li>
+                  
+                    <li class="skill-item">Tableau</li>
+                    <li class="skill-item">Microsoft Power BI</li>
+                    <li class="skill-item">API Integration</li>
+                    <li class="skill-item">Microsoft Power BI Development</li>
+                    <li class="skill-item">Machine Learning</li>
+                    <li class="skill-item">Google Sheets Automation</li>
+                    <li class="skill-item">Data Visualization</li>
+                    <li class="skill-item">Pandas</li>
+                </ul>
+            </div>
+        </div>
     </section>
 
-    <footer>
-        <p>&copy; 2025 Asres Gamu Yelia. All rights reserved.</p>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-6 transition-all text-center">Contact Me</h2>
+            <div class="neumorphic-card p-8 max-w-lg mx-auto transition-all">
+                <h3 class="text-2xl font-semibold text-gray-800 dark:text-white mb-4 transition-all">Connect with Me</h3>
+                <ul class="list-none pl-0">
+                    <li class="mb-2"><i class="fab fa-github mr-2"></i> <a href="https://github.com/ethioCodingRoom" class="text-blue-500 hover:text-blue-700 dark:text-blue-300 dark:hover:text-blue-500 transition-all">GitHub</a></li>
+                    <li class="mb-2"><i class="fab fa-youtube mr-2"></i> <a href="https://www.youtube.com/c/ethioCodingRoom" class="text-blue-500 hover:text-blue-700 dark:text-blue-300 dark:hover:text-blue-500 transition-all">YouTube</a></li>
+                    <li class="mb-2"><i class="fab fa-facebook mr-2"></i> <a href="https://www.facebook.com/ethioCodingRoom" class="text-blue-500 hover:text-blue-700 dark:text-blue-300 dark:hover:text-blue-500 transition-all">Facebook</a></li>
+                    <li class="mb-2"><i class="fab fa-telegram mr-2"></i> <a href="https://t.me/ethioCodingRoom" class="text-blue-500 hover:text-blue-700 dark:text-blue-300 dark:hover:text-blue-500 transition-all">Telegram</a></li>
+                    <li class="mb-2"><i class="fab fa-twitter mr-2"></i> <a href="https://x.com/ethioCodingRoom" class="text-blue-500 hover:text-blue-700 dark:text-blue-300 dark:hover:text-blue-500 transition-all">X (Twitter)</a></li>
+                </ul>
+                <form class="mt-6">
+                    <div class="mb-4">
+                        <label for="name" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2 transition-all">Name:</label>
+                        <input type="text" id="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-white transition-all">
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2 transition-all">Email:</label>
+                        <input type="email" id="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-white transition-all">
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2 transition-all">Message:</label>
+                        <textarea id="message" rows="5" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-white transition-all"></textarea>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <button class="btn btn-primary" type="submit">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-gray-800 py-4 transition-all">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-600 dark:text-gray-300 transition-all">
+                &copy; 2024 Ethiocodingroom. All rights reserved.
+            </p>
+        </div>
     </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const darkModeIcon = document.getElementById('darkModeIcon');
+        const body = document.body;
+
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            if (body.classList.contains('dark-mode')) {
+                darkModeIcon.classList.remove('fa-sun');
+                darkModeIcon.classList.add('fa-moon');
+            } else {
+                darkModeIcon.classList.remove('fa-moon');
+                darkModeIcon.classList.add('fa-sun');
+            }
+        });
+
+         // Particle Animation
+         const backgroundAnimation = document.getElementById('background-animation');
+            const numberOfParticles = 20; // Adjust for performance
+
+            for (let i = 0; i < numberOfParticles; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+
+                // Random size, position, and color
+                const size = Math.random() * 50 + 20; // Size between 20px and 70px
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * window.innerHeight;
+                particle.style.left = `${x}px`;
+                particle.style.top = `${y}px`;
+
+                const color = `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 0.5)`;
+                particle.style.backgroundColor = color;
+
+                // Random animation delay
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+
+                backgroundAnimation.appendChild(particle);
+            }
+
+        // Initialize WOW.js
+        new WOW().init();
+
+         const slides = document.querySelectorAll('.certification-slider img');
+    let current = 0;
+    function showSlide(index) {
+        slides.forEach((slide, i) => slide.style.display = (i === index ? 'block' : 'none'));
+    }
+    showSlide(current);
+    setInterval(() => {
+        current = (current + 1) % slides.length;
+        showSlide(current);
+    }, 3000); // change slide every 3 seconds
+
+    </script>
+
 </body>
 </html>
