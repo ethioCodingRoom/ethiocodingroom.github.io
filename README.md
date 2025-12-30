@@ -33,8 +33,7 @@ With strong expertise in data extraction (ETL & web scraping), advanced analytic
 
 ## Certifications
 
-Only the certificate images currently present in your repository are listed below.
-
+The certifications I have earned during my learning are listed below.
 ### Google
 - ![Foundations: Data, Data, Everywhere](foundations_data_data_everywhere.jpg.png)  
   **Foundations: Data, Data, Everywhere** – Business Analysis | Completed October 2025
