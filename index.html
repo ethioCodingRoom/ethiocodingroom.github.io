@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gray-100 dark:bg-gray-900 transition-all duration-500">
+<body class="bg-gray-100 dark:bg-gray-900 transition-all duration-500 page-loading">
 
     <!-- Preloader -->
     <div class="preloader" id="preloader">
@@ -371,6 +371,7 @@
         <div class="container mx-auto px-6">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-800 dark:text-white">Let's Connect</h2>
             <div class="neumorphic-card p-12 max-w-4xl mx-auto">
+                <!-- Contact Form - Replace YOUR_FORM_ID with your actual Formspree form ID -->
                 <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-8 mb-12">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div>
@@ -561,7 +562,7 @@
                 isValid = false;
             }
 
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
             if (!emailRegex.test(email)) {
                 document.getElementById('emailError').classList.remove('hidden');
                 isValid = false;
@@ -638,10 +639,8 @@
             }, 800);
 
             // Fade in body
-            document.body.style.opacity = '0';
             setTimeout(() => {
-                document.body.style.transition = 'opacity 0.5s ease-in';
-                document.body.style.opacity = '1';
+                document.body.classList.remove('page-loading');
             }, 100);
         });
     </script>
