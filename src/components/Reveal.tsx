@@ -1,9 +1,7 @@
 import { motion } from 'framer-motion';
 import { fadeInUp } from '../animations';
 
-type Props = {
-  children: React.ReactNode;
-};
+type Props = { children: React.ReactNode };
 
 const Reveal: React.FC<Props> = ({ children }) => {
   return (
