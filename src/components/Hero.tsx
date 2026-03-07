@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Typing } from './Typing';
+import Reveal from './Reveal'; // <-- Reveal import
 import { fadeInUp, staggerContainer } from '../animations';
 
 export const Hero: React.FC = () => (
@@ -25,25 +26,42 @@ export const Hero: React.FC = () => (
 
       {/* Text/Content Container */}
       <div className="text-center md:text-left">
-        <motion.h1 variants={fadeInUp} className="text-4xl font-extrabold sm:text-5xl md:text-6xl">
-          Asres Gamu Yelia
+        <motion.h1
+          variants={fadeInUp}
+          className="text-4xl font-extrabold sm:text-5xl md:text-6xl"
+        >
+         Welcome to My Portfolio, I'm Asres Gamu Yelia
         </motion.h1>
 
-        <motion.p variants={fadeInUp} className="mt-4 text-2xl font-light sm:text-3xl text-indigo-300">
-          <Typing words={['Data Analyst', 'Python Developer', 'Tableau Developer', 'BI Developer']} />
-        </motion.p>
+        {/* Typing animation wrapped in Reveal */}
+        <Reveal>
+          <motion.p
+            variants={fadeInUp}
+            className="mt-4 text-2xl font-light sm:text-3xl text-indigo-300"
+          >
+            <Typing words={['Data Analyst', 'Python Developer', 'Tableau Developer', 'BI Developer']} />
+          </motion.p>
+        </Reveal>
 
-        <motion.p variants={fadeInUp} className="mt-6 max-w-xl text-lg opacity-90 leading-relaxed">
+        {/* Description */}
+        <motion.p
+          variants={fadeInUp}
+          className="mt-6 max-w-xl text-lg opacity-90 leading-relaxed"
+        >
           Data Analyst | Python Developer | Tableau Developer | BI Developer / 
           SQL | Excel | Data Visualization | Machine Learning
         </motion.p>
 
+        {/* Location & connections */}
         <motion.p variants={fadeInUp} className="mt-2 text-base opacity-75 italic">
           Addis Ababa, Ethiopia • 500+ connections
         </motion.p>
 
         {/* Buttons */}
-        <motion.div variants={fadeInUp} className="mt-8 flex justify-center md:justify-start gap-4">
+        <motion.div
+          variants={fadeInUp}
+          className="mt-8 flex justify-center md:justify-start gap-4"
+        >
           <a
             href="https://www.linkedin.com/in/ethiocodingroom"
             target="_blank"

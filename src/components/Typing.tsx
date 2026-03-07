@@ -1,8 +1,12 @@
 import React from 'react';
 
-export const Typing: React.FC<{ words: string[] }> = ({ words }) => {
+interface TypingProps {
+  words: string[];
+}
+
+export const Typing: React.FC<TypingProps> = ({ words }) => {
   const [wordIndex, setWordIndex] = React.useState(0); // current word
-  const [charIndex, setCharIndex] = React.useState(0); // current char
+  const [charIndex, setCharIndex] = React.useState(0); // current character
   const [deleting, setDeleting] = React.useState(false);
 
   React.useEffect(() => {
@@ -10,24 +14,26 @@ export const Typing: React.FC<{ words: string[] }> = ({ words }) => {
 
     const tick = () => {
       if (deleting) {
+        // Remove a character
         if (charIndex > 0) {
           setCharIndex(charIndex - 1);
         } else {
           // Move to next word after deletion
           setDeleting(false);
-          setWordIndex((wordIndex + 1) % words.length);
+          setWordIndex((prev) => (prev + 1) % words.length);
         }
       } else {
+        // Add a character
         if (charIndex < currentWord.length) {
           setCharIndex(charIndex + 1);
         } else {
-          // Pause at full word, then start deleting
+          // Pause at full word before deleting
           setTimeout(() => setDeleting(true), 1200);
         }
       }
     };
 
-    const delay = deleting ? 50 : 90;
+    const delay = deleting ? 50 : 90; // faster deleting
     const timer = setTimeout(tick, delay);
 
     return () => clearTimeout(timer);
