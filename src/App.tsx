@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 import { ParticlesBG } from "./components/ParticlesBG";
 import { Header } from "./components/Header";
@@ -96,6 +97,9 @@ export default function App() {
 
       {/* Footer */}
       <Footer />
+
+      {/* Vercel Analytics */}
+      <Analytics />
 
     </div>
   );
