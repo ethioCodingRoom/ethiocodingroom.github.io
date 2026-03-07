@@ -1,86 +1,57 @@
-# Ethiocodingroom
+# EthioCodingRoom
 
-Welcome to **Ethiocodingroom**!  
-This is the personal website and portfolio of **Asres Gamu Yelia**.
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-222222?style=for-the-badge&logo=github&logoColor=white)
 
----
-
-## About Me
-
-I'm a passionate Data Analyst and Python Developer dedicated to turning complex data into clear, actionable insights and building intelligent automation systems.
-
-With strong expertise in data extraction (ETL & web scraping), advanced analytics, and interactive dashboard development using Power BI and Tableau, I help organizations make smarter, data-driven decisions.
+Welcome to the professional portfolio of **Asres Gamu Yelia**, a Data Analyst and Python Developer. This repository contains the source code for my portfolio website, which showcases my projects, technical skills, and professional certifications.
 
 ---
 
-## Skills & Expertise
+## 🛠 Tech Stack
+This website is built with modern, high-performance web technologies:
 
-<!-- Replace with your actual skills image filename or URL if different -->
-
-- **Programming & Libraries**  
-  Python • pandas • NumPy • BeautifulSoup • Selenium • Scrapy • Plotly • Matplotlib • Seaborn • Scikit-learn
-
-- **Databases & Querying**  
-  SQL • MySQL • PostgreSQL • DAX
-
-- **Data Visualization & BI Tools**  
-  Microsoft Power BI • Tableau • Data Visualization
-
-- **Data Processing & Automation**  
-  Data Analysis • Data Cleaning • ETL Pipeline • Web Scraping • API Integration • Google Sheets Automation • Excel VBA • Statistical Analysis • Machine Learning
+- **Framework**: React.js
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Build Tool**: Vite
+- **Deployment**: GitHub Pages
 
 ---
 
-## Certifications
+## 🚀 Skills & Expertise
 
-The certifications I have earned during my learning are listed below.
+- **Programming & Data Analysis**: Python, pandas, NumPy, Scikit-learn, Statistical Analysis
+- **Web Scraping & ETL**: BeautifulSoup, Selenium, Scrapy, API Integration
+- **Databases & Querying**: SQL, MySQL, PostgreSQL, DAX
+- **Data Visualization & BI**: Microsoft Power BI, Tableau
+- **Automation**: Google Sheets Automation, Excel VBA
+
+---
+
+## 🏆 Certifications
+*Verified technical competencies:*
+
 ### Google
-- ![Foundations: Data, Data, Everywhere](foundations_data_data_everywhere.jpg.png)  
-  **Foundations: Data, Data, Everywhere** – Business Analysis | Completed October 2025
-
-- ![Ask Questions to Make Data-Driven Decisions](ask_questions_to_make_data_driven_decisions.png)  
-  **Ask Questions to Make Data-Driven Decisions** – Data Analysis | Completed October 2025
-
-- ![Prepare Data for Exploration](prepare_data_for_exploration.png)  
-  **Prepare Data for Exploration** – Data Management | Completed November 2025
-
-- ![Process Data from Dirty to Clean](process_data_from_dirty_to_clean.png)  
-  **Process Data from Dirty to Clean** – Data Analysis | Completed November 2025
+- **Foundations: Data, Data, Everywhere** (Oct 2025)
+- **Ask Questions to Make Data-Driven Decisions** (Oct 2025)
+- **Prepare Data for Exploration** (Nov 2025)
+- **Process Data from Dirty to Clean** (Nov 2025)
 
 ### Microsoft
-- ![Python Programming Fundamentals](python_programming_fundamentals.png)  
-  **Python Programming Fundamentals** – Data Structures | Completed August 2025
-
-- ![Data Analysis and Visualization with Python](data_analysis_and_visualization_with_python.png)  
-  **Data Analysis and Visualization with Python** – Data Analysis & Visualization | Completed September 2025
+- **Python Programming Fundamentals** (Aug 2025)
+- **Data Analysis and Visualization with Python** (Sep 2025)
 
 ### Meta
-- ![Version Control](version_control.png)  
-  **Version Control** – Collaboration | Completed December 2024
+- **Version Control** (Dec 2024)
 
 ---
 
-## Contact Me
-
-Feel free to reach out through any of the following platforms:
-
-- [GitHub](https://github.com/ethioCodingRoom)
-- [YouTube](https://www.youtube.com/c/ethioCodingRoom)
-- [Facebook](https://www.facebook.com/ethioCodingRoom)
-- [Telegram](https://t.me/ethioCodingRoom)
-- [X (Twitter)](https://x.com/ethioCodingRoom)
-
----
-
-## Getting Started
-
-To view the website online, visit:  
+## 🌐 Live Portfolio
+Visit the live site to explore my projects and interactive dashboards:
 [https://ethiocodingroom.github.io](https://ethiocodingroom.github.io)
 
-### Local Development
-
-To run the website locally:
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/ethioCodingRoom/ethiocodingroom.github.io.git
+---
+*© 2026 EthioCodingRoom.*
