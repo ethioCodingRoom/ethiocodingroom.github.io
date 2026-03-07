@@ -1,9 +1,21 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { fadeInUp, revealViewport } from '@/animations';
+import { fadeInUp } from '../animations';
 
-export const Reveal: React.FC<React.PropsWithChildren<{ className?: string }>> = ({ children, className }) => (
-  <motion.div className={className} variants={fadeInUp} initial="hidden" whileInView="visible" viewport={revealViewport}>
-    {children}
-  </motion.div>
-);
+type Props = {
+  children: React.ReactNode;
+};
+
+const Reveal: React.FC<Props> = ({ children }) => {
+  return (
+    <motion.div
+      variants={fadeInUp}
+      initial='hidden'
+      whileInView='visible'
+      viewport={{ once: true, amount: 0.2 }}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
+export default Reveal;
