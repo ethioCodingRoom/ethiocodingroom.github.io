@@ -1,83 +1,98 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Typing } from './Typing';
-import Reveal from './Reveal'; // <-- Reveal import
+import Reveal from './Reveal';
 import { fadeInUp, staggerContainer } from '../animations';
 
 export const Hero: React.FC = () => (
-  <section
-    id="hero"
-    className="relative bg-[linear-gradient(135deg,#0d0d1a_0%,#111827_60%,#0f172a_100%)] py-20 text-white sm:py-32"
-  >
+  <section id="hero" className="relative overflow-hidden py-16 sm:py-20">
+    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_85%_15%,rgba(8,145,178,0.2),transparent_36%),radial-gradient(circle_at_15%_0%,rgba(234,88,12,0.15),transparent_34%)]" />
+
     <motion.div
       variants={staggerContainer}
       initial="hidden"
       animate="visible"
-      className="mx-auto max-w-6xl px-6 flex flex-col md:flex-row items-center justify-center gap-12"
+      className="relative z-10 mx-auto grid max-w-7xl items-center gap-10 px-6 md:grid-cols-[1.2fr_0.8fr]"
     >
-      {/* Photo Container */}
-      <motion.div variants={fadeInUp} className="flex-shrink-0">
-        <img
-          src="/Asres.jpg"
-          alt="Asres Gamu Yelia"
-          className="h-64 w-64 md:h-80 md:w-80 rounded-full border-4 border-white/60 shadow-2xl shadow-indigo-500/35 object-cover"
-        />
-      </motion.div>
-
-      {/* Text/Content Container */}
       <div className="text-center md:text-left">
+        <motion.p
+          variants={fadeInUp}
+          className="inline-flex rounded-full border border-cyan-600/20 bg-cyan-500/10 px-4 py-1 text-xs font-bold uppercase tracking-[0.18em] text-cyan-700 dark:text-cyan-300"
+        >
+          Data Analyst and Python Developer
+        </motion.p>
+
         <motion.h1
           variants={fadeInUp}
-          className="text-4xl font-extrabold sm:text-5xl md:text-6xl"
+          className="mt-5 text-4xl font-extrabold leading-tight text-slate-900 dark:text-slate-100 sm:text-5xl md:text-6xl"
         >
-         Welcome to My Portfolio, I'm Asres Gamu Yelia
+          Building Insightful
+          <span className="block bg-gradient-to-r from-cyan-600 to-orange-500 bg-clip-text text-transparent">
+            Data Products for Teams
+          </span>
         </motion.h1>
 
-        {/* Typing animation wrapped in Reveal */}
         <Reveal>
           <motion.p
             variants={fadeInUp}
-            className="mt-4 text-2xl font-light sm:text-3xl text-indigo-300"
+            className="mt-5 text-xl font-semibold text-slate-700 dark:text-slate-200 sm:text-2xl"
           >
             <Typing words={['Data Analyst', 'Python Developer', 'Tableau Developer', 'BI Developer']} />
           </motion.p>
         </Reveal>
 
-        {/* Description */}
         <motion.p
           variants={fadeInUp}
-          className="mt-6 max-w-xl text-lg opacity-90 leading-relaxed"
+          className="mt-5 max-w-2xl text-base leading-relaxed text-[var(--site-muted)] sm:text-lg"
         >
-          Data Analyst | Python Developer | Tableau Developer | BI Developer / 
-          SQL | Excel | Data Visualization | Machine Learning
+          I help organizations turn messy datasets into clear dashboards, automated reporting pipelines,
+          and smarter business decisions using Python, SQL, Power BI, and Tableau.
         </motion.p>
 
-        {/* Location & connections */}
-        <motion.p variants={fadeInUp} className="mt-2 text-base opacity-75 italic">
-          Addis Ababa, Ethiopia • 500+ connections
-        </motion.p>
+        <motion.div variants={fadeInUp} className="mt-7 flex flex-wrap justify-center gap-3 md:justify-start">
+          <span className="rounded-full border border-[var(--site-border)] bg-white/70 px-4 py-2 text-sm font-semibold dark:bg-slate-900/50">
+            Addis Ababa, Ethiopia
+          </span>
+          <span className="rounded-full border border-[var(--site-border)] bg-white/70 px-4 py-2 text-sm font-semibold dark:bg-slate-900/50">
+            500+ connections
+          </span>
+        </motion.div>
 
-        {/* Buttons */}
-        <motion.div
-          variants={fadeInUp}
-          className="mt-8 flex justify-center md:justify-start gap-4"
-        >
+        <motion.div variants={fadeInUp} className="mt-9 flex flex-wrap justify-center gap-4 md:justify-start">
           <a
-            href="https://www.linkedin.com/in/ethiocodingroom"
-            target="_blank"
-            rel="noreferrer"
-            className="rounded-full bg-indigo-600 px-8 py-3 font-bold text-white shadow-xl hover:bg-indigo-700 transition-all"
+            href="#projects"
+            className="rounded-xl bg-gradient-to-r from-cyan-600 to-orange-500 px-7 py-3 font-bold text-white shadow-xl shadow-cyan-800/20"
           >
-            View LinkedIn
+            View Projects
           </a>
           <a
             href="#contact"
-            className="rounded-full border border-white/30 px-8 py-3 font-bold text-white hover:bg-white/10 transition-all"
+            className="rounded-xl border border-[var(--site-border)] bg-white/70 px-7 py-3 font-bold text-slate-900 dark:bg-slate-900/50 dark:text-slate-100"
           >
             Hire Me
           </a>
         </motion.div>
       </div>
+
+      <motion.div variants={fadeInUp} className="mx-auto w-full max-w-md">
+        <div className="relative rounded-[2rem] border border-[var(--site-border)] bg-[var(--site-panel)] p-4 shadow-2xl backdrop-blur">
+          <div className="absolute -right-4 -top-4 h-20 w-20 rounded-full bg-cyan-400/30 blur-2xl" />
+          <div className="absolute -bottom-5 -left-4 h-20 w-20 rounded-full bg-orange-400/25 blur-2xl" />
+
+          <img
+            src="/Asres.jpg"
+            alt="Asres Gamu Yelia"
+            className="h-[22rem] w-full rounded-[1.4rem] object-cover sm:h-[26rem]"
+          />
+
+          <div className="mt-4 rounded-2xl border border-[var(--site-border)] bg-white/70 p-4 dark:bg-slate-900/60">
+            <p className="text-sm font-bold text-[var(--site-brand)]">Current Focus</p>
+            <p className="mt-1 text-sm text-[var(--site-muted)]">
+              ETL automation, analytics dashboards, and practical machine learning projects.
+            </p>
+          </div>
+        </div>
+      </motion.div>
     </motion.div>
   </section>
 );

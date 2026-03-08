@@ -54,40 +54,48 @@ const projects = [
 ];
 
 export const Projects: React.FC = () => (
-  <section id="portfolio" className="bg-gradient-to-b from-gray-50 to-white py-16 dark:from-gray-800 dark:to-gray-900 sm:py-20">
+  <section id="projects" className="py-16 sm:py-24">
     <div className="mx-auto max-w-7xl px-6">
-      <motion.h2 variants={fadeInUp} initial="hidden" whileInView="visible" viewport={revealViewport}
-        className="mb-12 text-center text-3xl font-extrabold sm:text-4xl md:text-5xl">
+      <motion.h2
+        variants={fadeInUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={revealViewport}
+        className="mb-4 text-center text-3xl font-extrabold sm:text-4xl md:text-5xl"
+      >
         Featured Projects
       </motion.h2>
+      <p className="mx-auto mb-12 max-w-2xl text-center text-[var(--site-muted)]">
+        A selection of practical analytics and automation work focused on measurable outcomes.
+      </p>
 
       <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={revealViewport}
         className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {projects.map(p => (
           <motion.article key={p.title} variants={fadeInUp}
-            className="group rounded-2xl border border-white/10 bg-white/60 p-6 backdrop-blur dark:bg-white/5"
+            className="group rounded-3xl border border-[var(--site-border)] bg-[var(--site-panel)] p-5 backdrop-blur"
             animate="rest" whileHover="hover">
             <motion.div variants={hoverCard} className="rounded-2xl">
               <div className="mb-5 overflow-hidden rounded-xl">
                 <img
                   src={p.img}
                   alt={p.title}
-                  className="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                  className="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]"
                   loading="lazy"
                 />
               </div>
-              <h3 className="mb-2 text-2xl font-extrabold">{p.title}</h3>
-              <p className="mb-4 text-gray-700 dark:text-gray-300">{p.desc}</p>
+              <h3 className="mb-2 text-xl font-extrabold text-slate-900 dark:text-slate-100">{p.title}</h3>
+              <p className="mb-4 text-sm leading-relaxed text-[var(--site-muted)]">{p.desc}</p>
               <div className="mb-4 flex flex-wrap gap-2">
                 {p.tags.map(t => (
-                  <span key={t} className="inline-flex items-center rounded-full border border-indigo-400/30 bg-indigo-400/10 px-3 py-1 text-[11px] font-bold text-indigo-300">
+                  <span key={t} className="inline-flex items-center rounded-full border border-cyan-700/20 bg-cyan-500/10 px-3 py-1 text-[11px] font-bold text-cyan-700 dark:text-cyan-300">
                     {t}
                   </span>
                 ))}
               </div>
               <div className="flex gap-4">
-                <a className="font-bold text-blue-300 hover:text-blue-200" href={p.gh} target="_blank" rel="noreferrer">GitHub ↗</a>
-                <a className="font-bold text-blue-300 hover:text-blue-200" href={p.live} target="_blank" rel="noreferrer">Live Demo ↗</a>
+                <a className="font-bold text-cyan-700 hover:text-cyan-600 dark:text-cyan-300" href={p.gh} target="_blank" rel="noreferrer">GitHub ↗</a>
+                <a className="font-bold text-orange-600 hover:text-orange-500 dark:text-orange-300" href={p.live} target="_blank" rel="noreferrer">Live Demo ↗</a>
               </div>
             </motion.div>
           </motion.article>

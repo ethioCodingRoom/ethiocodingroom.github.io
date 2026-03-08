@@ -2,22 +2,24 @@ import React from 'react';
 
 export const Blog: React.FC = () => {
   return (
-    <section id="blog" className="py-16">
+    <section id="blog" className="py-16 sm:py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <h2 className="text-center text-3xl font-extrabold mb-12">Latest Articles</h2>
+        <h2 className="mb-4 text-center text-3xl font-extrabold sm:text-4xl">Latest Articles</h2>
+        <p className="mx-auto mb-12 max-w-2xl text-center text-[var(--site-muted)]">
+          Practical tutorials focused on data workflows you can apply immediately.
+        </p>
 
-        <article className="p-6 rounded-2xl border border-white/10 bg-white/60 dark:bg-white/5 backdrop-blur">
-          <h3 className="text-2xl font-extrabold">10 Essential pandas Functions</h3>
-          <p className="mt-2 text-gray-700 dark:text-gray-300">
+        <article className="rounded-3xl border border-[var(--site-border)] bg-[var(--site-panel)] p-6 backdrop-blur sm:p-8">
+          <h3 className="text-2xl font-extrabold text-slate-900 dark:text-slate-100">10 Essential pandas Functions</h3>
+          <p className="mt-2 text-[var(--site-muted)]">
             A practical guide covering the 10 pandas functions you’ll use every day.
           </p>
 
-          {/* Correctly wrapped link */}
           <a 
-            href="/pandasPage.tsx" 
+            href="/pandas.html" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="mt-4 inline-block font-bold text-blue-400 hover:underline"
+            className="mt-5 inline-block font-bold text-cyan-700 hover:text-cyan-600 dark:text-cyan-300"
           >
             Read More ↗
           </a>

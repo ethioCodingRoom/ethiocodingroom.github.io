@@ -1,17 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap");
 @import "tailwindcss";
 
 /* Use the html.dark class for Tailwind's dark:* utilities. */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* If you want custom dark mode styles, use this instead */
 @theme {
-  --color-background-dark: #111827; /* gray-900 */
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
 }
 
 @layer base {
+  :root {
+    --site-bg: #eef3f8;
+    --site-panel: rgba(255, 255, 255, 0.78);
+    --site-border: rgba(15, 23, 42, 0.09);
+    --site-text: #0f172a;
+    --site-muted: #4b5563;
+    --site-brand: #0891b2;
+    --site-accent: #ea580c;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--site-text);
+    background:
+      radial-gradient(1100px 520px at 10% -10%, rgba(8, 145, 178, 0.2), transparent 60%),
+      radial-gradient(1100px 620px at 100% 0%, rgba(234, 88, 12, 0.12), transparent 55%),
+      var(--site-bg);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  a {
+    transition: color 180ms ease;
+  }
+
   html.dark {
     color-scheme: dark;
-    background-color: var(--color-background-dark);
-    color: white;
+    --site-bg: #040d1a;
+    --site-panel: rgba(8, 20, 36, 0.7);
+    --site-border: rgba(148, 163, 184, 0.22);
+    --site-text: #e5edf8;
+    --site-muted: #b8c3d6;
+    --site-brand: #22d3ee;
+    --site-accent: #fb923c;
+  }
+
+  html.dark body {
+    background:
+      radial-gradient(900px 420px at 10% -5%, rgba(34, 211, 238, 0.16), transparent 60%),
+      radial-gradient(900px 520px at 90% 0%, rgba(251, 146, 60, 0.12), transparent 58%),
+      var(--site-bg);
   }
 }

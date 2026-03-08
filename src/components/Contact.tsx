@@ -30,17 +30,20 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-900">
+    <section id="contact" className="py-20 sm:py-24">
       <div className="mx-auto max-w-4xl px-6">
         <motion.h2 
           variants={fadeInUp} 
           initial="hidden" 
           whileInView="visible" 
           viewport={revealViewport}
-          className="mb-12 text-center text-4xl font-extrabold bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent"
+          className="mb-4 bg-gradient-to-r from-cyan-600 to-orange-500 bg-clip-text text-center text-4xl font-extrabold text-transparent"
         >
           Let's Connect
         </motion.h2>
+        <p className="mx-auto mb-12 max-w-2xl text-center text-[var(--site-muted)]">
+          Tell me about your project, data problem, or dashboard idea. I usually reply within 24 hours.
+        </p>
 
         <motion.form 
           variants={fadeInUp} 
@@ -50,78 +53,72 @@ export const Contact: React.FC = () => {
           onSubmit={onSubmit} 
           action="https://formspree.io/f/YOUR_FORM_ID" 
           method="POST"
-          className="rounded-3xl border border-white/10 bg-white/60 p-8 backdrop-blur-xl dark:bg-white/5 shadow-2xl sm:p-12"
+          className="rounded-3xl border border-[var(--site-border)] bg-[var(--site-panel)] p-8 shadow-2xl backdrop-blur-xl sm:p-12"
         >
-          {/* Full Name Field */}
           <div className="mb-6">
-            <label htmlFor="contactName" className="mb-2 block text-sm font-bold text-gray-700 dark:text-gray-300">Full Name</label>
+            <label htmlFor="contactName" className="mb-2 block text-sm font-bold text-[var(--site-text)]">Full Name</label>
             <input 
               id="contactName" 
               name="name" 
               required 
               placeholder="John Doe"
-              className="w-full rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-4 py-3 focus:ring-2 focus:ring-indigo-500 outline-none transition-all" 
+              className="w-full rounded-xl border border-[var(--site-border)] bg-white/80 px-4 py-3 outline-none transition-all focus:ring-2 focus:ring-cyan-500 dark:bg-slate-950/60" 
             />
           </div>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            {/* Email Field */}
             <div>
-              <label htmlFor="contactEmail" className="mb-2 block text-sm font-bold text-gray-700 dark:text-gray-300">Your Email</label>
+              <label htmlFor="contactEmail" className="mb-2 block text-sm font-bold text-[var(--site-text)]">Your Email</label>
               <input 
                 id="contactEmail" 
                 name="email" 
                 type="email" 
                 required 
                 placeholder="john@example.com"
-                className="w-full rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-4 py-3 focus:ring-2 focus:ring-indigo-500 outline-none transition-all" 
+                className="w-full rounded-xl border border-[var(--site-border)] bg-white/80 px-4 py-3 outline-none transition-all focus:ring-2 focus:ring-cyan-500 dark:bg-slate-950/60" 
               />
             </div>
-            {/* Phone Number Field */}
             <div>
-              <label htmlFor="contactPhone" className="mb-2 block text-sm font-bold text-gray-700 dark:text-gray-300">Phone Number</label>
+              <label htmlFor="contactPhone" className="mb-2 block text-sm font-bold text-[var(--site-text)]">Phone Number</label>
               <input 
                 id="contactPhone" 
                 name="phone" 
                 type="tel" 
                 placeholder="+1 (555) 000-0000"
-                className="w-full rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-4 py-3 focus:ring-2 focus:ring-indigo-500 outline-none transition-all" 
+                className="w-full rounded-xl border border-[var(--site-border)] bg-white/80 px-4 py-3 outline-none transition-all focus:ring-2 focus:ring-cyan-500 dark:bg-slate-950/60" 
               />
             </div>
           </div>
 
-          {/* Message Field */}
           <div className="mt-6">
-            <label htmlFor="contactMessage" className="mb-2 block text-sm font-bold text-gray-700 dark:text-gray-300">Your Message</label>
+            <label htmlFor="contactMessage" className="mb-2 block text-sm font-bold text-[var(--site-text)]">Your Message</label>
             <textarea 
               id="contactMessage" 
               name="message" 
               rows={5} 
               required 
               placeholder="How can I help you?"
-              className="w-full rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-4 py-3 focus:ring-2 focus:ring-indigo-500 outline-none transition-all" 
+              className="w-full rounded-xl border border-[var(--site-border)] bg-white/80 px-4 py-3 outline-none transition-all focus:ring-2 focus:ring-cyan-500 dark:bg-slate-950/60" 
             />
           </div>
 
-          {/* Submit Button */}
           <motion.button 
             {...springTap} 
             type="submit" 
             disabled={loading}
-            className="mt-8 w-full rounded-xl bg-indigo-600 hover:bg-indigo-700 py-4 text-white font-bold text-lg shadow-lg shadow-indigo-500/30 transition-all"
+            className="mt-8 w-full rounded-xl bg-gradient-to-r from-cyan-600 to-orange-500 py-4 text-lg font-bold text-white shadow-lg shadow-cyan-500/30 transition-all"
           >
             {loading ? 'Sending…' : 'Send Message'}
           </motion.button>
 
-          {/* Feedback Messages (Correctly nested) */}
           <div className="mt-6 text-center min-h-[24px]">
             {ok === true && (
-              <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="text-green-600 font-bold dark:text-green-400">
+              <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="font-bold text-emerald-600 dark:text-emerald-400">
                 ✓ Thank you! Your message has been sent successfully.
               </motion.p>
             )}
             {ok === false && (
-              <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="text-red-600 font-bold dark:text-red-400">
+              <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="font-bold text-red-600 dark:text-red-400">
                 ⚠ Oops! Something went wrong. Please try again.
               </motion.p>
             )}

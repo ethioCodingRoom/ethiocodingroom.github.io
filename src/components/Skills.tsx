@@ -21,13 +21,15 @@ export const Skills: React.FC = () => (
         initial="hidden" 
         whileInView="visible" 
         viewport={revealViewport}
-        className="mb-12 text-center text-3xl font-extrabold sm:text-4xl md:text-5xl"
+        className="mb-4 text-center text-3xl font-extrabold sm:text-4xl md:text-5xl"
       >
         Skills &amp; Expertise
       </motion.h2>
+      <p className="mx-auto mb-12 max-w-2xl text-center text-[var(--site-muted)]">
+        Tools and technologies I use to build reliable analytics systems and reporting experiences.
+      </p>
 
-      {/* Skills Container */}
-      <div className="rounded-3xl border border-white/10 bg-white/60 p-8 backdrop-blur dark:bg-white/5 shadow-[0_8px_32px_rgba(0,0,0,0.12)] sm:p-12">
+      <div className="rounded-3xl border border-[var(--site-border)] bg-[var(--site-panel)] p-8 shadow-[0_8px_32px_rgba(0,0,0,0.08)] backdrop-blur sm:p-12">
         
         {/* Technical Skills Grid */}
         <motion.div 
@@ -47,7 +49,7 @@ export const Skills: React.FC = () => (
                 backgroundColor: "rgba(99, 102, 241, 0.2)" 
               }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              className="cursor-default inline-flex items-center rounded-full border border-indigo-400/30 bg-indigo-400/10 px-4 py-2 text-xs font-bold text-indigo-600 dark:text-indigo-300 shadow-sm sm:text-sm"
+              className="inline-flex cursor-default items-center rounded-full border border-cyan-700/20 bg-cyan-500/10 px-4 py-2 text-xs font-bold text-cyan-700 shadow-sm dark:text-cyan-300 sm:text-sm"
             >
               {skill}
             </motion.span>
@@ -55,7 +57,7 @@ export const Skills: React.FC = () => (
         </motion.div>
 
         {/* Divider Line */}
-        <div className="mb-10 h-px w-full bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-700 to-transparent opacity-50" />
+        <div className="mb-10 h-px w-full bg-gradient-to-r from-transparent via-slate-400/40 to-transparent" />
 
         {/* Working Style Section */}
         <motion.div 
@@ -65,14 +67,14 @@ export const Skills: React.FC = () => (
           viewport={revealViewport}
           className="text-center"
         >
-          <p className="mb-6 text-xl font-bold tracking-tight text-gray-800 dark:text-gray-200">
+          <p className="mb-6 text-xl font-bold tracking-tight text-[var(--site-text)]">
             Professional Approach
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             {workingStyles.map(style => (
               <span 
                 key={style}
-                className="inline-flex items-center rounded-xl border border-purple-400/30 bg-purple-400/10 px-5 py-3 text-sm font-bold text-purple-600 dark:text-purple-300 shadow-lg shadow-purple-500/5"
+                className="inline-flex items-center rounded-xl border border-orange-500/20 bg-orange-500/10 px-5 py-3 text-sm font-bold text-orange-700 shadow-lg shadow-orange-500/5 dark:text-orange-300"
               >
                 <i className="fas fa-check-circle mr-2 opacity-70"></i>
                 {style}
