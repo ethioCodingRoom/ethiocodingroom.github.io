@@ -1,6 +1,6 @@
 
 import { FaGithub, FaYoutube, FaFacebook, FaTelegram, FaTwitter, FaTiktok } from 'react-icons/fa';
-import { SiHackerrank, SiKaggle, SiDatacamp, SiCoursera, SiReact, SiTypescript, SiTailwindcss, SiVite } from 'react-icons/si';
+import { SiHackerrank, SiKaggle, SiDatacamp, SiCoursera, SiReact, SiTypescript, SiTailwindcss, SiVite, SiGeeksforgeeks } from 'react-icons/si';
 
 export const Footer = () => {
   return (
@@ -30,6 +30,7 @@ export const Footer = () => {
             <a href="https://www.coursera.org/user/ethioCodingRoom" aria-label="Coursera"><SiCoursera className="hover:text-blue-500 transition-colors" /></a>
             <a href="https://www.datacamp.com/profile/ethioCodingRoom" aria-label="DataCamp"><SiDatacamp className="hover:text-yellow-500 transition-colors" /></a>
             <a href="https://www.kaggle.com/ethioCodingRoom" aria-label="Kaggle"><SiKaggle className="hover:text-blue-400 transition-colors" /></a>
+            <a href="https://www.geeksforgeeks.org/profile/asresgamu/" aria-label="GeeksforGeeks"><SiGeeksforgeeks className="text-gray-400 hover:text-green-500 transition-colors" /></a>
           </div>
         </div>
 
