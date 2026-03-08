@@ -6,8 +6,30 @@ import { fadeIn, springTap } from '../animations';
 
 export const Header: React.FC<{ onToggleDark: () => void }> = ({ onToggleDark }) => {
   const [open, setOpen] = React.useState(false);
+  const [now, setNow] = React.useState(() => new Date());
 
   const navItems = ['About', 'Skills', 'Projects', 'Certifications', 'Blog', 'Contact'];
+
+  React.useEffect(() => {
+    const timer = window.setInterval(() => setNow(new Date()), 1000);
+    return () => window.clearInterval(timer);
+  }, []);
+
+  const etDate = new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Africa/Addis_Ababa',
+    year: 'numeric',
+    month: 'short',
+    day: '2-digit',
+  }).format(now);
+
+  const etTime = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Africa/Addis_Ababa',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: true,
+  })
+    .format(now)
+    .toLowerCase();
 
   return (
     <motion.header
@@ -21,9 +43,14 @@ export const Header: React.FC<{ onToggleDark: () => void }> = ({ onToggleDark })
           <div className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-cyan-600 to-orange-500 text-white shadow-lg shadow-cyan-800/25">
             <span className="text-sm font-extrabold">AG</span>
           </div>
-          <span className="bg-gradient-to-r from-cyan-600 to-orange-500 bg-clip-text text-lg font-extrabold text-transparent sm:text-xl">
-            Asres Gamu Yelia
-          </span>
+          <div className="leading-tight">
+            <span className="block bg-gradient-to-r from-cyan-600 to-orange-500 bg-clip-text text-lg font-extrabold text-transparent sm:text-xl">
+              Asres Gamu Yelia
+            </span>
+            <span className="hidden text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--site-muted)] sm:block">
+              Data Analytics Portfolio
+            </span>
+          </div>
         </a>
 
         <nav className="hidden items-center gap-6 md:flex">
@@ -36,6 +63,14 @@ export const Header: React.FC<{ onToggleDark: () => void }> = ({ onToggleDark })
               {item}
             </a>
           ))}
+
+          <div className="hidden items-center gap-2 rounded-xl border border-[var(--site-border)] bg-white/60 px-3 py-1.5 dark:bg-slate-900/60 lg:flex">
+            <span
+              aria-hidden="true"
+              className="h-3 w-5 rounded-sm border border-white/40 bg-[linear-gradient(to_bottom,#078930_0_33%,#fcdd09_33_66%,#da121a_66_100%)]"
+            />
+            <span className="text-[11px] font-bold text-[var(--site-muted)]">Now in Ethiopia: {etTime}</span>
+          </div>
 
           <motion.button
             {...springTap}
@@ -59,6 +94,13 @@ export const Header: React.FC<{ onToggleDark: () => void }> = ({ onToggleDark })
 
       {open && (
         <div className="border-t border-[var(--site-border)] bg-[var(--site-panel)] px-6 py-5 md:hidden">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-xl border border-[var(--site-border)] bg-white/60 px-3 py-1.5 dark:bg-slate-900/60">
+            <span
+              aria-hidden="true"
+              className="h-3 w-5 rounded-sm border border-white/40 bg-[linear-gradient(to_bottom,#078930_0_33%,#fcdd09_33_66%,#da121a_66_100%)]"
+            />
+            <span className="text-[11px] font-bold text-[var(--site-muted)]">Now in Ethiopia: {etTime}</span>
+          </div>
           <nav className="flex flex-col gap-4">
             {navItems.map((item) => (
               <a

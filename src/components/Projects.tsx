@@ -2,58 +2,92 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { hoverCard, fadeInUp, revealViewport, staggerContainer } from '../animations';
 
-const projects = [
+type Project = {
+  title: string;
+  desc: string;
+  tags: string[];
+  img: string;
+  images?: string[];
+  gh: string;
+  live: string;
+  liveLabel?: string;
+  highlights?: string[];
+};
+
+const projects: Project[] = [
   {
-    title: 'E-commerce Sales Analytics',
-    desc: 'Power BI dashboard analyzing $2M+ in sales data, identifying key trends and customer behavior patterns.',
-    tags: ['Python','pandas','Power BI','SQL'],
-    img: 'https://via.placeholder.com/640x400/6366f1/ffffff?text=E-commerce+Analytics',
-    gh: 'https://github.com/ethioCodingRoom',
-    live: '#',
+    title: 'Spotify Popularity Analysis',
+    desc: 'Analyzed 232,000+ Spotify tracks using Python to identify how danceability, genre context, and combined audio-feature patterns influence song popularity.',
+    tags: ['Python','Pandas','NumPy','Seaborn','Jupyter'],
+    img: '/projects/spotify/images/spotify_avg_popularity_by_genre.png',
+    images: [
+      '/projects/spotify/images/spotify_avg_popularity_by_genre.png',
+      '/projects/spotify/images/spotify_danceability_vs_popularity.png',
+      '/projects/spotify/images/spotify_top_vs_bottom_audio_profile.png',
+      '/projects/spotify/images/spotify_correlation_matrix.png',
+    ],
+    gh: 'https://github.com/ethioCodingRoom/music-streaming-data-analytics',
+    live: 'https://github.com/ethioCodingRoom/music-streaming-data-analytics/blob/main/notebooks/spotify_analysis.ipynb',
+    liveLabel: 'Open Notebook',
+    highlights: [
+      'Built feature engineering layers including popularity categories, tempo groups, and mood scoring.',
+      'Compared top 10% vs bottom 10% songs and found popularity is a multi-feature signal, not a single-metric effect.',
+    ],
   },
   {
     title: 'Real Estate Price Scraper',
-    desc: 'Automated scraping with Selenium & BeautifulSoup collecting 10,000+ listings daily with 99% accuracy.',
+    desc: 'Engineered a resilient web scraping pipeline that captures 10,000+ listings per day with high data quality for pricing and market analysis.',
     tags: ['Python','Selenium','BeautifulSoup','MySQL'],
-    img: 'https://via.placeholder.com/640x400/8b5cf6/ffffff?text=Web+Scraper',
+    img: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80',
     gh: 'https://github.com/ethioCodingRoom',
     live: '#',
   },
   {
     title: 'Customer Segmentation ML',
-    desc: 'K-means + RFM on 50,000+ customers enabling targeted campaigns with 35% improved conversion.',
+    desc: 'Developed customer segmentation using RFM and K-means on 50,000+ records, enabling more targeted campaigns and stronger conversion outcomes.',
     tags: ['Python','Scikit-learn','Plotly','pandas'],
-    img: 'https://via.placeholder.com/640x400/d946ef/ffffff?text=ML+Clustering',
+    img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
     gh: 'https://github.com/ethioCodingRoom',
     live: '#',
   },
   {
     title: 'Automated ETL Data Pipeline',
-    desc: 'Scalable ETL processing 1GB+ daily across sources; reduced manual time by 80%.',
+    desc: 'Designed a scalable ETL pipeline processing 1GB+ daily from multiple sources, reducing manual reporting effort by 80%.',
     tags: ['Python','pandas','PostgreSQL','API'],
-    img: 'https://via.placeholder.com/640x400/6366f1/ffffff?text=ETL+Pipeline',
+    img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80',
     gh: 'https://github.com/ethioCodingRoom',
     live: '#',
   },
   {
     title: 'Interactive Finance Dashboard',
-    desc: 'Tableau KPI dashboard with drill-downs and real-time insights for leadership.',
+    desc: 'Created an executive Tableau dashboard with KPI drill-downs that improved visibility into performance and sped up decision cycles.',
     tags: ['Tableau','SQL','DAX','Excel'],
-    img: 'https://via.placeholder.com/640x400/8b5cf6/ffffff?text=Finance+Dashboard',
+    img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
     gh: 'https://github.com/ethioCodingRoom',
     live: '#',
   },
   {
     title: 'Social Media Analytics Tool',
-    desc: 'API-based analytics visualizing engagement across multiple platforms.',
+    desc: 'Built a multi-platform social analytics tool that integrates APIs and visualizes engagement trends for campaign performance tracking.',
     tags: ['Python','API Integration','Matplotlib','Seaborn'],
-    img: 'https://via.placeholder.com/640x400/d946ef/ffffff?text=Social+Analytics',
+    img: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=1200&q=80',
     gh: 'https://github.com/ethioCodingRoom',
     live: '#',
   },
 ];
 
-export const Projects: React.FC = () => (
+export const Projects: React.FC = () => {
+  const [imageStep, setImageStep] = React.useState(0);
+
+  React.useEffect(() => {
+    const timer = window.setInterval(() => {
+      setImageStep((prev) => prev + 1);
+    }, 3500);
+
+    return () => window.clearInterval(timer);
+  }, []);
+
+  return (
   <section id="projects" className="py-16 sm:py-24">
     <div className="mx-auto max-w-7xl px-6">
       <motion.h2
@@ -78,7 +112,7 @@ export const Projects: React.FC = () => (
             <motion.div variants={hoverCard} className="rounded-2xl">
               <div className="mb-5 overflow-hidden rounded-xl">
                 <img
-                  src={p.img}
+                  src={p.images?.length ? p.images[imageStep % p.images.length] : p.img}
                   alt={p.title}
                   className="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]"
                   loading="lazy"
@@ -86,6 +120,13 @@ export const Projects: React.FC = () => (
               </div>
               <h3 className="mb-2 text-xl font-extrabold text-slate-900 dark:text-slate-100">{p.title}</h3>
               <p className="mb-4 text-sm leading-relaxed text-[var(--site-muted)]">{p.desc}</p>
+              {p.highlights && (
+                <ul className="mb-4 space-y-1 text-sm text-[var(--site-muted)]">
+                  {p.highlights.map(item => (
+                    <li key={item}>- {item}</li>
+                  ))}
+                </ul>
+              )}
               <div className="mb-4 flex flex-wrap gap-2">
                 {p.tags.map(t => (
                   <span key={t} className="inline-flex items-center rounded-full border border-cyan-700/20 bg-cyan-500/10 px-3 py-1 text-[11px] font-bold text-cyan-700 dark:text-cyan-300">
@@ -94,8 +135,10 @@ export const Projects: React.FC = () => (
                 ))}
               </div>
               <div className="flex gap-4">
-                <a className="font-bold text-cyan-700 hover:text-cyan-600 dark:text-cyan-300" href={p.gh} target="_blank" rel="noreferrer">GitHub ↗</a>
-                <a className="font-bold text-orange-600 hover:text-orange-500 dark:text-orange-300" href={p.live} target="_blank" rel="noreferrer">Live Demo ↗</a>
+                <a className="font-bold text-cyan-700 hover:text-cyan-600 dark:text-cyan-300" href={p.gh} target="_blank" rel="noreferrer">Source Code ↗</a>
+                {p.live !== '#' && (
+                  <a className="font-bold text-orange-600 hover:text-orange-500 dark:text-orange-300" href={p.live} target="_blank" rel="noreferrer">{p.liveLabel ?? 'Project Showcase'} ↗</a>
+                )}
               </div>
             </motion.div>
           </motion.article>
@@ -103,4 +146,5 @@ export const Projects: React.FC = () => (
       </motion.div>
     </div>
   </section>
-);
+  );
+};

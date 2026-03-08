@@ -2,12 +2,31 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { fadeInUp, staggerContainer, revealViewport } from '../animations';
 
-const skills = [
-  'Python', 'pandas', 'NumPy', 'BeautifulSoup', 'Selenium', 'Scrapy',
-  'Plotly', 'Matplotlib', 'Seaborn', 'SQL', 'MySQL', 'PostgreSQL',
-  'Microsoft Power BI', 'Tableau', 'DAX', 'Data Analysis', 'Data Cleaning',
-  'ETL Pipeline', 'Web Scraping', 'API Integration', 'Google Sheets Automation',
-  'Excel VBA', 'Statistical Analysis', 'Machine Learning', 'Scikit-learn', 'Data Visualization'
+const skillCategories = [
+  {
+    title: 'Data Analytics',
+    skills: ['Data Analysis', 'Data Cleaning', 'Statistical Analysis', 'Data Storytelling', 'Data Visualization'],
+  },
+  {
+    title: 'Business Intelligence',
+    skills: ['Microsoft Power BI', 'Tableau', 'DAX', 'Power Query', 'Data Modeling', 'KPI Development', 'Dashboard Design', 'Business Intelligence'],
+  },
+  {
+    title: 'Programming & Scripting',
+    skills: ['Python', 'Java', 'JavaScript', 'HTML', 'CSS', 'Linux Commands'],
+  },
+  {
+    title: 'Databases',
+    skills: ['SQL', 'MySQL', 'PostgreSQL'],
+  },
+  {
+    title: 'Automation & Reporting',
+    skills: ['ETL Pipeline', 'API Integration', 'Google Sheets Automation', 'Advanced Excel', 'Excel VBA', 'Git', 'GitHub'],
+  },
+  {
+    title: 'Data Science Tools',
+    skills: ['Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'Plotly', 'Scikit-learn', 'Machine Learning'],
+  },
 ];
 
 const workingStyles = ['Solution Oriented', 'Detail Oriented', 'Reliable Delivery'];
@@ -31,28 +50,36 @@ export const Skills: React.FC = () => (
 
       <div className="rounded-3xl border border-[var(--site-border)] bg-[var(--site-panel)] p-8 shadow-[0_8px_32px_rgba(0,0,0,0.08)] backdrop-blur sm:p-12">
         
-        {/* Technical Skills Grid */}
-        <motion.div 
-          variants={staggerContainer} 
-          initial="hidden" 
-          whileInView="visible" 
+        {/* Categorized Skills */}
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="mb-12 flex flex-wrap justify-center gap-3 sm:gap-4"
+          className="mb-12 grid grid-cols-1 gap-6 md:grid-cols-2"
         >
-          {skills.map((skill) => (
-            <motion.span 
-              key={skill} 
+          {skillCategories.map((category) => (
+            <motion.div
+              key={category.title}
               variants={fadeInUp}
-              whileHover={{ 
-                scale: 1.08, 
-                y: -5,
-                backgroundColor: "rgba(99, 102, 241, 0.2)" 
-              }}
-              transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              className="inline-flex cursor-default items-center rounded-full border border-cyan-700/20 bg-cyan-500/10 px-4 py-2 text-xs font-bold text-cyan-700 shadow-sm dark:text-cyan-300 sm:text-sm"
+              className="rounded-2xl border border-[var(--site-border)] bg-white/60 p-5 dark:bg-slate-900/40"
             >
-              {skill}
-            </motion.span>
+              <h3 className="mb-4 text-sm font-extrabold uppercase tracking-[0.12em] text-[var(--site-text)]">
+                {category.title}
+              </h3>
+              <div className="flex flex-wrap gap-2.5">
+                {category.skills.map((skill) => (
+                  <motion.span
+                    key={skill}
+                    whileHover={{ scale: 1.06, y: -3, backgroundColor: 'rgba(99, 102, 241, 0.2)' }}
+                    transition={{ type: 'spring', stiffness: 380, damping: 12 }}
+                    className="inline-flex cursor-default items-center rounded-full border border-cyan-700/20 bg-cyan-500/10 px-3 py-1.5 text-xs font-bold text-cyan-700 shadow-sm dark:text-cyan-300"
+                  >
+                    {skill}
+                  </motion.span>
+                ))}
+              </div>
+            </motion.div>
           ))}
         </motion.div>
 

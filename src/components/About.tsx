@@ -35,18 +35,48 @@ export const About: React.FC = () => (
       >
         <div className="space-y-8">
           <p className="text-xl leading-relaxed text-[var(--site-text)]">
-            I am a passionate <span className="font-bold text-cyan-700 dark:text-cyan-300">Data Analyst and Python Developer</span> based in Addis Ababa.
-            I am dedicated to turning complex data into clear, actionable insights and building intelligent automation systems that solve real-world problems.
+            I am a results-focused <span className="font-bold text-cyan-700 dark:text-cyan-300">Data Analyst and Python Developer</span> based in Addis Ababa.
+            I turn complex datasets into practical insights, decision-ready dashboards, and automation solutions that improve business performance.
           </p>
+
+          <div className="rounded-2xl border border-[var(--site-border)] bg-white/60 p-5 dark:bg-slate-900/40">
+            <h3 className="mb-3 flex items-center gap-2 text-lg font-bold text-[var(--site-text)]">
+              <i className="fas fa-graduation-cap text-cyan-600"></i>
+              Education
+            </h3>
+            <ul className="space-y-3 text-sm leading-relaxed text-[var(--site-muted)] sm:text-base">
+              <li className="flex items-start gap-3">
+                <span className="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-gradient-to-br from-cyan-600 to-cyan-500 text-[11px] font-extrabold text-white">AMU</span>
+                <span>
+                  <span className="font-semibold text-[var(--site-text)]">Arba Minch University</span>
+                  <span className="block"><span className="font-semibold text-[var(--site-text)]">B.Sc. in Forensic Chemistry and Toxicology</span> (2014-2018)</span>
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-gradient-to-br from-orange-600 to-orange-500 text-[11px] font-extrabold text-white">EPU</span>
+                <span>
+                  <span className="font-semibold text-[var(--site-text)]">Ethiopian Police University</span>
+                  <span className="block"><span className="font-semibold text-[var(--site-text)]">Postgraduate Diploma in Police Science</span> (2019-2021)</span>
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-gradient-to-br from-indigo-600 to-violet-500 text-[11px] font-extrabold text-white">UoP</span>
+                <span>
+                  <span className="font-semibold text-[var(--site-text)]">University of the People</span>
+                  <span className="block"><span className="font-semibold text-[var(--site-text)]">B.Sc. in Computer Science</span> (2024-Present)</span>
+                </span>
+              </li>
+            </ul>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
             <div className="space-y-4">
               <h3 className="flex items-center gap-2 text-lg font-bold text-[var(--site-text)]">
                 <i className="fas fa-chart-line text-cyan-600"></i>
-                Data Expertise
+                Data Analytics
               </h3>
               <p className="leading-relaxed text-[var(--site-muted)]">
-                With strong expertise in <strong>data extraction (ETL &amp; web scraping)</strong> and <strong>advanced analytics</strong>, I specialize in bridging the gap between raw information and strategic decision-making.
+                As a <strong>Data Analyst</strong>, I clean and analyze data, build insightful reports and dashboards, and turn raw information into clear recommendations that support better business decisions.
               </p>
             </div>
 
@@ -56,7 +86,7 @@ export const About: React.FC = () => (
                 Visualization
               </h3>
               <p className="leading-relaxed text-[var(--site-muted)]">
-                I build <strong>interactive dashboards</strong> using Power BI and Tableau, helping organizations visualize their growth and identify key performance trends at a glance.
+                I build <strong>interactive dashboards</strong> in Power BI and Tableau to help teams track performance, identify trends early, and make faster data-driven decisions.
               </p>
             </div>
           </div>

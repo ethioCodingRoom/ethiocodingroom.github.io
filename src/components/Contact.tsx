@@ -39,10 +39,10 @@ export const Contact: React.FC = () => {
           viewport={revealViewport}
           className="mb-4 bg-gradient-to-r from-cyan-600 to-orange-500 bg-clip-text text-center text-4xl font-extrabold text-transparent"
         >
-          Let's Connect
+          Let's Work Together
         </motion.h2>
         <p className="mx-auto mb-12 max-w-2xl text-center text-[var(--site-muted)]">
-          Tell me about your project, data problem, or dashboard idea. I usually reply within 24 hours.
+          Hiring for a data role or need analytics support? Share your goals, and I will respond within 24 hours.
         </p>
 
         <motion.form 
@@ -56,19 +56,19 @@ export const Contact: React.FC = () => {
           className="rounded-3xl border border-[var(--site-border)] bg-[var(--site-panel)] p-8 shadow-2xl backdrop-blur-xl sm:p-12"
         >
           <div className="mb-6">
-            <label htmlFor="contactName" className="mb-2 block text-sm font-bold text-[var(--site-text)]">Full Name</label>
+            <label htmlFor="contactName" className="mb-2 block text-sm font-bold text-[var(--site-text)]">Name</label>
             <input 
               id="contactName" 
               name="name" 
               required 
-              placeholder="John Doe"
+              placeholder="Asres Gamu Yelia"
               className="w-full rounded-xl border border-[var(--site-border)] bg-white/80 px-4 py-3 outline-none transition-all focus:ring-2 focus:ring-cyan-500 dark:bg-slate-950/60" 
             />
           </div>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <div>
-              <label htmlFor="contactEmail" className="mb-2 block text-sm font-bold text-[var(--site-text)]">Your Email</label>
+              <label htmlFor="contactEmail" className="mb-2 block text-sm font-bold text-[var(--site-text)]">Email</label>
               <input 
                 id="contactEmail" 
                 name="email" 
@@ -79,25 +79,25 @@ export const Contact: React.FC = () => {
               />
             </div>
             <div>
-              <label htmlFor="contactPhone" className="mb-2 block text-sm font-bold text-[var(--site-text)]">Phone Number</label>
+              <label htmlFor="contactPhone" className="mb-2 block text-sm font-bold text-[var(--site-text)]">Phone (Optional)</label>
               <input 
                 id="contactPhone" 
                 name="phone" 
                 type="tel" 
-                placeholder="+1 (555) 000-0000"
+                placeholder="+251 9XX XXX XXX"
                 className="w-full rounded-xl border border-[var(--site-border)] bg-white/80 px-4 py-3 outline-none transition-all focus:ring-2 focus:ring-cyan-500 dark:bg-slate-950/60" 
               />
             </div>
           </div>
 
           <div className="mt-6">
-            <label htmlFor="contactMessage" className="mb-2 block text-sm font-bold text-[var(--site-text)]">Your Message</label>
+            <label htmlFor="contactMessage" className="mb-2 block text-sm font-bold text-[var(--site-text)]">Project or Role Details</label>
             <textarea 
               id="contactMessage" 
               name="message" 
               rows={5} 
               required 
-              placeholder="How can I help you?"
+              placeholder="Tell me about the role, project scope, and timeline."
               className="w-full rounded-xl border border-[var(--site-border)] bg-white/80 px-4 py-3 outline-none transition-all focus:ring-2 focus:ring-cyan-500 dark:bg-slate-950/60" 
             />
           </div>
@@ -108,18 +108,18 @@ export const Contact: React.FC = () => {
             disabled={loading}
             className="mt-8 w-full rounded-xl bg-gradient-to-r from-cyan-600 to-orange-500 py-4 text-lg font-bold text-white shadow-lg shadow-cyan-500/30 transition-all"
           >
-            {loading ? 'Sending…' : 'Send Message'}
+            {loading ? 'Sending…' : 'Start a Conversation'}
           </motion.button>
 
           <div className="mt-6 text-center min-h-[24px]">
             {ok === true && (
               <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="font-bold text-emerald-600 dark:text-emerald-400">
-                ✓ Thank you! Your message has been sent successfully.
+                ✓ Thank you. Your message has been received and I will follow up soon.
               </motion.p>
             )}
             {ok === false && (
               <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="font-bold text-red-600 dark:text-red-400">
-                ⚠ Oops! Something went wrong. Please try again.
+                ⚠ Message not sent. Please try again or contact me through GitHub/LinkedIn.
               </motion.p>
             )}
           </div>

@@ -1,6 +1,6 @@
 
 import { FaGithub, FaYoutube, FaFacebook, FaTelegram, FaTwitter, FaTiktok } from 'react-icons/fa';
-import { SiHackerrank, SiKaggle, SiDatacamp, SiCoursera, SiReact, SiTypescript, SiTailwindcss, SiVite, SiGeeksforgeeks } from 'react-icons/si';
+import { SiHackerrank, SiKaggle, SiDatacamp, SiCoursera, SiReact, SiTypescript, SiTailwindcss, SiVite, SiGeeksforgeeks, SiUdacity } from 'react-icons/si';
 
 export const Footer = () => {
   return (
@@ -11,7 +11,7 @@ export const Footer = () => {
         <div>
           <h3 className="mb-4 font-bold text-cyan-300">Get In Touch</h3>
           <p className="mb-6 text-sm text-slate-300/80">
-            Contact me on Telegram, Facebook, or via email at 
+            Find me on Telegram, Facebook, and X, or reach me directly by email at 
             <a href="mailto:asregam@gmail.com" className="mt-1 block text-cyan-300 hover:underline">asregam@gmail.com</a>
           </p>
           <div className="flex justify-center gap-4 text-2xl md:justify-start">
@@ -24,11 +24,15 @@ export const Footer = () => {
         {/* Accomplishments */}
         <div>
           <h3 className="mb-4 font-bold text-cyan-300">Accomplishments</h3>
+          <p className="mb-4 text-sm text-slate-300/80">
+            See my achievements, certifications, and coding accomplishments across learning and challenge platforms.
+          </p>
           <div className="flex flex-wrap justify-center gap-4 text-2xl md:justify-start">
             <a href="https://github.com/ethioCodingRoom" aria-label="GitHub"><FaGithub className="hover:text-gray-400 transition-colors" /></a>
             <a href="https://www.hackerrank.com/ethioCodingRoom" aria-label="HackerRank"><SiHackerrank className="hover:text-green-500 transition-colors" /></a>
             <a href="https://www.coursera.org/user/ethioCodingRoom" aria-label="Coursera"><SiCoursera className="hover:text-blue-500 transition-colors" /></a>
             <a href="https://www.datacamp.com/profile/ethioCodingRoom" aria-label="DataCamp"><SiDatacamp className="hover:text-yellow-500 transition-colors" /></a>
+            <a href="https://www.udacity.com/settings/personal-info" aria-label="Udacity"><SiUdacity className="hover:text-indigo-400 transition-colors" /></a>
             <a href="https://www.kaggle.com/ethioCodingRoom" aria-label="Kaggle"><SiKaggle className="hover:text-blue-400 transition-colors" /></a>
             <a href="https://www.geeksforgeeks.org/profile/asresgamu/" aria-label="GeeksforGeeks"><SiGeeksforgeeks className="text-gray-400 hover:text-green-500 transition-colors" /></a>
           </div>
@@ -37,6 +41,9 @@ export const Footer = () => {
         {/* Tutorials & Tech Stack */}
         <div>
           <h3 className="mb-4 font-bold text-cyan-300">Tutorials & Stack</h3>
+          <p className="mb-4 text-sm text-slate-300/80">
+            Subscribe and follow me for tutorials, project walkthroughs, and practical data analytics content.
+          </p>
           <div className="mb-6 flex justify-center gap-4 text-2xl md:justify-start">
             <a href="https://www.youtube.com/c/ethioCodingRoom" aria-label="YouTube"><FaYoutube className="hover:text-red-600 transition-colors" /></a>
             <a href="https://www.tiktok.com/@ethio.coding.room" aria-label="TikTok"><FaTiktok className="hover:text-pink-500 transition-colors" /></a>

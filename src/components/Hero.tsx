@@ -19,16 +19,16 @@ export const Hero: React.FC = () => (
           variants={fadeInUp}
           className="inline-flex rounded-full border border-cyan-600/20 bg-cyan-500/10 px-4 py-1 text-xs font-bold uppercase tracking-[0.18em] text-cyan-700 dark:text-cyan-300"
         >
-          Data Analyst and Python Developer
+          Open to Data Analyst Opportunities
         </motion.p>
 
         <motion.h1
           variants={fadeInUp}
           className="mt-5 text-4xl font-extrabold leading-tight text-slate-900 dark:text-slate-100 sm:text-5xl md:text-6xl"
         >
-          Building Insightful
+          Turning Complex Data Into
           <span className="block bg-gradient-to-r from-cyan-600 to-orange-500 bg-clip-text text-transparent">
-            Data Products for Teams
+            Clear Business Decisions
           </span>
         </motion.h1>
 
@@ -43,10 +43,17 @@ export const Hero: React.FC = () => (
 
         <motion.p
           variants={fadeInUp}
+          className="mt-3 inline-flex rounded-full border border-cyan-600/20 bg-cyan-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.12em] text-cyan-700 dark:text-cyan-300"
+        >
+          Power BI | SQL | Python | BI &amp; Data Automation Specialist
+        </motion.p>
+
+        <motion.p
+          variants={fadeInUp}
           className="mt-5 max-w-2xl text-base leading-relaxed text-[var(--site-muted)] sm:text-lg"
         >
-          I help organizations turn messy datasets into clear dashboards, automated reporting pipelines,
-          and smarter business decisions using Python, SQL, Power BI, and Tableau.
+          I build analytics workflows that transform raw datasets into dashboard-ready insights,
+          automated reporting pipelines, and measurable business outcomes using Python, SQL, Power BI, and Tableau.
         </motion.p>
 
         <motion.div variants={fadeInUp} className="mt-7 flex flex-wrap justify-center gap-3 md:justify-start">
@@ -54,7 +61,7 @@ export const Hero: React.FC = () => (
             Addis Ababa, Ethiopia
           </span>
           <span className="rounded-full border border-[var(--site-border)] bg-white/70 px-4 py-2 text-sm font-semibold dark:bg-slate-900/50">
-            500+ connections
+            Open to full-time and remote roles
           </span>
         </motion.div>
 
@@ -63,13 +70,13 @@ export const Hero: React.FC = () => (
             href="#projects"
             className="rounded-xl bg-gradient-to-r from-cyan-600 to-orange-500 px-7 py-3 font-bold text-white shadow-xl shadow-cyan-800/20"
           >
-            View Projects
+            View Case Studies
           </a>
           <a
             href="#contact"
             className="rounded-xl border border-[var(--site-border)] bg-white/70 px-7 py-3 font-bold text-slate-900 dark:bg-slate-900/50 dark:text-slate-100"
           >
-            Hire Me
+            Contact Me
           </a>
         </motion.div>
       </div>
@@ -88,7 +95,7 @@ export const Hero: React.FC = () => (
           <div className="mt-4 rounded-2xl border border-[var(--site-border)] bg-white/70 p-4 dark:bg-slate-900/60">
             <p className="text-sm font-bold text-[var(--site-brand)]">Current Focus</p>
             <p className="mt-1 text-sm text-[var(--site-muted)]">
-              ETL automation, analytics dashboards, and practical machine learning projects.
+              End-to-end analytics projects, data storytelling dashboards, and production-ready ETL automation.
             </p>
           </div>
         </div>
