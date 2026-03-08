@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Use the html.dark class for Tailwind's dark:* utilities. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* If you want custom dark mode styles, use this instead */
 @theme {
   --color-background-dark: #111827; /* gray-900 */
@@ -7,6 +10,7 @@
 
 @layer base {
   html.dark {
+    color-scheme: dark;
     background-color: var(--color-background-dark);
     color: white;
   }
