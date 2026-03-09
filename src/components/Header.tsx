@@ -15,13 +15,6 @@ export const Header: React.FC<{ onToggleDark: () => void }> = ({ onToggleDark })
     return () => window.clearInterval(timer);
   }, []);
 
-  const etDate = new Intl.DateTimeFormat('en-GB', {
-    timeZone: 'Africa/Addis_Ababa',
-    year: 'numeric',
-    month: 'short',
-    day: '2-digit',
-  }).format(now);
-
   const etTime = new Intl.DateTimeFormat('en-US', {
     timeZone: 'Africa/Addis_Ababa',
     hour: '2-digit',
