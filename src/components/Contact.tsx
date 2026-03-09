@@ -54,7 +54,7 @@ export const Contact: React.FC = () => {
           whileInView="visible" 
           viewport={revealViewport}
           onSubmit={onSubmit} 
-          action="https://formspree.io/f/YOUR_FORM_ID" 
+          action="https://formspree.io/f/mwvrvwly" 
           method="POST"
           className="rounded-3xl border border-[var(--site-border)] bg-[var(--site-panel)] p-8 shadow-2xl backdrop-blur-xl sm:p-12"
         >
