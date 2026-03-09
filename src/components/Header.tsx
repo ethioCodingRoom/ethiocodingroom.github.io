@@ -15,6 +15,13 @@ export const Header: React.FC<{ onToggleDark: () => void }> = ({ onToggleDark })
     return () => window.clearInterval(timer);
   }, []);
 
+  const etDate = new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Africa/Addis_Ababa',
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric',
+  }).format(now);
+
   const etTime = new Intl.DateTimeFormat('en-US', {
     timeZone: 'Africa/Addis_Ababa',
     hour: '2-digit',
@@ -62,7 +69,7 @@ export const Header: React.FC<{ onToggleDark: () => void }> = ({ onToggleDark })
               aria-hidden="true"
               className="h-3 w-5 rounded-sm border border-white/40 bg-[linear-gradient(to_bottom,#078930_0_33%,#fcdd09_33_66%,#da121a_66_100%)]"
             />
-            <span className="text-[11px] font-bold text-[var(--site-muted)]">Now in Ethiopia: {etTime}</span>
+            <span className="text-[11px] font-bold text-[var(--site-muted)]">{etDate} {etTime}</span>
           </div>
 
           <motion.button
@@ -92,7 +99,7 @@ export const Header: React.FC<{ onToggleDark: () => void }> = ({ onToggleDark })
               aria-hidden="true"
               className="h-3 w-5 rounded-sm border border-white/40 bg-[linear-gradient(to_bottom,#078930_0_33%,#fcdd09_33_66%,#da121a_66_100%)]"
             />
-            <span className="text-[11px] font-bold text-[var(--site-muted)]">Now in Ethiopia: {etTime}</span>
+            <span className="text-[11px] font-bold text-[var(--site-muted)]">{etDate} {etTime}</span>
           </div>
           <nav className="flex flex-col gap-4">
             {navItems.map((item) => (
