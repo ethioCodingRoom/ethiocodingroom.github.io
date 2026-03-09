@@ -5,23 +5,23 @@ import { fadeInUp, staggerContainer, revealViewport } from '../animations';
 const skillCategories = [
   {
     title: 'Data Analytics',
-    skills: ['Data Analysis', 'Data Cleaning', 'Statistical Analysis', 'Data Storytelling', 'Data Visualization'],
+    skills: ['Data Analysis', 'Data Cleaning', 'Data Quality Assurance', 'Statistical Analysis', 'A/B Testing', 'Data Storytelling', 'Data Visualization', 'Requirements Analysis'],
   },
   {
     title: 'Business Intelligence',
-    skills: ['Microsoft Power BI', 'Tableau', 'DAX', 'Power Query', 'Data Modeling', 'KPI Development', 'Dashboard Design', 'Business Intelligence'],
+    skills: ['Microsoft Power BI', 'Power BI Service', 'Tableau', 'DAX', 'Power Query', 'Power Query (M)', 'Data Modeling', 'KPI Development', 'Dashboard Design', 'Business Intelligence', 'Stakeholder Reporting'],
   },
   {
     title: 'Programming & Scripting',
     skills: ['Python', 'Java', 'JavaScript', 'HTML', 'CSS', 'Linux Commands'],
   },
   {
-    title: 'Databases',
-    skills: ['SQL', 'MySQL', 'PostgreSQL'],
+    title: 'Databases & Modeling',
+    skills: ['SQL', 'MySQL', 'PostgreSQL', 'Data Warehousing', 'Dimensional Modeling'],
   },
   {
     title: 'Automation & Reporting',
-    skills: ['ETL Pipeline', 'API Integration', 'Google Sheets Automation', 'Advanced Excel', 'Excel VBA', 'Git', 'GitHub'],
+    skills: ['ETL Pipeline', 'API Integration', 'Google Sheets Automation', 'Advanced Excel', 'Excel VBA', 'Git', 'GitHub', 'GitHub Actions'],
   },
   {
     title: 'Data Science Tools',
