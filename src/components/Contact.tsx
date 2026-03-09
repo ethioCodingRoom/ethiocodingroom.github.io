@@ -44,6 +44,9 @@ export const Contact: React.FC = () => {
         <p className="mx-auto mb-12 max-w-2xl text-center text-[var(--site-muted)]">
           Hiring for a data role or need analytics support? Share your goals, and I will respond within 24 hours.
         </p>
+        <p className="mx-auto -mt-8 mb-8 max-w-2xl text-center text-sm font-semibold text-cyan-700 dark:text-cyan-300">
+          Available for freelance, contract, and full-time opportunities.
+        </p>
 
         <motion.form 
           variants={fadeInUp} 
@@ -119,7 +122,7 @@ export const Contact: React.FC = () => {
             )}
             {ok === false && (
               <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="font-bold text-red-600 dark:text-red-400">
-                ⚠ Message not sent. Please try again or contact me through GitHub/LinkedIn.
+                ⚠ Message not sent. Please try again or contact me by email.
               </motion.p>
             )}
           </div>

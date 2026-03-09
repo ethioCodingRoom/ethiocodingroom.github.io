@@ -61,7 +61,7 @@ export const Hero: React.FC = () => (
             Addis Ababa, Ethiopia
           </span>
           <span className="rounded-full border border-[var(--site-border)] bg-white/70 px-4 py-2 text-sm font-semibold dark:bg-slate-900/50">
-            Open to full-time and remote roles
+            Open to full-time, contract, and remote roles
           </span>
         </motion.div>
 
@@ -77,6 +77,12 @@ export const Hero: React.FC = () => (
             className="rounded-xl border border-[var(--site-border)] bg-white/70 px-7 py-3 font-bold text-slate-900 dark:bg-slate-900/50 dark:text-slate-100"
           >
             Contact Me
+          </a>
+          <a
+            href="mailto:asregam@gmail.com?subject=Resume%20Request"
+            className="rounded-xl border border-cyan-600/30 bg-cyan-500/10 px-7 py-3 font-bold text-cyan-700 dark:text-cyan-300"
+          >
+            Request Resume
           </a>
         </motion.div>
       </div>
