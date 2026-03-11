@@ -111,7 +111,7 @@ export const Certifications: React.FC = () => {
     const coarsePointer = window.matchMedia('(pointer: coarse)').matches;
     return !prefersReducedMotion && !coarsePointer;
   }, []);
-  const pageSize = 6;
+  const pageSize = 4;
   const totalPages = Math.max(1, Math.ceil(certs.length / pageSize));
   const [currentPage, setCurrentPage] = useState(0);
   const selectedCert = selectedIndex !== null ? certs[selectedIndex] : null;
@@ -159,6 +159,17 @@ export const Certifications: React.FC = () => {
   }, [selectedIndex]);
 
   useEffect(() => {
+    if (totalPages <= 1) return;
+
+    // Advance to the next certificate group after 30s of no page change.
+    const timer = window.setTimeout(() => {
+      setCurrentPage((prev) => (prev + 1) % totalPages);
+    }, 30000);
+
+    return () => window.clearTimeout(timer);
+  }, [currentPage, totalPages]);
+
+  useEffect(() => {
     if (selectedIndex === null) {
       document.body.style.overflow = '';
       return;
@@ -192,7 +203,7 @@ export const Certifications: React.FC = () => {
           Verified achievements across data analysis, Python, and professional development tracks.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {visibleCerts.map((c, index) => (
             <motion.div 
               key={index}
@@ -222,7 +233,7 @@ export const Certifications: React.FC = () => {
               />
               <div className="mb-4 rounded-lg bg-gradient-to-br from-cyan-200 to-orange-200 p-2 shadow-md dark:from-cyan-900/60 dark:to-orange-900/50">
                 <div className="rounded-sm bg-white p-1 dark:bg-slate-950">
-                  <img src={c.src} alt={c.alt} loading="lazy" className="h-48 w-full object-contain" />
+                  <img src={c.src} alt={c.alt} loading="lazy" className="h-64 w-full object-contain" />
                 </div>
               </div>
               <p className="flex h-12 items-center justify-center px-2 text-center text-sm font-bold text-[var(--site-muted)]">
@@ -241,9 +252,6 @@ export const Certifications: React.FC = () => {
             >
               Previous
             </button>
-            <p className="text-center text-xs font-semibold uppercase tracking-[0.12em] text-[var(--site-muted)]">
-              Group {currentPage + 1}/{totalPages} - click Next to see more
-            </p>
             <button
               type="button"
               onClick={showNextPage}
