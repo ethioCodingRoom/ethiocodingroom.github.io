@@ -4,6 +4,13 @@ import { fadeInUp, revealViewport } from '../animations';
 
 const certs = [
   {
+    src: '/cybersecurity_basics_protecting_your_data_in_the_digital_age.png',
+    alt: 'Cybersecurity Basics: Protecting Your Data in the Digital Age',
+    issuer: 'University of the People (Verified Webinar)',
+    focus: 'Introductory 40-minute online webinar covering common cyber threats, data protection tools, and strong cyber hygiene practices.',
+    impact: 'Gained practical skills in cybersecurity awareness, threat identification, data protection strategies, secure use of digital tools, and personal/professional data security.',
+  },
+  {
     src: '/ask_questions_to_make_data_driven_decisions.png',
     alt: 'Ask Questions to Make Data-Driven Decisions',
     issuer: 'Google Data Analytics',
