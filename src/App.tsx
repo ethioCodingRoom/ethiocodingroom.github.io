@@ -13,8 +13,9 @@ import { Footer } from "./components/Footer";
 
 export default function App() {
   const [dark, setDark] = useState(true);
+  const [showBackToTop, setShowBackToTop] = useState(false);
 
-  // Detect theme
+  // On first load, prefer saved theme; otherwise fall back to OS preference.
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -30,7 +31,7 @@ export default function App() {
     }
   }, []);
 
-  // Toggle theme
+  // Keep React state, DOM class, and localStorage in sync when switching theme.
   const toggleDark = () => {
     const newTheme = !dark;
 
@@ -45,7 +46,7 @@ export default function App() {
     }
   };
 
-  // Smooth scroll
+  // Intercept hash links and apply smooth scroll for one-page navigation.
   useEffect(() => {
     const links = document.querySelectorAll('a[href^="#"]');
 
@@ -74,8 +75,24 @@ export default function App() {
     };
   }, []);
 
+  // Show a floating shortcut after the user scrolls down the page.
+  useEffect(() => {
+    const onScroll = () => setShowBackToTop(window.scrollY > 520);
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <div className="min-h-screen text-[var(--site-text)]">
+      <a
+        href="#main-content"
+        className="fixed left-3 top-3 z-[100] -translate-y-24 rounded-lg border border-cyan-500/40 bg-[var(--site-panel)] px-3 py-2 text-sm font-bold text-[var(--site-text)] shadow-lg transition-transform focus:translate-y-0 focus:outline-none"
+      >
+        Skip to content
+      </a>
 
       {/* Background Particles */}
       <ParticlesBG />
@@ -84,7 +101,7 @@ export default function App() {
       <Header onToggleDark={toggleDark} />
 
       {/* Main Content */}
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <Hero />
         <About />
         <Skills />
@@ -97,6 +114,16 @@ export default function App() {
       {/* Footer */}
       <Footer />
 
+      <button
+        type="button"
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        aria-label="Back to top"
+        className={`fixed bottom-5 right-5 z-50 rounded-full border border-[var(--site-border)] bg-[var(--site-panel)] px-4 py-2.5 text-sm font-bold text-[var(--site-text)] shadow-xl transition-all duration-300 hover:-translate-y-0.5 ${
+          showBackToTop ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+        }`}
+      >
+        Top ↑
+      </button>
     </div>
   );
 }

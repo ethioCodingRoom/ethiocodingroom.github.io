@@ -6,6 +6,7 @@ export const Contact: React.FC = () => {
   const [loading, setLoading] = React.useState(false);
   const [ok, setOk] = React.useState<null | boolean>(null);
 
+  // Submit directly to Formspree and show a temporary success/error banner.
   const onSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
     const form = e.currentTarget;
@@ -20,6 +21,7 @@ export const Contact: React.FC = () => {
       });
       setOk(res.ok);
       if (res.ok) form.reset();
+      // Auto-hide feedback so the form remains clean for next message.
       setTimeout(() => setOk(null), 5000);
     } catch {
       setOk(false);

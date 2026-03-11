@@ -6,6 +6,7 @@ type Props = { children: React.ReactNode };
 const Reveal: React.FC<Props> = ({ children }) => {
   return (
     <motion.div
+      // Reusable scroll-into-view wrapper for subtle section reveals.
       variants={fadeInUp}
       initial='hidden'
       whileInView='visible'

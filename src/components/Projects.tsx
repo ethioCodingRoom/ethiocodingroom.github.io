@@ -85,8 +85,51 @@ const projects: Project[] = [
 
 export const Projects: React.FC = () => {
   const [imageStep, setImageStep] = React.useState(0);
+  const [activeFilter, setActiveFilter] = React.useState('All');
+  const enableHoverFx = React.useMemo(() => {
+    if (typeof window === 'undefined') return false;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const coarsePointer = window.matchMedia('(pointer: coarse)').matches;
+    return !prefersReducedMotion && !coarsePointer;
+  }, []);
+
+  // Build filter chips from all project tags while preserving a stable order.
+  const filters = React.useMemo(() => {
+    const tagSet = new Set<string>();
+    projects.forEach((project) => project.tags.forEach((tag) => tagSet.add(tag)));
+    return ['All', ...Array.from(tagSet)];
+  }, []);
+
+  const filteredProjects = React.useMemo(() => {
+    if (activeFilter === 'All') return projects;
+    return projects.filter((project) => project.tags.includes(activeFilter));
+  }, [activeFilter]);
+
+  // Update CSS variables so each card can render a mouse-follow glow on hover.
+  const handleCardMouseMove: React.MouseEventHandler<HTMLElement> = (e) => {
+    if (!enableHoverFx) return;
+
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const rotateY = ((x / rect.width) - 0.5) * 8;
+    const rotateX = ((y / rect.height) - 0.5) * -8;
+
+    e.currentTarget.style.setProperty('--mx', `${x}px`);
+    e.currentTarget.style.setProperty('--my', `${y}px`);
+    e.currentTarget.style.setProperty('--rx', `${rotateX}deg`);
+    e.currentTarget.style.setProperty('--ry', `${rotateY}deg`);
+  };
+
+  const handleCardMouseLeave: React.MouseEventHandler<HTMLElement> = (e) => {
+    if (!enableHoverFx) return;
+
+    e.currentTarget.style.setProperty('--rx', '0deg');
+    e.currentTarget.style.setProperty('--ry', '0deg');
+  };
 
   React.useEffect(() => {
+    // Advance a global frame index used by projects that provide image galleries.
     const timer = window.setInterval(() => {
       setImageStep((prev) => prev + 1);
     }, 3500);
@@ -95,8 +138,8 @@ export const Projects: React.FC = () => {
   }, []);
 
   return (
-  <section id="projects" className="py-16 sm:py-24">
-    <div className="mx-auto max-w-7xl px-6">
+    <section id="projects" className="py-16 sm:py-24">
+      <div className="mx-auto max-w-7xl px-6">
       <motion.h2
         variants={fadeInUp}
         initial="hidden"
@@ -110,15 +153,48 @@ export const Projects: React.FC = () => {
         A selection of practical analytics and automation work focused on measurable outcomes.
       </p>
 
-      <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={revealViewport}
-        className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {projects.map(p => (
-          <motion.article key={p.title} variants={fadeInUp}
-            className="group rounded-3xl border border-[var(--site-border)] bg-[var(--site-panel)] p-5 backdrop-blur"
+      <div className="mb-8 flex flex-wrap justify-center gap-2.5">
+        {filters.map((filter) => (
+          <button
+            key={filter}
+            type="button"
+            onClick={() => setActiveFilter(filter)}
+            className={`rounded-full border px-3.5 py-1.5 text-xs font-bold transition ${
+              activeFilter === filter
+                ? 'border-cyan-500/50 bg-cyan-500/20 text-cyan-700 dark:text-cyan-200'
+                : 'border-[var(--site-border)] bg-[var(--site-panel)] text-[var(--site-muted)] hover:border-cyan-500/40 hover:text-[var(--site-text)]'
+            }`}
+          >
+            {filter}
+          </button>
+        ))}
+      </div>
+
+        <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={revealViewport}
+          className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {filteredProjects.map(p => (
+            <motion.article key={p.title} variants={fadeInUp}
+            onMouseMove={handleCardMouseMove}
+            onMouseLeave={handleCardMouseLeave}
+            className="group relative overflow-hidden rounded-3xl border border-[var(--site-border)] bg-[var(--site-panel)] p-5 backdrop-blur [--mx:50%] [--my:50%] [--rx:0deg] [--ry:0deg]"
+            style={{
+              transform: 'perspective(900px) rotateX(var(--rx)) rotateY(var(--ry))',
+              transition: 'transform 180ms ease-out',
+              transformStyle: 'preserve-3d',
+            }}
             animate="rest" whileHover="hover">
-            <motion.div variants={hoverCard} className="rounded-2xl">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              style={{
+                background:
+                  'radial-gradient(220px circle at var(--mx) var(--my), rgba(6, 182, 212, 0.16), rgba(249, 115, 22, 0.08) 35%, transparent 70%)',
+              }}
+            />
+            <motion.div variants={hoverCard} className="relative z-10 rounded-2xl">
               <div className="mb-5 overflow-hidden rounded-xl">
                 <img
+                  // If a project has multiple images, cycle through them using imageStep.
                   src={p.images?.length ? p.images[imageStep % p.images.length] : p.img}
                   alt={p.title}
                   className="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]"
@@ -157,10 +233,10 @@ export const Projects: React.FC = () => {
                 )}
               </div>
             </motion.div>
-          </motion.article>
-        ))}
-      </motion.div>
-    </div>
-  </section>
+            </motion.article>
+          ))}
+        </motion.div>
+      </div>
+    </section>
   );
 };

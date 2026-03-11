@@ -7,6 +7,7 @@ interface TypingProps {
 export const Typing: React.FC<TypingProps> = ({ words }) => {
   const [wordIndex, setWordIndex] = React.useState(0); // current word
   const [charIndex, setCharIndex] = React.useState(0); // current character
+  // Toggles between typing forward and deleting backward.
   const [deleting, setDeleting] = React.useState(false);
 
   React.useEffect(() => {
@@ -27,7 +28,7 @@ export const Typing: React.FC<TypingProps> = ({ words }) => {
         if (charIndex < currentWord.length) {
           setCharIndex(charIndex + 1);
         } else {
-          // Pause at full word before deleting
+          // Pause at the complete word for readability, then start deletion.
           setTimeout(() => setDeleting(true), 1200);
         }
       }

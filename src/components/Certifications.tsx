@@ -98,12 +98,40 @@ const certs = [
 
 export const Certifications: React.FC = () => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const enableHoverFx = React.useMemo(() => {
+    if (typeof window === 'undefined') return false;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const coarsePointer = window.matchMedia('(pointer: coarse)').matches;
+    return !prefersReducedMotion && !coarsePointer;
+  }, []);
   const pageSize = 6;
   const totalPages = Math.max(1, Math.ceil(certs.length / pageSize));
   const [currentPage, setCurrentPage] = useState(0);
   const selectedCert = selectedIndex !== null ? certs[selectedIndex] : null;
   const pageStart = currentPage * pageSize;
   const visibleCerts = certs.slice(pageStart, pageStart + pageSize);
+
+  const handleCardMouseMove: React.MouseEventHandler<HTMLDivElement> = (e) => {
+    if (!enableHoverFx) return;
+
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const rotateY = ((x / rect.width) - 0.5) * 7;
+    const rotateX = ((y / rect.height) - 0.5) * -7;
+
+    e.currentTarget.style.setProperty('--mx', `${x}px`);
+    e.currentTarget.style.setProperty('--my', `${y}px`);
+    e.currentTarget.style.setProperty('--rx', `${rotateX}deg`);
+    e.currentTarget.style.setProperty('--ry', `${rotateY}deg`);
+  };
+
+  const handleCardMouseLeave: React.MouseEventHandler<HTMLDivElement> = (e) => {
+    if (!enableHoverFx) return;
+
+    e.currentTarget.style.setProperty('--rx', '0deg');
+    e.currentTarget.style.setProperty('--ry', '0deg');
+  };
 
   const showPrev = useCallback(() => {
     if (selectedIndex === null) return;
@@ -118,6 +146,7 @@ export const Certifications: React.FC = () => {
   useEffect(() => {
     if (totalPages <= 1) return;
 
+    // Rotate certificate groups automatically to keep the grid dynamic.
     const timer = window.setInterval(() => {
       setCurrentPage((prev) => (prev + 1) % totalPages);
     }, 60000);
@@ -131,6 +160,7 @@ export const Certifications: React.FC = () => {
       return;
     }
 
+    // Lock page scroll and enable keyboard navigation while modal is open.
     document.body.style.overflow = 'hidden';
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setSelectedIndex(null);
@@ -167,10 +197,25 @@ export const Certifications: React.FC = () => {
               whileInView="visible"
               viewport={revealViewport}
               transition={{ duration: 0.45, delay: index * 0.08, ease: 'easeOut' }}
-              whileHover={{ y: -8, scale: 1.02, transition: { type: 'spring', stiffness: 260, damping: 18 } }}
+              whileHover={{ boxShadow: '0 20px 44px rgba(8, 145, 178, 0.24)' }}
+              onMouseMove={handleCardMouseMove}
+              onMouseLeave={handleCardMouseLeave}
               onClick={() => setSelectedIndex(pageStart + index)}
-              className="flex cursor-pointer flex-col items-center rounded-2xl border border-[var(--site-border)] bg-[var(--site-panel)] p-4 shadow-lg backdrop-blur-sm"
+              className="group relative flex cursor-pointer flex-col items-center overflow-hidden rounded-2xl border border-[var(--site-border)] bg-[var(--site-panel)] p-4 shadow-lg backdrop-blur-sm [--mx:50%] [--my:50%] [--rx:0deg] [--ry:0deg]"
+              style={{
+                transform: 'perspective(900px) rotateX(var(--rx)) rotateY(var(--ry))',
+                transition: 'transform 180ms ease-out, box-shadow 180ms ease-out',
+                transformStyle: 'preserve-3d',
+              }}
             >
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                style={{
+                  background:
+                    'radial-gradient(200px circle at var(--mx) var(--my), rgba(6, 182, 212, 0.14), rgba(249, 115, 22, 0.08) 38%, transparent 72%)',
+                }}
+              />
               <div className="mb-4 rounded-lg bg-gradient-to-br from-cyan-200 to-orange-200 p-2 shadow-md dark:from-cyan-900/60 dark:to-orange-900/50">
                 <div className="rounded-sm bg-white p-1 dark:bg-slate-950">
                   <img src={c.src} alt={c.alt} loading="lazy" className="h-48 w-full object-contain" />

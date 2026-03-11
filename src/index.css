@@ -47,6 +47,22 @@
     transition: color 180ms ease;
   }
 
+  /* Strong keyboard focus indicator across links, buttons, and form controls. */
+  :where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
+    outline: 2px solid var(--site-brand);
+    outline-offset: 3px;
+    box-shadow:
+      0 0 0 2px color-mix(in srgb, var(--site-bg) 72%, transparent),
+      0 0 0 6px color-mix(in srgb, var(--site-brand) 30%, transparent);
+    border-radius: 0.55rem;
+  }
+
+  /* Prevent persistent outlines for mouse clicks while preserving keyboard focus styles. */
+  :where(a, button, input, textarea, select, summary, [tabindex]):focus:not(:focus-visible) {
+    outline: none;
+    box-shadow: none;
+  }
+
   html.dark {
     color-scheme: dark;
     --site-bg: #040d1a;

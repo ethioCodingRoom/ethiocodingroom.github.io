@@ -31,9 +31,40 @@ const skillCategories = [
 
 const workingStyles = ['Solution Oriented', 'Detail Oriented', 'Reliable Delivery'];
 
-export const Skills: React.FC = () => (
-  <section id="skills" className="py-16 sm:py-24">
-    <div className="mx-auto max-w-6xl px-6">
+export const Skills: React.FC = () => {
+  const enableHoverFx = React.useMemo(() => {
+    if (typeof window === 'undefined') return false;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const coarsePointer = window.matchMedia('(pointer: coarse)').matches;
+    return !prefersReducedMotion && !coarsePointer;
+  }, []);
+
+  // Reuse the same mouse-follow tilt pattern used in project cards.
+  const handleCardMouseMove: React.MouseEventHandler<HTMLDivElement> = (e) => {
+    if (!enableHoverFx) return;
+
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const rotateY = ((x / rect.width) - 0.5) * 6;
+    const rotateX = ((y / rect.height) - 0.5) * -6;
+
+    e.currentTarget.style.setProperty('--mx', `${x}px`);
+    e.currentTarget.style.setProperty('--my', `${y}px`);
+    e.currentTarget.style.setProperty('--rx', `${rotateX}deg`);
+    e.currentTarget.style.setProperty('--ry', `${rotateY}deg`);
+  };
+
+  const handleCardMouseLeave: React.MouseEventHandler<HTMLDivElement> = (e) => {
+    if (!enableHoverFx) return;
+
+    e.currentTarget.style.setProperty('--rx', '0deg');
+    e.currentTarget.style.setProperty('--ry', '0deg');
+  };
+
+  return (
+    <section id="skills" className="py-16 sm:py-24">
+      <div className="mx-auto max-w-6xl px-6">
       {/* Section Heading */}
       <motion.h2 
         variants={fadeInUp} 
@@ -62,12 +93,27 @@ export const Skills: React.FC = () => (
             <motion.div
               key={category.title}
               variants={fadeInUp}
-              className="rounded-2xl border border-[var(--site-border)] bg-white/60 p-5 dark:bg-slate-900/40"
+              onMouseMove={handleCardMouseMove}
+              onMouseLeave={handleCardMouseLeave}
+              className="group relative overflow-hidden rounded-2xl border border-[var(--site-border)] bg-white/60 p-5 dark:bg-slate-900/40 [--mx:50%] [--my:50%] [--rx:0deg] [--ry:0deg]"
+              style={{
+                transform: 'perspective(850px) rotateX(var(--rx)) rotateY(var(--ry))',
+                transition: 'transform 180ms ease-out',
+                transformStyle: 'preserve-3d',
+              }}
             >
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                style={{
+                  background:
+                    'radial-gradient(180px circle at var(--mx) var(--my), rgba(6, 182, 212, 0.12), rgba(249, 115, 22, 0.07) 38%, transparent 72%)',
+                }}
+              />
               <h3 className="mb-4 text-sm font-extrabold uppercase tracking-[0.12em] text-[var(--site-text)]">
                 {category.title}
               </h3>
-              <div className="flex flex-wrap gap-2.5">
+              <div className="relative z-10 flex flex-wrap gap-2.5">
                 {category.skills.map((skill) => (
                   <motion.span
                     key={skill}
@@ -110,6 +156,7 @@ export const Skills: React.FC = () => (
           </div>
         </motion.div>
       </div>
-    </div>
-  </section>
-);
+      </div>
+    </section>
+  );
+};

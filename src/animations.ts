@@ -1,5 +1,6 @@
 import type { Variants } from 'framer-motion';
 
+// Shared motion presets so sections animate consistently across the site.
 export const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } },
@@ -23,5 +24,6 @@ export const hoverCard: Variants = {
   },
 };
 
+// Small reusable interaction helpers.
 export const springTap = { whileTap: { scale: 0.98 } };
 export const revealViewport = { once: true, amount: 0.18 };

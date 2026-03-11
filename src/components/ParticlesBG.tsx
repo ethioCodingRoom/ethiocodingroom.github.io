@@ -2,6 +2,7 @@ import React from 'react';
 
 export const ParticlesBG: React.FC = () => {
   React.useEffect(() => {
+    // Respect OS accessibility preference by disabling animated particles.
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduce) return;
 
@@ -16,6 +17,7 @@ export const ParticlesBG: React.FC = () => {
     ];
     const count = 28;
 
+    // Generate blurred floating blobs for a lightweight animated background.
     for (let i = 0; i < count; i++) {
       const d = document.createElement('div');
       const size = Math.random() * 70 + 40;
@@ -29,6 +31,7 @@ export const ParticlesBG: React.FC = () => {
       container.appendChild(d);
     }
 
+    // Remove generated nodes when component unmounts to avoid DOM buildup.
     return () => { container.innerHTML = ''; };
   }, []);
 

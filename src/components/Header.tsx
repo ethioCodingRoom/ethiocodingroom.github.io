@@ -8,13 +8,16 @@ export const Header: React.FC<{ onToggleDark: () => void }> = ({ onToggleDark })
   const [open, setOpen] = React.useState(false);
   const [now, setNow] = React.useState(() => new Date());
 
+  // Single source of truth used by both desktop and mobile menus.
   const navItems = ['About', 'Skills', 'Projects', 'Certifications', 'Blog', 'Contact'];
 
   React.useEffect(() => {
+    // Tick once per second so the Addis Ababa clock remains live.
     const timer = window.setInterval(() => setNow(new Date()), 1000);
     return () => window.clearInterval(timer);
   }, []);
 
+  // Format date/time explicitly in Ethiopia timezone regardless of visitor locale.
   const etDate = new Intl.DateTimeFormat('en-GB', {
     timeZone: 'Africa/Addis_Ababa',
     day: '2-digit',
