@@ -118,6 +118,14 @@ export const Certifications: React.FC = () => {
   const pageStart = currentPage * pageSize;
   const visibleCerts = certs.slice(pageStart, pageStart + pageSize);
 
+  const showPrevPage = useCallback(() => {
+    setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages);
+  }, [totalPages]);
+
+  const showNextPage = useCallback(() => {
+    setCurrentPage((prev) => (prev + 1) % totalPages);
+  }, [totalPages]);
+
   const handleCardMouseMove: React.MouseEventHandler<HTMLDivElement> = (e) => {
     if (!enableHoverFx) return;
 
@@ -149,17 +157,6 @@ export const Certifications: React.FC = () => {
     if (selectedIndex === null) return;
     setSelectedIndex((selectedIndex + 1) % certs.length);
   }, [selectedIndex]);
-
-  useEffect(() => {
-    if (totalPages <= 1) return;
-
-    // Rotate certificate groups automatically to keep the grid dynamic.
-    const timer = window.setInterval(() => {
-      setCurrentPage((prev) => (prev + 1) % totalPages);
-    }, 60000);
-
-    return () => window.clearInterval(timer);
-  }, [totalPages]);
 
   useEffect(() => {
     if (selectedIndex === null) {
@@ -234,9 +231,28 @@ export const Certifications: React.FC = () => {
             </motion.div>
           ))}
         </div>
-        <p className="mt-6 text-center text-xs font-semibold uppercase tracking-[0.12em] text-[var(--site-muted)]">
-          Auto-rotating groups of 6 every 1 minute ({currentPage + 1}/{totalPages})
-        </p>
+
+        {totalPages > 1 && (
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+            <button
+              type="button"
+              onClick={showPrevPage}
+              className="rounded-lg border border-[var(--site-border)] bg-[var(--site-panel)] px-4 py-2 text-xs font-bold uppercase tracking-[0.08em] text-[var(--site-muted)] hover:border-cyan-500/60 hover:text-cyan-600"
+            >
+              Previous
+            </button>
+            <p className="text-center text-xs font-semibold uppercase tracking-[0.12em] text-[var(--site-muted)]">
+              Group {currentPage + 1}/{totalPages} - click Next to see more
+            </p>
+            <button
+              type="button"
+              onClick={showNextPage}
+              className="rounded-lg border border-[var(--site-border)] bg-[var(--site-panel)] px-4 py-2 text-xs font-bold uppercase tracking-[0.08em] text-[var(--site-muted)] hover:border-cyan-500/60 hover:text-cyan-600"
+            >
+              Next
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Decorative Certificate Modal */}
