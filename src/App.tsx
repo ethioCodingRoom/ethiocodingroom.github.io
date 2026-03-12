@@ -12,68 +12,31 @@ import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 
 export default function App() {
-  const [dark, setDark] = useState(true);
+  const [dark, setDark] = useState(() => {
+    if (typeof window === "undefined") return true;
+
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) return savedTheme === "dark";
+
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+  });
   const [showBackToTop, setShowBackToTop] = useState(false);
 
-  // On first load, prefer saved theme; otherwise fall back to OS preference.
+  // Keep DOM class and localStorage aligned with the current theme state.
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-    const isDark = savedTheme ? savedTheme === "dark" : prefersDark;
-
-    setDark(isDark);
-
-    if (isDark) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, []);
-
-  // Keep React state, DOM class, and localStorage in sync when switching theme.
-  const toggleDark = () => {
-    const newTheme = !dark;
-
-    setDark(newTheme);
-
-    if (newTheme) {
+    if (dark) {
       document.documentElement.classList.add("dark");
       localStorage.setItem("theme", "dark");
     } else {
       document.documentElement.classList.remove("dark");
       localStorage.setItem("theme", "light");
     }
+  }, [dark]);
+
+  // Toggle theme state; synchronization is handled by the theme effect.
+  const toggleDark = () => {
+    setDark((prev) => !prev);
   };
-
-  // Intercept hash links and apply smooth scroll for one-page navigation.
-  useEffect(() => {
-    const links = document.querySelectorAll('a[href^="#"]');
-
-    const handleClick = (e: Event) => {
-      e.preventDefault();
-
-      const target = e.currentTarget as HTMLAnchorElement;
-      const href = target.getAttribute("href");
-
-      if (!href) return;
-
-      const element = document.querySelector(href);
-
-      if (element) {
-        element.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }
-    };
-
-    links.forEach((link) => link.addEventListener("click", handleClick));
-
-    return () => {
-      links.forEach((link) => link.removeEventListener("click", handleClick));
-    };
-  }, []);
 
   // Show a floating shortcut after the user scrolls down the page.
   useEffect(() => {

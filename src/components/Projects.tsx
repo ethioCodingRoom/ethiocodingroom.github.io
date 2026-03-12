@@ -179,7 +179,7 @@ export const Projects: React.FC = () => {
             className="group relative overflow-hidden rounded-3xl border border-[var(--site-border)] bg-[var(--site-panel)] p-5 backdrop-blur [--mx:50%] [--my:50%] [--rx:0deg] [--ry:0deg]"
             style={{
               transform: 'perspective(900px) rotateX(var(--rx)) rotateY(var(--ry))',
-              transition: 'transform 180ms ease-out',
+              transition: enableHoverFx ? 'transform 180ms ease-out' : 'none',
               transformStyle: 'preserve-3d',
             }}
             animate="rest" whileHover="hover">
@@ -197,6 +197,10 @@ export const Projects: React.FC = () => {
                   // If a project has multiple images, cycle through them using imageStep.
                   src={p.images?.length ? p.images[imageStep % p.images.length] : p.img}
                   alt={p.title}
+                  width={1200}
+                  height={675}
+                  decoding="async"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]"
                   loading="lazy"
                 />

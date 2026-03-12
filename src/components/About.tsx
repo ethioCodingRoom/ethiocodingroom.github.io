@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { FaChartLine, FaGraduationCap, FaLaptopCode } from 'react-icons/fa';
 import { fadeInUp, revealViewport } from '../animations';
 
 export const About: React.FC = () => (
@@ -41,7 +42,7 @@ export const About: React.FC = () => (
 
           <div className="rounded-2xl border border-[var(--site-border)] bg-white/60 p-5 dark:bg-slate-900/40">
             <h3 className="mb-3 flex items-center gap-2 text-lg font-bold text-[var(--site-text)]">
-              <i className="fas fa-graduation-cap text-cyan-600"></i>
+              <FaGraduationCap className="text-cyan-600" aria-hidden="true" />
               Education
             </h3>
             <ul className="space-y-3 text-sm leading-relaxed text-[var(--site-muted)] sm:text-base">
@@ -72,7 +73,7 @@ export const About: React.FC = () => (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
             <div className="space-y-4">
               <h3 className="flex items-center gap-2 text-lg font-bold text-[var(--site-text)]">
-                <i className="fas fa-chart-line text-cyan-600"></i>
+                <FaChartLine className="text-cyan-600" aria-hidden="true" />
                 Data Analytics
               </h3>
               <p className="leading-relaxed text-[var(--site-muted)]">
@@ -82,7 +83,7 @@ export const About: React.FC = () => (
 
             <div className="space-y-4">
               <h3 className="flex items-center gap-2 text-lg font-bold text-[var(--site-text)]">
-                <i className="fas fa-laptop-code text-orange-500"></i>
+                <FaLaptopCode className="text-orange-500" aria-hidden="true" />
                 Visualization
               </h3>
               <p className="leading-relaxed text-[var(--site-muted)]">

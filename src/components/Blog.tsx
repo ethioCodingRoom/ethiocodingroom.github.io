@@ -16,7 +16,7 @@ export const Blog: React.FC = () => {
           </p>
 
           <a 
-            href="/pandas.html" 
+            href="https://github.com/ethioCodingRoom/music-streaming-data-analytics/blob/main/notebooks/spotify_analysis.ipynb" 
             target="_blank" 
             rel="noopener noreferrer"
             className="mt-5 inline-block font-bold text-cyan-700 hover:text-cyan-600 dark:text-cyan-300"

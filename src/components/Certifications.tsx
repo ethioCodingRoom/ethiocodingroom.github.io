@@ -105,6 +105,7 @@ const certs = [
 
 export const Certifications: React.FC = () => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const modalRef = React.useRef<HTMLDivElement | null>(null);
   const enableHoverFx = React.useMemo(() => {
     if (typeof window === 'undefined') return false;
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -181,6 +182,30 @@ export const Certifications: React.FC = () => {
       if (e.key === 'Escape') setSelectedIndex(null);
       if (e.key === 'ArrowLeft') showPrev();
       if (e.key === 'ArrowRight') showNext();
+      if (e.key === 'Tab') {
+        const root = modalRef.current;
+        if (!root) return;
+
+        const focusables = root.querySelectorAll<HTMLElement>(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+
+        if (focusables.length === 0) return;
+
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        const active = document.activeElement as HTMLElement | null;
+
+        if (!e.shiftKey && active === last) {
+          e.preventDefault();
+          first.focus();
+        }
+
+        if (e.shiftKey && active === first) {
+          e.preventDefault();
+          last.focus();
+        }
+      }
     };
 
     window.addEventListener('keydown', onKeyDown);
@@ -189,6 +214,16 @@ export const Certifications: React.FC = () => {
       window.removeEventListener('keydown', onKeyDown);
     };
   }, [selectedIndex, showNext, showPrev]);
+
+  useEffect(() => {
+    if (selectedIndex === null) return;
+
+    const root = modalRef.current;
+    if (!root) return;
+
+    const firstFocusable = root.querySelector<HTMLElement>('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+    firstFocusable?.focus();
+  }, [selectedIndex]);
 
   return (
     <section id="certifications" className="py-20">
@@ -233,7 +268,16 @@ export const Certifications: React.FC = () => {
               />
               <div className="mb-4 rounded-lg bg-gradient-to-br from-cyan-200 to-orange-200 p-2 shadow-md dark:from-cyan-900/60 dark:to-orange-900/50">
                 <div className="rounded-sm bg-white p-1 dark:bg-slate-950">
-                  <img src={c.src} alt={c.alt} loading="lazy" className="h-64 w-full object-contain" />
+                  <img
+                    src={c.src}
+                    alt={c.alt}
+                    loading="lazy"
+                    decoding="async"
+                    width={900}
+                    height={640}
+                    sizes="(max-width: 768px) 92vw, 44vw"
+                    className="h-64 w-full object-contain"
+                  />
                 </div>
               </div>
               <p className="flex h-12 items-center justify-center px-2 text-center text-sm font-bold text-[var(--site-muted)]">
@@ -276,6 +320,10 @@ export const Certifications: React.FC = () => {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 12, scale: 0.95 }}
               transition={{ duration: 0.2 }}
+              ref={modalRef}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="cert-modal-title"
               onClick={(e) => e.stopPropagation()}
               className="relative h-[94vh] w-full max-w-7xl overflow-hidden rounded-3xl border border-white/15 bg-slate-900/95 shadow-2xl"
             >
@@ -288,6 +336,11 @@ export const Certifications: React.FC = () => {
                     <img
                       src={selectedCert.src}
                       alt={selectedCert.alt}
+                      decoding="async"
+                      loading="lazy"
+                      width={1400}
+                      height={990}
+                      sizes="(max-width: 1024px) 92vw, 68vw"
                       className="max-h-[88vh] w-full rounded-xl object-contain"
                     />
                   </div>
@@ -319,7 +372,7 @@ export const Certifications: React.FC = () => {
                   <p className="inline-flex rounded-full border border-cyan-300/30 bg-cyan-400/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-cyan-200">
                     Verified Certification
                   </p>
-                  <h3 className="mt-4 text-2xl font-extrabold leading-tight text-white">
+                  <h3 id="cert-modal-title" className="mt-4 text-2xl font-extrabold leading-tight text-white">
                     {selectedCert.alt}
                   </h3>
                   <p className="mt-4 text-sm font-semibold text-orange-200">

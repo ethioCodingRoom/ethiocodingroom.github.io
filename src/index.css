@@ -24,6 +24,10 @@
     scroll-behavior: smooth;
   }
 
+  section[id] {
+    scroll-margin-top: 5.5rem;
+  }
+
   body {
     font-family: var(--font-sans);
     color: var(--site-text);
@@ -79,5 +83,19 @@
       radial-gradient(900px 420px at 10% -5%, rgba(34, 211, 238, 0.16), transparent 60%),
       radial-gradient(900px 520px at 90% 0%, rgba(251, 146, 60, 0.12), transparent 58%),
       var(--site-bg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }

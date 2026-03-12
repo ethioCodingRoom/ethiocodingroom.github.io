@@ -65,6 +65,7 @@ export const Contact: React.FC = () => {
             <input 
               id="contactName" 
               name="name" 
+              autoComplete="name"
               required 
               placeholder="Asres Gamu Yelia"
               className="w-full rounded-xl border border-[var(--site-border)] bg-white/80 px-4 py-3 outline-none transition-all focus:ring-2 focus:ring-cyan-500 dark:bg-slate-950/60" 
@@ -78,6 +79,7 @@ export const Contact: React.FC = () => {
                 id="contactEmail" 
                 name="email" 
                 type="email" 
+                autoComplete="email"
                 required 
                 placeholder="john@example.com"
                 className="w-full rounded-xl border border-[var(--site-border)] bg-white/80 px-4 py-3 outline-none transition-all focus:ring-2 focus:ring-cyan-500 dark:bg-slate-950/60" 
@@ -89,6 +91,7 @@ export const Contact: React.FC = () => {
                 id="contactPhone" 
                 name="phone" 
                 type="tel" 
+                autoComplete="tel"
                 placeholder="+251 9XX XXX XXX"
                 className="w-full rounded-xl border border-[var(--site-border)] bg-white/80 px-4 py-3 outline-none transition-all focus:ring-2 focus:ring-cyan-500 dark:bg-slate-950/60" 
               />
@@ -117,16 +120,18 @@ export const Contact: React.FC = () => {
           </motion.button>
 
           <div className="mt-6 text-center min-h-[24px]">
-            {ok === true && (
-              <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="font-bold text-emerald-600 dark:text-emerald-400">
-                ✓ Thank you. Your message has been received and I will follow up soon.
-              </motion.p>
-            )}
-            {ok === false && (
-              <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="font-bold text-red-600 dark:text-red-400">
-                ⚠ Message not sent. Please try again or contact me by email.
-              </motion.p>
-            )}
+            <div aria-live="polite" aria-atomic="true" role="status">
+              {ok === true && (
+                <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="font-bold text-emerald-600 dark:text-emerald-400">
+                  ✓ Thank you. Your message has been received and I will follow up soon.
+                </motion.p>
+              )}
+              {ok === false && (
+                <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="font-bold text-red-600 dark:text-red-400">
+                  ⚠ Message not sent. Please try again or contact me by email.
+                </motion.p>
+              )}
+            </div>
           </div>
         </motion.form>
       </div>

@@ -4,7 +4,8 @@ export const ParticlesBG: React.FC = () => {
   React.useEffect(() => {
     // Respect OS accessibility preference by disabling animated particles.
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduce) return;
+    const coarsePointer = window.matchMedia('(pointer: coarse)').matches;
+    if (reduce || coarsePointer) return;
 
     const container = document.getElementById('particles-bg');
     if (!container) return;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { FaCheckCircle } from 'react-icons/fa';
 import { fadeInUp, staggerContainer, revealViewport } from '../animations';
 
 const skillCategories = [
@@ -149,7 +150,7 @@ export const Skills: React.FC = () => {
                 key={style}
                 className="inline-flex items-center rounded-xl border border-orange-500/20 bg-orange-500/10 px-5 py-3 text-sm font-bold text-orange-700 shadow-lg shadow-orange-500/5 dark:text-orange-300"
               >
-                <i className="fas fa-check-circle mr-2 opacity-70"></i>
+                <FaCheckCircle className="mr-2 opacity-70" aria-hidden="true" />
                 {style}
               </span>
             ))}

@@ -89,6 +89,12 @@ export const Hero: React.FC = () => (
           <img
             src="/Asres.jpg"
             alt="Asres Gamu Yelia"
+            width={768}
+            height={1024}
+            decoding="async"
+            fetchPriority="high"
+            loading="eager"
+            sizes="(max-width: 768px) 90vw, 420px"
             className="h-[22rem] w-full rounded-[1.4rem] object-cover sm:h-[26rem]"
           />
 

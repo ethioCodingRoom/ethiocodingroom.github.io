@@ -9,8 +9,14 @@ export const Typing: React.FC<TypingProps> = ({ words }) => {
   const [charIndex, setCharIndex] = React.useState(0); // current character
   // Toggles between typing forward and deleting backward.
   const [deleting, setDeleting] = React.useState(false);
+  const reducedMotion = React.useMemo(() => {
+    if (typeof window === 'undefined') return false;
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }, []);
 
   React.useEffect(() => {
+    if (reducedMotion) return;
+
     const currentWord = words[wordIndex];
 
     const tick = () => {
@@ -38,7 +44,11 @@ export const Typing: React.FC<TypingProps> = ({ words }) => {
     const timer = setTimeout(tick, delay);
 
     return () => clearTimeout(timer);
-  }, [charIndex, deleting, wordIndex, words]);
+  }, [charIndex, deleting, wordIndex, words, reducedMotion]);
+
+  if (reducedMotion) {
+    return <span className="whitespace-pre">{words[0]}</span>;
+  }
 
   return (
     <span className="whitespace-pre">
