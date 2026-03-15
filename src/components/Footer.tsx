@@ -1,4 +1,4 @@
-import { FaGithub, FaYoutube, FaFacebook, FaTelegram, FaTwitter, FaTiktok } from 'react-icons/fa';
+import { FaGithub, FaYoutube, FaFacebook, FaTelegram, FaTwitter, FaTiktok, FaChartBar } from 'react-icons/fa';
 import { SiHackerrank, SiKaggle, SiDatacamp, SiCoursera, SiReact, SiTypescript, SiTailwindcss, SiVite, SiGeeksforgeeks, SiCredly } from 'react-icons/si';
 
 export const Footer = () => {
@@ -31,6 +31,7 @@ export const Footer = () => {
             <a href="https://www.coursera.org/user/ethioCodingRoom" target="_blank" rel="noreferrer" aria-label="Coursera" className="rounded-lg p-2"><SiCoursera className="hover:text-blue-500 transition-colors" /></a>
             <a href="https://www.datacamp.com/portfolio/asresgamu" target="_blank" rel="noreferrer" aria-label="DataCamp" className="rounded-lg p-2"><SiDatacamp className="hover:text-yellow-500 transition-colors" /></a>
             <a href="https://www.kaggle.com/ethioCodingRoom" target="_blank" rel="noreferrer" aria-label="Kaggle" className="rounded-lg p-2"><SiKaggle className="hover:text-blue-400 transition-colors" /></a>
+            <a href="https://public.tableau.com/app/profile/asres.yelia/vizzes" target="_blank" rel="noreferrer" aria-label="Tableau Public" className="rounded-lg p-2"><FaChartBar className="hover:text-sky-400 transition-colors" /></a>
             <a href="https://www.geeksforgeeks.org/profile/asresgamu/" target="_blank" rel="noreferrer" aria-label="GeeksforGeeks" className="rounded-lg p-2"><SiGeeksforgeeks className="text-gray-400 hover:text-green-500 transition-colors" /></a>
             <a href="https://www.credly.com/users/ethiocodingroom" target="_blank" rel="noreferrer" aria-label="Credly" className="rounded-lg p-2"><SiCredly className="hover:text-orange-400 transition-colors" /></a>
           </div>

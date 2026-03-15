@@ -4,6 +4,14 @@ import { fadeInUp, revealViewport } from '../animations';
 
 const certs = [
   {
+    src: '/getting_started_with_tableau_analytics_vidhya.png',
+    alt: 'Getting Started with Tableau',
+    issuer: 'Analytics Vidhya',
+    focus: 'Tableau foundations for beginner-level data visualization workflows and dashboard thinking.',
+    impact: 'Strengthened my ability to create interactive visual stories and communicate insights more clearly using Tableau.',
+    verifyUrl: 'https://courses.analyticsvidhya.com/certificates/xevjpje7cy',
+  },
+  {
     src: '/cybersecurity_basics_protecting_your_data_in_the_digital_age.png',
     alt: 'Cybersecurity Basics: Protecting Your Data in the Digital Age',
     issuer: 'University of the People (Verified Webinar)',
@@ -102,6 +110,12 @@ const certs = [
     impact: 'Improved project reliability through consistent versioning, traceability, and teamwork practices.',
   },
 ];
+
+const tableauPublicWork = {
+  title: 'Tableau Public Portfolio',
+  description: 'Explore my published Tableau dashboards and data stories as part of my practical analytics accomplishments.',
+  link: 'https://public.tableau.com/app/profile/asres.yelia/vizzes',
+};
 
 export const Certifications: React.FC = () => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
@@ -237,6 +251,30 @@ export const Certifications: React.FC = () => {
         <p className="mx-auto mb-14 max-w-2xl text-center text-[var(--site-muted)]">
           Verified achievements across data analysis, Python, and professional development tracks.
         </p>
+
+        <motion.div
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={revealViewport}
+          className="mb-8 rounded-3xl border border-cyan-500/25 bg-gradient-to-r from-cyan-500/10 to-orange-500/10 p-5 shadow-lg"
+        >
+          <p className="text-xs font-bold uppercase tracking-[0.12em] text-cyan-700 dark:text-cyan-200">
+            Accomplishment & Work
+          </p>
+          <h3 className="mt-2 text-2xl font-extrabold text-[var(--site-text)]">{tableauPublicWork.title}</h3>
+          <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[var(--site-muted)]">
+            {tableauPublicWork.description}
+          </p>
+          <a
+            href={tableauPublicWork.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-flex rounded-xl bg-gradient-to-r from-cyan-500 to-orange-500 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-cyan-800/25"
+          >
+            View My Tableau Work
+          </a>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {visibleCerts.map((c, index) => (
@@ -385,6 +423,17 @@ export const Certifications: React.FC = () => {
                   <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-slate-200">
                     {selectedCert.impact}
                   </div>
+
+                  {selectedCert.verifyUrl && (
+                    <a
+                      href={selectedCert.verifyUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-4 inline-flex rounded-xl border border-cyan-300/30 bg-cyan-400/10 px-5 py-2.5 text-sm font-bold text-cyan-100 hover:bg-cyan-400/20"
+                    >
+                      View Certificate
+                    </a>
+                  )}
 
                   <button
                     type="button"
