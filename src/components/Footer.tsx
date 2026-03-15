@@ -27,14 +27,14 @@ export const Footer = () => {
             See my achievements, certifications, and coding accomplishments across learning and challenge platforms.
           </p>
           <div className="flex flex-wrap justify-center gap-2 text-2xl md:justify-start">
-            <a href="https://github.com/ethioCodingRoom" target="_blank" rel="noreferrer" aria-label="GitHub" className="rounded-lg p-2"><FaGithub className="hover:text-gray-400 transition-colors" /></a>
-            <a href="https://www.hackerrank.com/ethioCodingRoom" target="_blank" rel="noreferrer" aria-label="HackerRank" className="rounded-lg p-2"><SiHackerrank className="hover:text-green-500 transition-colors" /></a>
-            <a href="https://www.coursera.org/user/ethioCodingRoom" target="_blank" rel="noreferrer" aria-label="Coursera" className="rounded-lg p-2"><SiCoursera className="hover:text-blue-500 transition-colors" /></a>
-            <a href="https://www.datacamp.com/portfolio/asresgamu" target="_blank" rel="noreferrer" aria-label="DataCamp" className="rounded-lg p-2"><SiDatacamp className="hover:text-yellow-500 transition-colors" /></a>
-            <a href="https://www.kaggle.com/ethioCodingRoom" target="_blank" rel="noreferrer" aria-label="Kaggle" className="rounded-lg p-2"><SiKaggle className="hover:text-blue-400 transition-colors" /></a>
-            <a href="https://public.tableau.com/app/profile/asres.yelia/vizzes" target="_blank" rel="noreferrer" aria-label="Tableau Public" className="rounded-lg p-2"><IoLogoTableau className="hover:text-sky-400 transition-colors" /></a>
-            <a href="https://www.geeksforgeeks.org/profile/asresgamu/" target="_blank" rel="noreferrer" aria-label="GeeksforGeeks" className="rounded-lg p-2"><SiGeeksforgeeks className="text-gray-400 hover:text-green-500 transition-colors" /></a>
-            <a href="https://www.credly.com/users/ethiocodingroom" target="_blank" rel="noreferrer" aria-label="Credly" className="rounded-lg p-2"><SiCredly className="hover:text-orange-400 transition-colors" /></a>
+            <a href="https://github.com/ethioCodingRoom" target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub" className="rounded-lg p-2"><FaGithub className="hover:text-gray-400 transition-colors" /></a>
+            <a href="https://www.hackerrank.com/ethioCodingRoom" target="_blank" rel="noreferrer" aria-label="HackerRank" title="HackerRank" className="rounded-lg p-2"><SiHackerrank className="hover:text-green-500 transition-colors" /></a>
+            <a href="https://www.coursera.org/user/ethioCodingRoom" target="_blank" rel="noreferrer" aria-label="Coursera" title="Coursera" className="rounded-lg p-2"><SiCoursera className="hover:text-blue-500 transition-colors" /></a>
+            <a href="https://www.datacamp.com/portfolio/asresgamu" target="_blank" rel="noreferrer" aria-label="DataCamp" title="DataCamp" className="rounded-lg p-2"><SiDatacamp className="hover:text-yellow-500 transition-colors" /></a>
+            <a href="https://www.kaggle.com/ethioCodingRoom" target="_blank" rel="noreferrer" aria-label="Kaggle" title="Kaggle" className="rounded-lg p-2"><SiKaggle className="hover:text-blue-400 transition-colors" /></a>
+            <a href="https://public.tableau.com/app/profile/asres.yelia/vizzes" target="_blank" rel="noreferrer" aria-label="Tableau Public" title="Tableau Public" className="rounded-lg p-2"><IoLogoTableau className="hover:text-sky-400 transition-colors" /></a>
+            <a href="https://www.geeksforgeeks.org/profile/asresgamu/" target="_blank" rel="noreferrer" aria-label="GeeksforGeeks" title="GeeksforGeeks" className="rounded-lg p-2"><SiGeeksforgeeks className="text-gray-400 hover:text-green-500 transition-colors" /></a>
+            <a href="https://www.credly.com/users/ethiocodingroom" target="_blank" rel="noreferrer" aria-label="Credly" title="Credly" className="rounded-lg p-2"><SiCredly className="hover:text-orange-400 transition-colors" /></a>
           </div>
         </div>
 
