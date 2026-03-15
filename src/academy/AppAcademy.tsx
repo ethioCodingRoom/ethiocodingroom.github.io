@@ -1,0 +1,84 @@
+import { useEffect, useState } from 'react'
+
+import { ParticlesBG } from '../components/ParticlesBG'
+import { Header } from './components/Header'
+import { Hero } from './components/Hero'
+import { About } from './components/About'
+import { Skills } from './components/Skills'
+import { CourseCatalog } from './components/CourseCatalog'
+import { Projects } from './components/Projects'
+import { DashboardPreview } from './components/DashboardPreview'
+import { Certifications } from './components/Certifications'
+import { Blog } from './components/Blog'
+import { Contact } from './components/Contact'
+import { Footer } from './components/Footer'
+
+export default function AppAcademy() {
+  const [dark, setDark] = useState(() => {
+    if (typeof window === 'undefined') return true
+
+    const savedTheme = localStorage.getItem('theme')
+    if (savedTheme) return savedTheme === 'dark'
+
+    return window.matchMedia('(prefers-color-scheme: dark)').matches
+  })
+  const [showBackToTop, setShowBackToTop] = useState(false)
+
+  useEffect(() => {
+    if (dark) {
+      document.documentElement.classList.add('dark')
+      localStorage.setItem('theme', 'dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+      localStorage.setItem('theme', 'light')
+    }
+  }, [dark])
+
+  useEffect(() => {
+    const onScroll = () => setShowBackToTop(window.scrollY > 520)
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
+
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  return (
+    <div className="min-h-screen text-[var(--site-text)]">
+      <a
+        href="#main-content"
+        className="fixed left-3 top-3 z-[100] -translate-y-24 rounded-lg border border-cyan-500/40 bg-[var(--site-panel)] px-3 py-2 text-sm font-bold text-[var(--site-text)] shadow-lg transition-transform focus:translate-y-0 focus:outline-none"
+      >
+        Skip to content
+      </a>
+
+      <ParticlesBG />
+      <Header onToggleDark={() => setDark((prev) => !prev)} />
+
+      <main id="main-content" tabIndex={-1}>
+        <Hero />
+        <About />
+        <Skills />
+        <CourseCatalog />
+        <Projects />
+        <DashboardPreview />
+        <Certifications />
+        <Blog />
+        <Contact />
+      </main>
+
+      <Footer />
+
+      <button
+        type="button"
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        aria-label="Back to top"
+        className={`fixed bottom-5 right-5 z-50 rounded-full border border-[var(--site-border)] bg-[var(--site-panel)] px-4 py-2.5 text-sm font-bold text-[var(--site-text)] shadow-xl transition-all duration-300 hover:-translate-y-0.5 ${
+          showBackToTop ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
+        }`}
+      >
+        Top ↑
+      </button>
+    </div>
+  )
+}
