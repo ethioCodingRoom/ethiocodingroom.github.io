@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { fadeInUp, revealViewport } from '../animations';
+import { useLanguage } from '../i18n';
 
 const certs = [
   {
@@ -10,6 +11,29 @@ const certs = [
     focus: 'Tableau foundations for beginner-level data visualization workflows and dashboard thinking.',
     impact: 'Strengthened my ability to create interactive visual stories and communicate insights more clearly using Tableau.',
     verifyUrl: 'https://courses.analyticsvidhya.com/certificates/xevjpje7cy',
+  },
+  {
+    src: '/introduction_to_sql_simplilearn.png',
+    alt: 'Introduction to SQL',
+    issuer: 'SkillUp by Simplilearn',
+    focus: 'SQL basics including querying, filtering, and foundational database concepts for analytics work.',
+    impact: 'Strengthened my ability to extract, organize, and analyze structured data using core SQL concepts.',
+    verifyUrl: 'https://simpli-web.app.link/e/uRJPcomsw1b',
+  },
+  {
+    src: '/python_for_beginners_simplilearn.png',
+    alt: 'Python for Beginners',
+    issuer: 'SkillUp by Simplilearn',
+    focus: 'Python basics for programming fundamentals, syntax, and beginner-friendly problem solving.',
+    impact: 'Built a stronger foundation in Python programming that supports my analytics, automation, and data project work.',
+    verifyUrl: 'https://simpli-web.app.link/e/bcY2Nytsw1b',
+  },
+  {
+    src: '/excel_for_beginners_great_learning.png',
+    alt: 'Excel for Beginners',
+    issuer: 'Great Learning Academy',
+    focus: 'Spreadsheet foundations including formulas, tabular analysis, and practical Excel workflows for beginners.',
+    impact: 'Improved my ability to structure, clean, and analyze data efficiently using Excel for reporting and decision support.',
   },
   {
     src: '/cybersecurity_basics_protecting_your_data_in_the_digital_age.png',
@@ -117,7 +141,24 @@ const tableauPublicWork = {
   link: 'https://public.tableau.com/app/profile/asres.yelia/vizzes',
 };
 
+const amText = {
+  sectionTitle: 'ሰርቲፊኬቶች እና ስኬቶች',
+  sectionSubtitle: 'በዳታ ትንታኔ፣ ፓይቶን እና ሙያዊ እድገት የተረጋገጡ ስኬቶች።',
+  workLabel: 'ስራ እና ስኬት',
+  workTitle: 'የTableau Public ፖርትፎሊዮ',
+  workDescription: 'በTableau Public ላይ የታተሙ ዳሽቦርዶቼን እና የዳታ ታሪኮቼን ይመልከቱ።',
+  viewTableau: 'የTableau ስራዬን ይመልከቱ',
+  previous: 'ቀዳሚ',
+  next: 'ቀጣይ',
+  verified: 'የተረጋገጠ ሰርቲፊኬት',
+  issuer: 'አቅራቢ',
+  focus: 'ትኩረት',
+  viewCertificate: 'ሰርቲፊኬቱን ይመልከቱ',
+  close: 'ዝጋ',
+};
+
 export const Certifications: React.FC = () => {
+  const { language } = useLanguage();
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const modalRef = React.useRef<HTMLDivElement | null>(null);
   const enableHoverFx = React.useMemo(() => {
@@ -246,10 +287,10 @@ export const Certifications: React.FC = () => {
           variants={fadeInUp} initial="hidden" whileInView="visible" viewport={revealViewport}
           className="mb-4 bg-gradient-to-r from-cyan-600 to-orange-500 bg-clip-text text-center text-4xl font-extrabold text-transparent"
         >
-          Certifications & Achievements
+          {language === 'en' ? 'Certifications & Achievements' : amText.sectionTitle}
         </motion.h2>
         <p className="mx-auto mb-14 max-w-2xl text-center text-[var(--site-muted)]">
-          Verified achievements across data analysis, Python, and professional development tracks.
+          {language === 'en' ? 'Verified achievements across data analysis, Python, and professional development tracks.' : amText.sectionSubtitle}
         </p>
 
         <motion.div
@@ -260,11 +301,13 @@ export const Certifications: React.FC = () => {
           className="mb-8 rounded-3xl border border-cyan-500/25 bg-gradient-to-r from-cyan-500/10 to-orange-500/10 p-5 shadow-lg"
         >
           <p className="text-xs font-bold uppercase tracking-[0.12em] text-cyan-700 dark:text-cyan-200">
-            Accomplishment & Work
+            {language === 'en' ? 'Accomplishment & Work' : amText.workLabel}
           </p>
-          <h3 className="mt-2 text-2xl font-extrabold text-[var(--site-text)]">{tableauPublicWork.title}</h3>
+          <h3 className="mt-2 text-2xl font-extrabold text-[var(--site-text)]">
+            {language === 'en' ? tableauPublicWork.title : amText.workTitle}
+          </h3>
           <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[var(--site-muted)]">
-            {tableauPublicWork.description}
+            {language === 'en' ? tableauPublicWork.description : amText.workDescription}
           </p>
           <a
             href={tableauPublicWork.link}
@@ -272,7 +315,7 @@ export const Certifications: React.FC = () => {
             rel="noopener noreferrer"
             className="mt-4 inline-flex rounded-xl bg-gradient-to-r from-cyan-500 to-orange-500 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-cyan-800/25"
           >
-            View My Tableau Work
+            {language === 'en' ? 'View My Tableau Work' : amText.viewTableau}
           </a>
         </motion.div>
 
@@ -332,14 +375,14 @@ export const Certifications: React.FC = () => {
               onClick={showPrevPage}
               className="rounded-lg border border-[var(--site-border)] bg-[var(--site-panel)] px-4 py-2 text-xs font-bold uppercase tracking-[0.08em] text-[var(--site-muted)] hover:border-cyan-500/60 hover:text-cyan-600"
             >
-              Previous
+              {language === 'en' ? 'Previous' : amText.previous}
             </button>
             <button
               type="button"
               onClick={showNextPage}
               className="rounded-lg border border-[var(--site-border)] bg-[var(--site-panel)] px-4 py-2 text-xs font-bold uppercase tracking-[0.08em] text-[var(--site-muted)] hover:border-cyan-500/60 hover:text-cyan-600"
             >
-              Next
+              {language === 'en' ? 'Next' : amText.next}
             </button>
           </div>
         )}
@@ -395,29 +438,29 @@ export const Certifications: React.FC = () => {
                         onClick={showPrev}
                         className="rounded-lg border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-bold text-white hover:bg-white/20"
                       >
-                        Prev
+                        {language === 'en' ? 'Prev' : amText.previous}
                       </button>
                       <button
                         type="button"
                         onClick={showNext}
                         className="rounded-lg border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-bold text-white hover:bg-white/20"
                       >
-                        Next
+                        {language === 'en' ? 'Next' : amText.next}
                       </button>
                     </div>
                   </div>
 
                   <p className="inline-flex rounded-full border border-cyan-300/30 bg-cyan-400/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-cyan-200">
-                    Verified Certification
+                    {language === 'en' ? 'Verified Certification' : amText.verified}
                   </p>
                   <h3 id="cert-modal-title" className="mt-4 text-2xl font-extrabold leading-tight text-white">
                     {selectedCert.alt}
                   </h3>
                   <p className="mt-4 text-sm font-semibold text-orange-200">
-                    Issuer: {selectedCert.issuer}
+                    {language === 'en' ? 'Issuer' : amText.issuer}: {selectedCert.issuer}
                   </p>
                   <p className="mt-2 text-sm leading-relaxed text-slate-300">
-                    Focus: {selectedCert.focus}
+                    {language === 'en' ? 'Focus' : amText.focus}: {selectedCert.focus}
                   </p>
 
                   <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-slate-200">
@@ -431,7 +474,7 @@ export const Certifications: React.FC = () => {
                       rel="noopener noreferrer"
                       className="mt-4 inline-flex rounded-xl border border-cyan-300/30 bg-cyan-400/10 px-5 py-2.5 text-sm font-bold text-cyan-100 hover:bg-cyan-400/20"
                     >
-                      View Certificate
+                      {language === 'en' ? 'View Certificate' : amText.viewCertificate}
                     </a>
                   )}
 
@@ -440,7 +483,7 @@ export const Certifications: React.FC = () => {
                     onClick={() => setSelectedIndex(null)}
                     className="mt-6 inline-flex rounded-xl bg-gradient-to-r from-cyan-500 to-orange-500 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-cyan-800/30"
                   >
-                    Close
+                    {language === 'en' ? 'Close' : amText.close}
                   </button>
                 </div>
               </div>

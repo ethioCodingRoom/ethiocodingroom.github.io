@@ -3,13 +3,22 @@ import { motion } from 'framer-motion';
 import { FaMoon, FaSun, FaBars, FaCircleHalfStroke } from 'react-icons/fa6';
 import { FaTimes } from 'react-icons/fa';
 import { fadeIn, springTap } from '../animations';
+import { useLanguage } from '../i18n';
 
 export const Header: React.FC<{ onToggleDark: () => void }> = ({ onToggleDark }) => {
   const [open, setOpen] = React.useState(false);
   const [now, setNow] = React.useState(() => new Date());
+  const { language, toggleLanguage } = useLanguage();
 
   // Single source of truth used by both desktop and mobile menus.
-  const navItems = ['About', 'Skills', 'Projects', 'Certifications', 'Blog', 'Contact'];
+  const navItems = [
+    { id: 'about', en: 'About', am: 'ስለ እኔ' },
+    { id: 'skills', en: 'Skills', am: 'ክህሎቶች' },
+    { id: 'projects', en: 'Projects', am: 'ፕሮጀክቶች' },
+    { id: 'certifications', en: 'Certifications', am: 'ሰርቲፊኬቶች' },
+    { id: 'blog', en: 'Blog', am: 'ብሎግ' },
+    { id: 'contact', en: 'Contact', am: 'አግኙኝ' },
+  ];
 
   React.useEffect(() => {
     // Tick once per second so the Addis Ababa clock remains live.
@@ -51,7 +60,7 @@ export const Header: React.FC<{ onToggleDark: () => void }> = ({ onToggleDark })
               Asres Gamu Yelia
             </span>
             <span className="hidden text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--site-muted)] sm:block">
-              Data Analytics Portfolio
+              {language === 'en' ? 'Data Analytics Portfolio' : 'የዳታ ትንታኔ ፖርትፎሊዮ'}
             </span>
           </div>
         </a>
@@ -59,13 +68,22 @@ export const Header: React.FC<{ onToggleDark: () => void }> = ({ onToggleDark })
         <nav className="hidden items-center gap-6 md:flex">
           {navItems.map((item) => (
             <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
+              key={item.id}
+              href={`#${item.id}`}
               className="text-sm font-semibold text-[var(--site-muted)] hover:text-[var(--site-brand)]"
             >
-              {item}
+              {language === 'en' ? item.en : item.am}
             </a>
           ))}
+
+          <button
+            type="button"
+            onClick={toggleLanguage}
+            className="rounded-xl border border-[var(--site-border)] bg-white/60 px-3 py-1.5 text-xs font-bold text-[var(--site-brand)] shadow-sm hover:bg-white dark:bg-slate-900/60"
+            aria-label="Toggle language"
+          >
+            {language === 'en' ? 'አማ' : 'EN'}
+          </button>
 
           <div className="hidden items-center gap-2 rounded-xl border border-[var(--site-border)] bg-white/60 px-3 py-1.5 dark:bg-slate-900/60 lg:flex">
             <span
@@ -79,7 +97,7 @@ export const Header: React.FC<{ onToggleDark: () => void }> = ({ onToggleDark })
             {...springTap}
             onClick={onToggleDark}
             className="rounded-xl border border-[var(--site-border)] bg-white/60 p-2.5 text-[var(--site-brand)] shadow-sm hover:bg-white dark:bg-slate-900/60"
-            aria-label="Toggle color theme"
+            aria-label={language === 'en' ? 'Toggle color theme' : 'የቀለም ገጽታ ቀይር'}
           >
             <FaMoon className="hidden dark:block" />
             <FaSun className="block dark:hidden" />
@@ -107,14 +125,24 @@ export const Header: React.FC<{ onToggleDark: () => void }> = ({ onToggleDark })
           <nav className="flex flex-col gap-4">
             {navItems.map((item) => (
               <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
+                key={item.id}
+                href={`#${item.id}`}
                 onClick={() => setOpen(false)}
                 className="text-base font-semibold text-[var(--site-muted)]"
               >
-                {item}
+                {language === 'en' ? item.en : item.am}
               </a>
             ))}
+
+            <button
+              onClick={() => {
+                toggleLanguage();
+                setOpen(false);
+              }}
+              className="mt-1 flex items-center justify-center gap-2 rounded-xl border border-[var(--site-border)] px-4 py-2.5 font-semibold text-[var(--site-text)]"
+            >
+              {language === 'en' ? 'Switch to Amharic' : 'ወደ እንግሊዝኛ ቀይር'}
+            </button>
 
             <button
               onClick={() => {
@@ -123,7 +151,7 @@ export const Header: React.FC<{ onToggleDark: () => void }> = ({ onToggleDark })
               }}
               className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-600 to-orange-500 px-4 py-2.5 font-semibold text-white"
             >
-              <FaCircleHalfStroke /> Switch Theme
+              <FaCircleHalfStroke /> {language === 'en' ? 'Switch Theme' : 'ገጽታ ቀይር'}
             </button>
           </nav>
         </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { hoverCard, fadeInUp, revealViewport, staggerContainer } from '../animations';
+import { useLanguage } from '../i18n';
 
 type Project = {
   title: string;
@@ -84,6 +85,8 @@ const projects: Project[] = [
 ];
 
 export const Projects: React.FC = () => {
+  const { language } = useLanguage();
+  const isAm = language === 'am';
   const [imageStep, setImageStep] = React.useState(0);
   const [activeFilter, setActiveFilter] = React.useState('All');
   const enableHoverFx = React.useMemo(() => {
@@ -147,10 +150,12 @@ export const Projects: React.FC = () => {
         viewport={revealViewport}
         className="mb-4 text-center text-3xl font-extrabold sm:text-4xl md:text-5xl"
       >
-        Featured Projects
+        {isAm ? 'ተመርጠው የቀረቡ ፕሮጀክቶች' : 'Featured Projects'}
       </motion.h2>
       <p className="mx-auto mb-12 max-w-2xl text-center text-[var(--site-muted)]">
-        A selection of practical analytics and automation work focused on measurable outcomes.
+        {isAm
+          ? 'በሊለካ በሚችል ውጤት ላይ የተመሰረቱ ተግባራዊ የአናሊቲክስ እና አውቶሜሽን ስራዎች ምርጫ።'
+          : 'A selection of practical analytics and automation work focused on measurable outcomes.'}
       </p>
 
       <div className="mb-8 flex flex-wrap justify-center gap-2.5">
@@ -165,7 +170,7 @@ export const Projects: React.FC = () => {
                 : 'border-[var(--site-border)] bg-[var(--site-panel)] text-[var(--site-muted)] hover:border-cyan-500/40 hover:text-[var(--site-text)]'
             }`}
           >
-            {filter}
+            {filter === 'All' && isAm ? 'ሁሉም' : filter}
           </button>
         ))}
       </div>
@@ -231,9 +236,9 @@ export const Projects: React.FC = () => {
                 ))}
               </div>
               <div className="flex gap-4">
-                <a className="font-bold text-cyan-700 hover:text-cyan-600 dark:text-cyan-300" href={p.gh} target="_blank" rel="noreferrer">Source Code ↗</a>
+                <a className="font-bold text-cyan-700 hover:text-cyan-600 dark:text-cyan-300" href={p.gh} target="_blank" rel="noreferrer">{isAm ? 'ምንጭ ኮድ ↗' : 'Source Code ↗'}</a>
                 {p.live !== '#' && (
-                  <a className="font-bold text-orange-600 hover:text-orange-500 dark:text-orange-300" href={p.live} target="_blank" rel="noreferrer">{p.liveLabel ?? 'Project Showcase'} ↗</a>
+                  <a className="font-bold text-orange-600 hover:text-orange-500 dark:text-orange-300" href={p.live} target="_blank" rel="noreferrer">{isAm ? (p.liveLabel ? p.liveLabel : 'የፕሮጀክት ማሳያ') : (p.liveLabel ?? 'Project Showcase')} ↗</a>
                 )}
               </div>
             </motion.div>

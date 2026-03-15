@@ -10,8 +10,10 @@ import { Certifications } from "./components/Certifications";
 import { Blog } from "./components/Blog";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
+import { useLanguage } from "./i18n";
 
 export default function App() {
+  const { language } = useLanguage();
   const [dark, setDark] = useState(() => {
     if (typeof window === "undefined") return true;
 
@@ -54,7 +56,7 @@ export default function App() {
         href="#main-content"
         className="fixed left-3 top-3 z-[100] -translate-y-24 rounded-lg border border-cyan-500/40 bg-[var(--site-panel)] px-3 py-2 text-sm font-bold text-[var(--site-text)] shadow-lg transition-transform focus:translate-y-0 focus:outline-none"
       >
-        Skip to content
+        {language === "en" ? "Skip to content" : "ወደ ዋና ይዘት ይሂዱ"}
       </a>
 
       {/* Background Particles */}
@@ -80,12 +82,12 @@ export default function App() {
       <button
         type="button"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        aria-label="Back to top"
+        aria-label={language === "en" ? "Back to top" : "ወደ ላይ ተመለስ"}
         className={`fixed bottom-5 right-5 z-50 rounded-full border border-[var(--site-border)] bg-[var(--site-panel)] px-4 py-2.5 text-sm font-bold text-[var(--site-text)] shadow-xl transition-all duration-300 hover:-translate-y-0.5 ${
           showBackToTop ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         }`}
       >
-        Top ↑
+        {language === "en" ? "Top ↑" : "ወደ ላይ ↑"}
       </button>
     </div>
   );

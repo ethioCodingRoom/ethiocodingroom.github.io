@@ -1,8 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { fadeInUp, springTap, revealViewport } from '../animations';
+import { useLanguage } from '../i18n';
 
 export const Contact: React.FC = () => {
+  const { language } = useLanguage();
+  const isAm = language === 'am';
   const [loading, setLoading] = React.useState(false);
   const [ok, setOk] = React.useState<null | boolean>(null);
 
@@ -41,13 +44,15 @@ export const Contact: React.FC = () => {
           viewport={revealViewport}
           className="mb-4 bg-gradient-to-r from-cyan-600 to-orange-500 bg-clip-text text-center text-4xl font-extrabold text-transparent"
         >
-          Let's Work Together
+          {isAm ? 'አብረን እንስራ' : "Let's Work Together"}
         </motion.h2>
         <p className="mx-auto mb-12 max-w-2xl text-center text-[var(--site-muted)]">
-          Hiring for a data role or need analytics support? Share your goals, and I will respond within 24 hours.
+          {isAm
+            ? 'ለዳታ ስራ እየቀጠሩ ነው ወይስ የአናሊቲክስ ድጋፍ ይፈልጋሉ? ዓላማዎትን ያጋሩኝ፣ በ24 ሰዓት ውስጥ ምላሽ እሰጣለሁ።'
+            : 'Hiring for a data role or need analytics support? Share your goals, and I will respond within 24 hours.'}
         </p>
         <p className="mx-auto -mt-8 mb-8 max-w-2xl text-center text-sm font-semibold text-cyan-700 dark:text-cyan-300">
-          Available for freelance, contract, and full-time opportunities.
+          {isAm ? 'ለfreelance፣ contract እና full-time እድሎች ክፍት ነኝ።' : 'Available for freelance, contract, and full-time opportunities.'}
         </p>
 
         <motion.form 
@@ -61,7 +66,7 @@ export const Contact: React.FC = () => {
           className="rounded-3xl border border-[var(--site-border)] bg-[var(--site-panel)] p-8 shadow-2xl backdrop-blur-xl sm:p-12"
         >
           <div className="mb-6">
-            <label htmlFor="contactName" className="mb-2 block text-sm font-bold text-[var(--site-text)]">Name</label>
+            <label htmlFor="contactName" className="mb-2 block text-sm font-bold text-[var(--site-text)]">{isAm ? 'ስም' : 'Name'}</label>
             <input 
               id="contactName" 
               name="name" 
@@ -74,7 +79,7 @@ export const Contact: React.FC = () => {
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <div>
-              <label htmlFor="contactEmail" className="mb-2 block text-sm font-bold text-[var(--site-text)]">Email</label>
+              <label htmlFor="contactEmail" className="mb-2 block text-sm font-bold text-[var(--site-text)]">{isAm ? 'ኢሜይል' : 'Email'}</label>
               <input 
                 id="contactEmail" 
                 name="email" 
@@ -86,7 +91,7 @@ export const Contact: React.FC = () => {
               />
             </div>
             <div>
-              <label htmlFor="contactPhone" className="mb-2 block text-sm font-bold text-[var(--site-text)]">Phone (Optional)</label>
+              <label htmlFor="contactPhone" className="mb-2 block text-sm font-bold text-[var(--site-text)]">{isAm ? 'ስልክ (አማራጭ)' : 'Phone (Optional)'}</label>
               <input 
                 id="contactPhone" 
                 name="phone" 
@@ -99,13 +104,13 @@ export const Contact: React.FC = () => {
           </div>
 
           <div className="mt-6">
-            <label htmlFor="contactMessage" className="mb-2 block text-sm font-bold text-[var(--site-text)]">Project or Role Details</label>
+            <label htmlFor="contactMessage" className="mb-2 block text-sm font-bold text-[var(--site-text)]">{isAm ? 'የፕሮጀክት ወይም የስራ ዝርዝሮች' : 'Project or Role Details'}</label>
             <textarea 
               id="contactMessage" 
               name="message" 
               rows={5} 
               required 
-              placeholder="Tell me about the role, project scope, and timeline."
+              placeholder={isAm ? 'ስለ ስራው፣ ስፋቱ እና ጊዜ ሰሌዳው ይንገሩኝ።' : 'Tell me about the role, project scope, and timeline.'}
               className="w-full rounded-xl border border-[var(--site-border)] bg-white/80 px-4 py-3 outline-none transition-all focus:ring-2 focus:ring-cyan-500 dark:bg-slate-950/60" 
             />
           </div>
@@ -116,19 +121,19 @@ export const Contact: React.FC = () => {
             disabled={loading}
             className="mt-8 w-full rounded-xl bg-gradient-to-r from-cyan-600 to-orange-500 py-4 text-lg font-bold text-white shadow-lg shadow-cyan-500/30 transition-all"
           >
-            {loading ? 'Sending…' : 'Start a Conversation'}
+            {loading ? (isAm ? 'በመላክ ላይ…' : 'Sending…') : (isAm ? 'ውይይት ይጀምሩ' : 'Start a Conversation')}
           </motion.button>
 
           <div className="mt-6 text-center min-h-[24px]">
             <div aria-live="polite" aria-atomic="true" role="status">
               {ok === true && (
                 <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="font-bold text-emerald-600 dark:text-emerald-400">
-                  ✓ Thank you. Your message has been received and I will follow up soon.
+                  {isAm ? '✓ እናመሰግናለን። መልዕክትዎ ደርሷል እና በቅርቡ እመለሳለሁ።' : '✓ Thank you. Your message has been received and I will follow up soon.'}
                 </motion.p>
               )}
               {ok === false && (
                 <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="font-bold text-red-600 dark:text-red-400">
-                  ⚠ Message not sent. Please try again or contact me by email.
+                  {isAm ? '⚠ መልዕክቱ አልተላከም። እባክዎ ደግመው ይሞክሩ ወይም በኢሜይል ያግኙኝ።' : '⚠ Message not sent. Please try again or contact me by email.'}
                 </motion.p>
               )}
             </div>

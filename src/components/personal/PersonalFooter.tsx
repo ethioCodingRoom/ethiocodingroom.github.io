@@ -1,6 +1,6 @@
 import { FaGithub, FaYoutube, FaFacebook, FaTelegram, FaTwitter, FaTiktok } from 'react-icons/fa';
 import { IoLogoTableau } from 'react-icons/io5';
-import { SiHackerrank, SiKaggle, SiDatacamp, SiCoursera, SiReact, SiTypescript, SiTailwindcss, SiVite, SiGeeksforgeeks, SiCredly } from 'react-icons/si';
+import { SiHackerrank, SiKaggle, SiDatacamp, SiCoursera, SiReact, SiTypescript, SiTailwindcss, SiVite, SiGeeksforgeeks, SiCredly, SiR } from 'react-icons/si';
 
 export const PersonalFooter = () => {
   return (
@@ -26,10 +26,11 @@ export const PersonalFooter = () => {
           </p>
           <div className="flex flex-wrap justify-center gap-2 text-2xl md:justify-start">
             <a href="https://github.com/ethioCodingRoom" target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub" className="rounded-lg p-2"><FaGithub className="transition-colors hover:text-gray-400" /></a>
-            <a href="https://www.hackerrank.com/ethioCodingRoom" target="_blank" rel="noreferrer" aria-label="HackerRank" title="HackerRank" className="rounded-lg p-2"><SiHackerrank className="transition-colors hover:text-green-500" /></a>
+            <a href="https://www.hackerrank.com/profile/asresgamu" target="_blank" rel="noreferrer" aria-label="HackerRank" title="HackerRank" className="rounded-lg p-2"><SiHackerrank className="transition-colors hover:text-green-500" /></a>
             <a href="https://www.coursera.org/user/ethioCodingRoom" target="_blank" rel="noreferrer" aria-label="Coursera" title="Coursera" className="rounded-lg p-2"><SiCoursera className="transition-colors hover:text-blue-500" /></a>
             <a href="https://www.datacamp.com/portfolio/asresgamu" target="_blank" rel="noreferrer" aria-label="DataCamp" title="DataCamp" className="rounded-lg p-2"><SiDatacamp className="transition-colors hover:text-yellow-500" /></a>
-            <a href="https://www.kaggle.com/ethioCodingRoom" target="_blank" rel="noreferrer" aria-label="Kaggle" title="Kaggle" className="rounded-lg p-2"><SiKaggle className="transition-colors hover:text-blue-400" /></a>
+            <a href="https://www.kaggle.com/asresgamu" target="_blank" rel="noreferrer" aria-label="Kaggle" title="Kaggle" className="rounded-lg p-2"><SiKaggle className="transition-colors hover:text-blue-400" /></a>
+            <a href="https://posit.cloud/spaces/736077/users/3504229" target="_blank" rel="noreferrer" aria-label="R / Posit Cloud" title="R / Posit Cloud" className="rounded-lg p-2"><SiR className="transition-colors hover:text-blue-500" /></a>
             <a href="https://public.tableau.com/app/profile/asres.yelia/vizzes" target="_blank" rel="noreferrer" aria-label="Tableau Public" title="Tableau Public" className="rounded-lg p-2"><IoLogoTableau className="transition-colors hover:text-sky-400" /></a>
             <a href="https://www.geeksforgeeks.org/profile/asresgamu/" target="_blank" rel="noreferrer" aria-label="GeeksforGeeks" title="GeeksforGeeks" className="rounded-lg p-2"><SiGeeksforgeeks className="text-gray-400 transition-colors hover:text-green-500" /></a>
             <a href="https://www.credly.com/users/ethiocodingroom" target="_blank" rel="noreferrer" aria-label="Credly" title="Credly" className="rounded-lg p-2"><SiCredly className="transition-colors hover:text-orange-400" /></a>

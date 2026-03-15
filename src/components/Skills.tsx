@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaCheckCircle } from 'react-icons/fa';
 import { fadeInUp, staggerContainer, revealViewport } from '../animations';
+import { useLanguage } from '../i18n';
 
 const skillCategories = [
   {
@@ -33,6 +34,19 @@ const skillCategories = [
 const workingStyles = ['Solution Oriented', 'Detail Oriented', 'Reliable Delivery'];
 
 export const Skills: React.FC = () => {
+  const { language } = useLanguage();
+  const isAm = language === 'am';
+
+  const categoryTitleMap: Record<string, string> = {
+    'Data Analytics': 'ዳታ ትንታኔ',
+    'Business Intelligence': 'ቢዝነስ ኢንተለጀንስ',
+    'Programming & Scripting': 'ፕሮግራሚንግ እና ስክሪፕቲንግ',
+    'Databases & Modeling': 'ዳታቤዞች እና ሞዴሊንግ',
+    'Automation & Reporting': 'አውቶሜሽን እና ሪፖርቲንግ',
+    'Data Science Tools': 'የዳታ ሳይንስ መሳሪያዎች',
+  };
+
+  const stylesAm = ['ለመፍትሄ የሚተኩር', 'ለዝርዝር የሚጠነቀቅ', 'አስተማማኝ አቅርቦት'];
   const enableHoverFx = React.useMemo(() => {
     if (typeof window === 'undefined') return false;
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -74,10 +88,12 @@ export const Skills: React.FC = () => {
         viewport={revealViewport}
         className="mb-4 text-center text-3xl font-extrabold sm:text-4xl md:text-5xl"
       >
-        Skills &amp; Expertise
+        {isAm ? 'ክህሎቶች እና ሙያዊ ብቃት' : 'Skills & Expertise'}
       </motion.h2>
       <p className="mx-auto mb-12 max-w-2xl text-center text-[var(--site-muted)]">
-        Tools and technologies I use to build reliable analytics systems and reporting experiences.
+        {isAm
+          ? 'አስተማማኝ የአናሊቲክስ ስርዓቶችን እና ሪፖርቲንግ ልምዶችን ለመገንባት የምጠቀምባቸው መሳሪያዎች እና ቴክኖሎጂዎች።'
+          : 'Tools and technologies I use to build reliable analytics systems and reporting experiences.'}
       </p>
 
       <div className="rounded-3xl border border-[var(--site-border)] bg-[var(--site-panel)] p-8 shadow-[0_8px_32px_rgba(0,0,0,0.08)] backdrop-blur sm:p-12">
@@ -112,7 +128,7 @@ export const Skills: React.FC = () => {
                 }}
               />
               <h3 className="mb-4 text-sm font-extrabold uppercase tracking-[0.12em] text-[var(--site-text)]">
-                {category.title}
+                {isAm ? (categoryTitleMap[category.title] ?? category.title) : category.title}
               </h3>
               <div className="relative z-10 flex flex-wrap gap-2.5">
                 {category.skills.map((skill) => (
@@ -142,10 +158,10 @@ export const Skills: React.FC = () => {
           className="text-center"
         >
           <p className="mb-6 text-xl font-bold tracking-tight text-[var(--site-text)]">
-            Professional Approach
+            {isAm ? 'ሙያዊ አቀራረብ' : 'Professional Approach'}
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            {workingStyles.map(style => (
+            {(isAm ? stylesAm : workingStyles).map(style => (
               <span 
                 key={style}
                 className="inline-flex items-center rounded-xl border border-orange-500/20 bg-orange-500/10 px-5 py-3 text-sm font-bold text-orange-700 shadow-lg shadow-orange-500/5 dark:text-orange-300"
