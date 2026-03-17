@@ -21,9 +21,8 @@ export const LanguageProvider: React.FC<React.PropsWithChildren> = ({ children }
     const saved = window.localStorage.getItem('language');
     if (saved === 'am' || saved === 'en') return saved;
 
-    // Fall back to browser locale (am-ET opens Amharic by default).
-    const browserLang = window.navigator.language?.toLowerCase() ?? 'en';
-    return browserLang.startsWith('am') ? 'am' : 'en';
+    // For first-time visitors, default to Amharic on this site.
+    return 'am';
   });
 
   React.useEffect(() => {
