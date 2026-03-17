@@ -13,7 +13,7 @@ import { Footer } from "./components/Footer";
 import { useLanguage } from "./i18n";
 
 export default function App() {
-  const { language } = useLanguage();
+  const { language, toggleLanguage } = useLanguage();
   const [dark, setDark] = useState(() => {
     if (typeof window === "undefined") return true;
 
@@ -88,6 +88,15 @@ export default function App() {
         }`}
       >
         {language === "en" ? "Top ↑" : "ወደ ላይ ↑"}
+      </button>
+
+      <button
+        type="button"
+        onClick={toggleLanguage}
+        aria-label={language === "en" ? "Switch to Amharic" : "Switch to English"}
+        className="fixed bottom-5 left-5 z-50 rounded-full border border-cyan-500/40 bg-[var(--site-panel)] px-4 py-2.5 text-sm font-bold text-[var(--site-text)] shadow-xl transition-all duration-300 hover:-translate-y-0.5"
+      >
+        {language === "en" ? "አማርኛ" : "English"}
       </button>
     </div>
   );
