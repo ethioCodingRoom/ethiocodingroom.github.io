@@ -13,8 +13,17 @@ const LanguageContext = React.createContext<LanguageContextValue | undefined>(un
 export const LanguageProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const [language, setLanguage] = React.useState<Language>(() => {
     if (typeof window === 'undefined') return 'en';
+
+    // Allow a direct deploy URL switch, e.g. ?lang=am.
+    const fromUrl = new URLSearchParams(window.location.search).get('lang');
+    if (fromUrl === 'am' || fromUrl === 'en') return fromUrl;
+
     const saved = window.localStorage.getItem('language');
-    return saved === 'am' ? 'am' : 'en';
+    if (saved === 'am' || saved === 'en') return saved;
+
+    // Fall back to browser locale (am-ET opens Amharic by default).
+    const browserLang = window.navigator.language?.toLowerCase() ?? 'en';
+    return browserLang.startsWith('am') ? 'am' : 'en';
   });
 
   React.useEffect(() => {
