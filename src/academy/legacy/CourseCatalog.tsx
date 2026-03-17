@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaArrowRight, FaClock, FaLayerGroup, FaSignal } from 'react-icons/fa';
-import { fadeInUp, revealViewport, staggerContainer } from '../animations';
+import { fadeInUp, revealViewport, staggerContainer } from '../../animations';
 
 const courses = [
   {

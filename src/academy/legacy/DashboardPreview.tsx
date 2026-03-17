@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaBook, FaCalendarAlt, FaChartLine, FaPlayCircle } from 'react-icons/fa';
-import { fadeInUp, revealViewport } from '../animations';
+import { fadeInUp, revealViewport } from '../../animations';
 
 const progressCards = [
   { label: 'Tracks In Progress', value: '3', icon: FaBook },
