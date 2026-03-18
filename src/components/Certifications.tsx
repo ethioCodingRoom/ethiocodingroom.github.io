@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { fadeInUp, revealViewport } from '../animations';
 import { useLanguage } from '../i18n';
 
-const certs = [
+const rawCerts = [
   {
     src: '/getting_started_with_tableau_analytics_vidhya.png',
     alt: 'Getting Started with Tableau',
@@ -11,6 +11,8 @@ const certs = [
     focus: 'Tableau foundations for beginner-level data visualization workflows and dashboard thinking.',
     impact: 'Strengthened my ability to create interactive visual stories and communicate insights more clearly using Tableau.',
     verifyUrl: 'https://courses.analyticsvidhya.com/certificates/xevjpje7cy',
+    earnedLabel: 'Date not listed',
+    earnedSort: 0,
   },
   {
     src: '/introduction_to_sql_simplilearn.png',
@@ -19,6 +21,8 @@ const certs = [
     focus: 'SQL basics including querying, filtering, and foundational database concepts for analytics work.',
     impact: 'Strengthened my ability to extract, organize, and analyze structured data using core SQL concepts.',
     verifyUrl: 'https://simpli-web.app.link/e/uRJPcomsw1b',
+    earnedLabel: 'Date not listed',
+    earnedSort: 0,
   },
   {
     src: '/python_for_beginners_simplilearn.png',
@@ -27,6 +31,8 @@ const certs = [
     focus: 'Python basics for programming fundamentals, syntax, and beginner-friendly problem solving.',
     impact: 'Built a stronger foundation in Python programming that supports my analytics, automation, and data project work.',
     verifyUrl: 'https://simpli-web.app.link/e/bcY2Nytsw1b',
+    earnedLabel: 'Date not listed',
+    earnedSort: 0,
   },
   {
     src: '/excel_for_beginners_great_learning.png',
@@ -34,6 +40,8 @@ const certs = [
     issuer: 'Great Learning Academy',
     focus: 'Spreadsheet foundations including formulas, tabular analysis, and practical Excel workflows for beginners.',
     impact: 'Improved my ability to structure, clean, and analyze data efficiently using Excel for reporting and decision support.',
+    earnedLabel: 'Date not listed',
+    earnedSort: 0,
   },
   {
     src: '/cybersecurity_basics_protecting_your_data_in_the_digital_age.png',
@@ -41,6 +49,8 @@ const certs = [
     issuer: 'University of the People (Verified Webinar)',
     focus: 'Introductory 40-minute online webinar covering common cyber threats, data protection tools, and strong cyber hygiene practices.',
     impact: 'Gained practical skills in cybersecurity awareness, threat identification, data protection strategies, secure use of digital tools, and personal/professional data security.',
+    earnedLabel: 'Date not listed',
+    earnedSort: 0,
   },
   {
     src: '/ask_questions_to_make_data_driven_decisions.png',
@@ -48,6 +58,8 @@ const certs = [
     issuer: 'Google Data Analytics',
     focus: 'Problem framing and KPI thinking',
     impact: 'Strengthened my ability to translate business questions into measurable data analysis tasks.',
+    earnedLabel: 'Oct 2025',
+    earnedSort: 202510,
   },
   {
     src: '/data_literacy_professional_datacamp.png',
@@ -55,6 +67,8 @@ const certs = [
     issuer: 'DataCamp Skill Track',
     focus: 'Data understanding, communication, and storytelling for business decision-making',
     impact: 'Improved how I communicate insights clearly to both technical and non-technical stakeholders.',
+    earnedLabel: 'Date not listed',
+    earnedSort: 0,
   },
   {
     src: '/github_foundations_datacamp.png',
@@ -62,6 +76,8 @@ const certs = [
     issuer: 'DataCamp Skill Track (with GitHub)',
     focus: 'Git, GitHub collaboration concepts, and product workflows aligned with GitHub Foundations certification prep',
     impact: 'Built strong collaboration habits for version control, pull requests, and team-based delivery.',
+    earnedLabel: 'Date not listed',
+    earnedSort: 0,
   },
   {
     src: '/git_fundamentals_datacamp.png',
@@ -69,6 +85,8 @@ const certs = [
     issuer: 'DataCamp Skill Track',
     focus: 'Core to advanced Git workflows including branching, remotes, and efficient version control for team projects',
     impact: 'Improved my day-to-day code management with safer branching, merging, and release workflows.',
+    earnedLabel: 'Date not listed',
+    earnedSort: 0,
   },
   {
     src: '/data_analysis_fundamentals_udacity.png',
@@ -76,6 +94,8 @@ const certs = [
     issuer: 'Udacity Nanodegree Program',
     focus: 'Descriptive statistics, spreadsheets, and business metrics for practical analytics decision-making',
     impact: 'Established a strong foundation in metrics and analytical thinking for business reporting.',
+    earnedLabel: 'Date not listed',
+    earnedSort: 0,
   },
   {
     src: '/bsc_forensic_chemistry_toxicology_arba_minch_university.png',
@@ -83,6 +103,8 @@ const certs = [
     issuer: 'Arba Minch University',
     focus: 'Bachelor of Science degree in forensic chemistry and toxicology (2014-2018)',
     impact: 'Built disciplined scientific analysis, evidence interpretation, and structured problem-solving skills.',
+    earnedLabel: '2018',
+    earnedSort: 201800,
   },
   {
     src: '/postgraduate_diploma_police_science_ethiopian_police_university.png',
@@ -90,6 +112,8 @@ const certs = [
     issuer: 'Ethiopian Police University',
     focus: 'Postgraduate diploma in police science with formal academic completion (2019-2021)',
     impact: 'Strengthened professional judgment, ethics, and decision-making under operational constraints.',
+    earnedLabel: '2021',
+    earnedSort: 202100,
   },
   {
     src: '/data_analysis_and_visualization_with_python.jpg.png',
@@ -97,6 +121,8 @@ const certs = [
     issuer: 'Python Specialization',
     focus: 'Data exploration and storytelling visuals',
     impact: 'Enhanced my ability to build clear visual narratives from complex datasets using Python.',
+    earnedLabel: 'Sep 2025',
+    earnedSort: 202509,
   },
   {
     src: '/foundations_data_data_everywhere.jpg.png',
@@ -104,6 +130,8 @@ const certs = [
     issuer: 'Google Data Analytics',
     focus: 'Data lifecycle and analytics foundations',
     impact: 'Reinforced core data workflow knowledge from data collection to reporting and action.',
+    earnedLabel: 'Oct 2025',
+    earnedSort: 202510,
   },
   {
     src: '/prepare_data_for_exploration.png',
@@ -111,6 +139,8 @@ const certs = [
     issuer: 'Google Data Analytics',
     focus: 'Data collection and preparation workflows',
     impact: 'Improved my process for preparing clean, reliable datasets before analysis.',
+    earnedLabel: 'Nov 2025',
+    earnedSort: 202511,
   },
   {
     src: '/process_data_from_dirty_to_clean.png',
@@ -118,6 +148,8 @@ const certs = [
     issuer: 'Google Data Analytics',
     focus: 'Data quality, cleaning, and transformation',
     impact: 'Strengthened my practical skills in handling messy data and improving quality for decisions.',
+    earnedLabel: 'Nov 2025',
+    earnedSort: 202511,
   },
   {
     src: '/python_programming_fundamentals.png',
@@ -125,6 +157,8 @@ const certs = [
     issuer: 'Python Training Program',
     focus: 'Core Python for analytics automation',
     impact: 'Built solid Python fundamentals that support automation and repeatable analytics workflows.',
+    earnedLabel: 'Aug 2025',
+    earnedSort: 202508,
   },
   {
     src: '/version_control.png',
@@ -132,8 +166,15 @@ const certs = [
     issuer: 'Developer Tools Track',
     focus: 'Git workflow and collaboration',
     impact: 'Improved project reliability through consistent versioning, traceability, and teamwork practices.',
+    earnedLabel: 'Dec 2024',
+    earnedSort: 202412,
   },
 ];
+
+const certs = [...rawCerts].sort((a, b) => {
+  if (b.earnedSort !== a.earnedSort) return b.earnedSort - a.earnedSort;
+  return a.alt.localeCompare(b.alt);
+});
 
 const tableauPublicWork = {
   title: 'Tableau Public Portfolio',
@@ -153,6 +194,7 @@ const amText = {
   verified: 'የተረጋገጠ ሰርቲፊኬት',
   issuer: 'አቅራቢ',
   focus: 'ትኩረት',
+  earnedOn: 'የተገኘበት ጊዜ',
   viewCertificate: 'ሰርቲፊኬቱን ይመልከቱ',
   close: 'ዝጋ',
 };
@@ -364,6 +406,9 @@ export const Certifications: React.FC = () => {
               <p className="flex h-12 items-center justify-center px-2 text-center text-sm font-bold text-[var(--site-muted)]">
                 {c.alt}
               </p>
+              <p className="mt-1 rounded-full border border-cyan-600/20 bg-cyan-500/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.1em] text-cyan-700 dark:text-cyan-300">
+                {c.earnedLabel}
+              </p>
             </motion.div>
           ))}
         </div>
@@ -461,6 +506,9 @@ export const Certifications: React.FC = () => {
                   </p>
                   <p className="mt-2 text-sm leading-relaxed text-slate-300">
                     {language === 'en' ? 'Focus' : amText.focus}: {selectedCert.focus}
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-300">
+                    {language === 'en' ? 'Earned On' : amText.earnedOn}: {selectedCert.earnedLabel}
                   </p>
 
                   <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-slate-200">

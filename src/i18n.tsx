@@ -11,6 +11,9 @@ type LanguageContextValue = {
 const LanguageContext = React.createContext<LanguageContextValue | undefined>(undefined);
 
 export const LanguageProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
+  const languageStorageKey = 'language';
+  const languageExplicitChoiceKey = 'languageExplicitChoice';
+
   const [language, setLanguage] = React.useState<Language>(() => {
     if (typeof window === 'undefined') return 'en';
 
@@ -18,29 +21,38 @@ export const LanguageProvider: React.FC<React.PropsWithChildren> = ({ children }
     const fromUrl = new URLSearchParams(window.location.search).get('lang');
     if (fromUrl === 'am' || fromUrl === 'en') return fromUrl;
 
-    const saved = window.localStorage.getItem('language');
-    if (saved === 'am' || saved === 'en') return saved;
+    // Respect saved language only after a user has explicitly chosen one.
+    const explicitChoice = window.localStorage.getItem(languageExplicitChoiceKey) === 'true';
+    const saved = window.localStorage.getItem(languageStorageKey);
+    if (explicitChoice && (saved === 'am' || saved === 'en')) return saved;
 
-    // For first-time visitors, default to Amharic on this site.
-    return 'am';
+    // For first-time visitors, default to English on this site.
+    return 'en';
   });
 
   React.useEffect(() => {
-    window.localStorage.setItem('language', language);
+    window.localStorage.setItem(languageStorageKey, language);
     document.documentElement.setAttribute('lang', language === 'am' ? 'am' : 'en');
-  }, [language]);
+  }, [language, languageStorageKey]);
 
   const toggleLanguage = React.useCallback(() => {
+    window.localStorage.setItem(languageExplicitChoiceKey, 'true');
     setLanguage((prev) => (prev === 'en' ? 'am' : 'en'));
-  }, []);
+  }, [languageExplicitChoiceKey]);
+
+  const setLanguageWithChoice = React.useCallback((lang: Language) => {
+    window.localStorage.setItem(languageExplicitChoiceKey, 'true');
+    setLanguage(lang);
+  }, [languageExplicitChoiceKey]);
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, toggleLanguage }}>
+    <LanguageContext.Provider value={{ language, setLanguage: setLanguageWithChoice, toggleLanguage }}>
       {children}
     </LanguageContext.Provider>
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useLanguage = () => {
   const ctx = React.useContext(LanguageContext);
   if (!ctx) {
