@@ -79,6 +79,16 @@ const rawCerts = [
     earnedLabel: 'April 08, 2025',
     earnedSort: 202504,
   },
+
+  {
+  src: '/introduction_to_tableau.png',
+  alt: 'Introduction to Tableau',
+  issuer: 'DataCamp',
+  focus: 'Tableau fundamentals, data visualization, dashboards, and data analysis',
+  impact: 'Developed practical skills in building interactive dashboards, analyzing datasets, and applying data storytelling best practices using Tableau.',
+  earnedLabel: 'Mar 01, 2026',
+  earnedSort: 202603,
+},
   {
     src: '/git_fundamentals_datacamp.png',
     alt: 'Git Fundamentals',
@@ -148,7 +158,7 @@ const rawCerts = [
     issuer: 'Google Data Analytics',
     focus: 'Data quality, cleaning, and transformation',
     impact: 'Strengthened my practical skills in handling messy data and improving quality for decisions.',
-    earnedLabel: 'Nov 14, 2025',
+    earnedLabel: 'Nov , 2025',
     earnedSort: 202511,
   },
   {
@@ -160,6 +170,18 @@ const rawCerts = [
     earnedLabel: 'Aug 17, 2025',
     earnedSort: 202508,
   },
+
+{
+  src: '/introduction_to_power_bi.png',
+  alt: 'Introduction to Power BI',
+  issuer: 'DataCamp',
+  focus: 'Power BI fundamentals, data modeling, Power Query, and data visualization',
+  impact: 'Built strong skills in creating interactive dashboards, transforming data, and delivering insightful visual reports using Power BI.',
+  earnedLabel: 'Mar 05, 2026',
+  earnedSort: 202603,
+},
+
+
   {
     src: '/version_control.png',
     alt: 'Version Control Certification',
