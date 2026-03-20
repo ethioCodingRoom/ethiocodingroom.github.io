@@ -11,8 +11,8 @@ const rawCerts = [
     focus: 'Tableau foundations for beginner-level data visualization workflows and dashboard thinking.',
     impact: 'Strengthened my ability to create interactive visual stories and communicate insights more clearly using Tableau.',
     verifyUrl: 'https://courses.analyticsvidhya.com/certificates/xevjpje7cy',
-    earnedLabel: 'Date not listed',
-    earnedSort: 0,
+    earnedLabel: 'March 15, 2026',
+    earnedSort: 202603,
   },
   {
     src: '/introduction_to_sql_simplilearn.png',
@@ -21,8 +21,8 @@ const rawCerts = [
     focus: 'SQL basics including querying, filtering, and foundational database concepts for analytics work.',
     impact: 'Strengthened my ability to extract, organize, and analyze structured data using core SQL concepts.',
     verifyUrl: 'https://simpli-web.app.link/e/uRJPcomsw1b',
-    earnedLabel: 'Date not listed',
-    earnedSort: 0,
+    earnedLabel: 'August 30, 2022',
+    earnedSort: 202208,
   },
   {
     src: '/python_for_beginners_simplilearn.png',
@@ -31,8 +31,8 @@ const rawCerts = [
     focus: 'Python basics for programming fundamentals, syntax, and beginner-friendly problem solving.',
     impact: 'Built a stronger foundation in Python programming that supports my analytics, automation, and data project work.',
     verifyUrl: 'https://simpli-web.app.link/e/bcY2Nytsw1b',
-    earnedLabel: 'Date not listed',
-    earnedSort: 0,
+    earnedLabel: 'March 02, 2022',
+    earnedSort: 202203,
   },
   {
     src: '/excel_for_beginners_great_learning.png',
@@ -40,8 +40,8 @@ const rawCerts = [
     issuer: 'Great Learning Academy',
     focus: 'Spreadsheet foundations including formulas, tabular analysis, and practical Excel workflows for beginners.',
     impact: 'Improved my ability to structure, clean, and analyze data efficiently using Excel for reporting and decision support.',
-    earnedLabel: 'Date not listed',
-    earnedSort: 0,
+    earnedLabel: 'November 20, 2021',
+    earnedSort: 202111,
   },
   {
     src: '/cybersecurity_basics_protecting_your_data_in_the_digital_age.png',
@@ -49,8 +49,8 @@ const rawCerts = [
     issuer: 'University of the People (Verified Webinar)',
     focus: 'Introductory 40-minute online webinar covering common cyber threats, data protection tools, and strong cyber hygiene practices.',
     impact: 'Gained practical skills in cybersecurity awareness, threat identification, data protection strategies, secure use of digital tools, and personal/professional data security.',
-    earnedLabel: 'Date not listed',
-    earnedSort: 0,
+    earnedLabel: 'February 18, 2026',
+    earnedSort: 202602,
   },
   {
     src: '/ask_questions_to_make_data_driven_decisions.png',
@@ -58,7 +58,7 @@ const rawCerts = [
     issuer: 'Google Data Analytics',
     focus: 'Problem framing and KPI thinking',
     impact: 'Strengthened my ability to translate business questions into measurable data analysis tasks.',
-    earnedLabel: 'Oct 2025',
+    earnedLabel: 'Oct 22, 2025',
     earnedSort: 202510,
   },
   {
@@ -67,8 +67,8 @@ const rawCerts = [
     issuer: 'DataCamp Skill Track',
     focus: 'Data understanding, communication, and storytelling for business decision-making',
     impact: 'Improved how I communicate insights clearly to both technical and non-technical stakeholders.',
-    earnedLabel: 'Date not listed',
-    earnedSort: 0,
+    earnedLabel: 'July 03, 2025',
+    earnedSort: 202507,
   },
   {
     src: '/github_foundations_datacamp.png',
@@ -76,8 +76,8 @@ const rawCerts = [
     issuer: 'DataCamp Skill Track (with GitHub)',
     focus: 'Git, GitHub collaboration concepts, and product workflows aligned with GitHub Foundations certification prep',
     impact: 'Built strong collaboration habits for version control, pull requests, and team-based delivery.',
-    earnedLabel: 'Date not listed',
-    earnedSort: 0,
+    earnedLabel: 'April 08, 2025',
+    earnedSort: 202504,
   },
   {
     src: '/git_fundamentals_datacamp.png',
@@ -85,8 +85,8 @@ const rawCerts = [
     issuer: 'DataCamp Skill Track',
     focus: 'Core to advanced Git workflows including branching, remotes, and efficient version control for team projects',
     impact: 'Improved my day-to-day code management with safer branching, merging, and release workflows.',
-    earnedLabel: 'Date not listed',
-    earnedSort: 0,
+    earnedLabel: 'May 4, 2025',
+    earnedSort: 202505,
   },
   {
     src: '/data_analysis_fundamentals_udacity.png',
@@ -94,8 +94,8 @@ const rawCerts = [
     issuer: 'Udacity Nanodegree Program',
     focus: 'Descriptive statistics, spreadsheets, and business metrics for practical analytics decision-making',
     impact: 'Established a strong foundation in metrics and analytical thinking for business reporting.',
-    earnedLabel: 'Date not listed',
-    earnedSort: 0,
+    earnedLabel: 'August 24, 2024',
+    earnedSort: 202408,
   },
   {
     src: '/bsc_forensic_chemistry_toxicology_arba_minch_university.png',
@@ -121,7 +121,7 @@ const rawCerts = [
     issuer: 'Python Specialization',
     focus: 'Data exploration and storytelling visuals',
     impact: 'Enhanced my ability to build clear visual narratives from complex datasets using Python.',
-    earnedLabel: 'Sep 2025',
+    earnedLabel: 'Sep 2, 2025',
     earnedSort: 202509,
   },
   {
@@ -130,7 +130,7 @@ const rawCerts = [
     issuer: 'Google Data Analytics',
     focus: 'Data lifecycle and analytics foundations',
     impact: 'Reinforced core data workflow knowledge from data collection to reporting and action.',
-    earnedLabel: 'Oct 2025',
+    earnedLabel: 'Oct 3, 2025',
     earnedSort: 202510,
   },
   {
@@ -139,7 +139,7 @@ const rawCerts = [
     issuer: 'Google Data Analytics',
     focus: 'Data collection and preparation workflows',
     impact: 'Improved my process for preparing clean, reliable datasets before analysis.',
-    earnedLabel: 'Nov 2025',
+    earnedLabel: 'Nov 8, 2025',
     earnedSort: 202511,
   },
   {
@@ -148,7 +148,7 @@ const rawCerts = [
     issuer: 'Google Data Analytics',
     focus: 'Data quality, cleaning, and transformation',
     impact: 'Strengthened my practical skills in handling messy data and improving quality for decisions.',
-    earnedLabel: 'Nov 2025',
+    earnedLabel: 'Nov 14, 2025',
     earnedSort: 202511,
   },
   {
@@ -157,7 +157,7 @@ const rawCerts = [
     issuer: 'Python Training Program',
     focus: 'Core Python for analytics automation',
     impact: 'Built solid Python fundamentals that support automation and repeatable analytics workflows.',
-    earnedLabel: 'Aug 2025',
+    earnedLabel: 'Aug 17, 2025',
     earnedSort: 202508,
   },
   {
