@@ -72,7 +72,7 @@ export const Contact: React.FC = () => {
               name="name" 
               autoComplete="name"
               required 
-              placeholder="Asres Gamu Yelia"
+              placeholder="Your full name"
               className="w-full rounded-xl border border-[var(--site-border)] bg-white/80 px-4 py-3 outline-none transition-all focus:ring-2 focus:ring-cyan-500 dark:bg-slate-950/60" 
             />
           </div>
@@ -86,7 +86,7 @@ export const Contact: React.FC = () => {
                 type="email" 
                 autoComplete="email"
                 required 
-                placeholder="john@example.com"
+                placeholder="your email address (e.g., john@example.com)"
                 className="w-full rounded-xl border border-[var(--site-border)] bg-white/80 px-4 py-3 outline-none transition-all focus:ring-2 focus:ring-cyan-500 dark:bg-slate-950/60" 
               />
             </div>

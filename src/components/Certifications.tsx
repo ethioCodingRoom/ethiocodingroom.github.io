@@ -4,7 +4,40 @@ import { fadeInUp, revealViewport } from '../animations';
 import { useLanguage } from '../i18n';
 
 const rawCerts = [
+
   {
+    src: '/data_analysis_in_powerbi_with_chatgpt_365_data_science.png',
+    alt: 'Data Analysis in PowerBI with ChatGPT',
+    issuer: '365 Data Science',
+    focus: 'Integrating Generative AI with Business Intelligence to streamline the end-to-end data analytics lifecycle.',
+    impact: 'Mastered AI-driven workflows to accelerate DAX development, automate complex data cleaning, and generate suggested visualizations that drive faster, data-driven organizational decisions.',
+    verifyUrl: 'https://learn.365datascience.com/c/ba6ef2ca68/',
+    earnedLabel: 'March 21, 2026',
+    earnedSort: 202603,
+},
+{
+    src: '/accelerate_your_job_search_with_ai_google.png',
+    alt: 'Accelerate Your Job Search with AI',
+    issuer: 'Google (Coursera)',
+    focus: 'Leveraging Generative AI tools like Gemini and NotebookLM for career strategy and professional branding.',
+    impact: 'Mastered AI-driven workflows for resume optimization, skill mapping, and interview preparation with a 100% grade proficiency.',
+    verifyUrl: 'https://www.coursera.org/account/accomplishments/verify/YYFFDEXWRHO9',
+    earnedLabel: 'December 31, 2025',
+    earnedSort: 202512,
+},
+{
+    src: '/introduction_to_backend_development_meta.png',
+    alt: 'Introduction to Back-End Development',
+    issuer: 'Meta (Coursera)',
+    focus: 'Core web architecture, including HTML5, CSS3, and the distinction between front-end and back-end systems.',
+    impact: 'Gained foundational skills in web styling and UI frameworks, achieving a 100% grade to better support full-stack data integration projects.',
+    verifyUrl: 'https://www.coursera.org/account/accomplishments/verify/SEP9ER2T0PYV',
+    earnedLabel: 'January 29, 2025',
+    earnedSort: 202501,
+},
+
+  
+      {
     src: '/getting_started_with_tableau_analytics_vidhya.png',
     alt: 'Getting Started with Tableau',
     issuer: 'Analytics Vidhya',
@@ -52,15 +85,16 @@ const rawCerts = [
     earnedLabel: 'February 18, 2026',
     earnedSort: 202602,
   },
-  {
+ {
     src: '/ask_questions_to_make_data_driven_decisions.png',
     alt: 'Ask Questions to Make Data-Driven Decisions',
-    issuer: 'Google Data Analytics',
-    focus: 'Problem framing and KPI thinking',
-    impact: 'Strengthened my ability to translate business questions into measurable data analysis tasks.',
-    earnedLabel: 'Oct 22, 2025',
+    issuer: 'Google (Coursera)',
+    focus: 'Structured thinking, stakeholder communication, and defining SMART goals for data projects.',
+    impact: 'Mastered the problem-solving roadmap to translate vague business requests into measurable KPIs and structured data tasks, ensuring analysis aligns with organizational decision-making and stakeholder expectations.',
+    verifyUrl: 'https://www.coursera.org/account/accomplishments/verify/G17RDUGJ6TF1',
+    earnedLabel: 'October 22, 2025',
     earnedSort: 202510,
-  },
+},
   {
     src: '/data_literacy_professional_datacamp.png',
     alt: 'Data Literacy Professional',
@@ -125,30 +159,74 @@ const rawCerts = [
     earnedLabel: '2021',
     earnedSort: 202100,
   },
-  {
+{
     src: '/data_analysis_and_visualization_with_python.jpg.png',
     alt: 'Data Analysis and Visualization with Python',
-    issuer: 'Python Specialization',
-    focus: 'Data exploration and storytelling visuals',
-    impact: 'Enhanced my ability to build clear visual narratives from complex datasets using Python.',
-    earnedLabel: 'Sep 2, 2025',
+    issuer: 'Microsoft (Coursera)',
+    focus: 'Advanced data manipulation with Pandas, interactive visuals with Plotly, and foundational Machine Learning with Scikit-Learn.',
+    impact: 'Mastered the Python data stack to transform complex datasets into interactive visual narratives, incorporating data ethics and Generative AI to enhance analytical depth.',
+    verifyUrl: 'https://www.coursera.org/account/accomplishments/verify/8CK1ST7COPNC',
+    earnedLabel: 'September 2, 2025',
     earnedSort: 202509,
   },
+
   {
-    src: '/foundations_data_data_everywhere.jpg.png',
-    alt: 'Foundations: Data, Data, Everywhere',
-    issuer: 'Google Data Analytics',
-    focus: 'Data lifecycle and analytics foundations',
-    impact: 'Reinforced core data workflow knowledge from data collection to reporting and action.',
-    earnedLabel: 'Oct 3, 2025',
-    earnedSort: 202510,
+    src: '/python_programming_fundamentals.png',
+    alt: 'Python Programming Fundamentals',
+    issuer: 'Microsoft (Coursera)',
+    focus: 'Object-Oriented Programming (OOP), unit testing, and version control using Git and GitHub.',
+    impact: 'Established a robust programming foundation for analytics automation, utilizing Jupyter environments and industry-standard debugging practices to build repeatable, high-quality codebases.',
+    verifyUrl: 'https://www.coursera.org/account/accomplishments/verify/6R9GZJ5N2B7M', // Replaced with likely Meta link or placeholder
+    earnedLabel: 'August 17, 2025',
+    earnedSort: 202508,
+  },
+{
+    src: '/technical_support_fundamentals.png',
+    alt: 'Technical Support Fundamentals',
+    issuer: 'Google (Coursera)',
+    focus: 'IT infrastructure, hardware troubleshooting, networking protocols, and multi-OS environments (Windows/Linux).',
+    impact: 'Established a comprehensive technical foundation in systems software and hardware management, enabling a holistic approach to troubleshooting and documenting complex IT environments.',
+    verifyUrl: 'https://www.coursera.org/account/accomplishments/verify/WLLMBRDTE1JX',
+    earnedLabel: 'October 21, 2024',
+    earnedSort: 202410,
   },
   {
+    src: '/work_smarter_not_harder_time_management.png',
+    alt: 'Work Smarter, Not Harder: Time Management',
+    issuer: 'University of California, Irvine (Coursera)',
+    focus: 'Strategic prioritization, crisis management, and professional productivity frameworks.',
+    impact: 'Mastered techniques for efficient resource management and goal setting, applying structured planning and communication strategies to enhance personal and professional output.',
+    verifyUrl: 'https://www.coursera.org/account/accomplishments/verify/GF4VE1B9D9U3',
+    earnedLabel: 'September 9, 2024',
+    earnedSort: 202409,
+  },
+  {
+    src: '/data_analysis_with_r_programming_google.png',
+    alt: 'Data Analysis with R Programming',
+    issuer: 'Google (Coursera)',
+    focus: 'Statistical programming, data wrangling with Tidyverse, and advanced visualization using ggplot2.',
+    impact: 'Developed a 91.75% grade proficiency in cleaning complex datasets and creating reproducible data reports using RMarkdown.',
+    verifyUrl: 'https://www.coursera.org/account/accomplishments/verify/LYEJDLSL2793',
+    earnedLabel: 'January 4, 2026',
+    earnedSort: 202601,
+},
+{
+    src: '/foundations_data_data_everywhere.jpg.png',
+    alt: 'Foundations: Data, Data, Everywhere',
+    issuer: 'Google (Coursera)',
+    focus: 'Core data ecosystems, analytical thinking frameworks, and the role of SQL and spreadsheets in the data lifecycle.',
+    impact: 'Mastered the ability to define business problems, utilize SQL for data exploration, and apply data ethics to ensure integrity throughout the analysis process.',
+    verifyUrl: 'https://www.coursera.org/account/accomplishments/verify/S49QYD4HRWOT',
+    earnedLabel: 'October 4, 2025',
+    earnedSort: 202510,
+},
+   {
     src: '/prepare_data_for_exploration.png',
     alt: 'Prepare Data for Exploration',
     issuer: 'Google Data Analytics',
     focus: 'Data collection and preparation workflows',
     impact: 'Improved my process for preparing clean, reliable datasets before analysis.',
+    verifyUrl: 'https://www.coursera.org/account/accomplishments/verify/48X1VNN8CYS7',
     earnedLabel: 'Nov 8, 2025',
     earnedSort: 202511,
   },
@@ -156,20 +234,14 @@ const rawCerts = [
     src: '/process_data_from_dirty_to_clean.png',
     alt: 'Process Data from Dirty to Clean',
     issuer: 'Google Data Analytics',
-    focus: 'Data quality, cleaning, and transformation',
-    impact: 'Strengthened my practical skills in handling messy data and improving quality for decisions.',
-    earnedLabel: 'Nov , 2025',
+    focus: 'Data integrity, advanced SQL cleaning functions, and automated transformation workflows.',
+    impact: 'Mastered technical workflows to identify and mitigate data integrity risks, utilizing SQL and spreadsheets to perform complex string manipulations, data validation, and automated cleansing for high-quality analysis.',
+
+    verifyUrl: 'https://www.coursera.org/account/accomplishments/verify/G17RDUGJ6TF1',
+    earnedLabel: 'Nov 14, 2025',
     earnedSort: 202511,
   },
-  {
-    src: '/python_programming_fundamentals.png',
-    alt: 'Python Programming Fundamentals',
-    issuer: 'Python Training Program',
-    focus: 'Core Python for analytics automation',
-    impact: 'Built solid Python fundamentals that support automation and repeatable analytics workflows.',
-    earnedLabel: 'Aug 17, 2025',
-    earnedSort: 202508,
-  },
+
 
 {
   src: '/introduction_to_power_bi.png',
@@ -180,17 +252,17 @@ const rawCerts = [
   earnedLabel: 'Mar 05, 2026',
   earnedSort: 202603,
 },
-
-
-  {
-    src: '/version_control.png',
-    alt: 'Version Control Certification',
-    issuer: 'Developer Tools Track',
-    focus: 'Git workflow and collaboration',
-    impact: 'Improved project reliability through consistent versioning, traceability, and teamwork practices.',
-    earnedLabel: 'Dec 2024',
-    earnedSort: 202412,
+{
+    src: '/introduction_to_backend_development_meta.png',
+    alt: 'Introduction to Back-End Development',
+    issuer: 'Meta (Coursera)',
+    focus: 'Full-stack architecture, responsive web design, and front-end frameworks like React and Bootstrap.',
+    impact: 'Gained technical proficiency in building and styling responsive web applications using HTML5 and CSS3, providing a deep understanding of back-end data structures and front-end user interfaces.',
+    verifyUrl: 'https://www.coursera.org/account/accomplishments/verify/SEP9ER2T0PYV',
+    earnedLabel: 'January 29, 2025',
+    earnedSort: 202501,
   },
+
 ];
 
 const certs = [...rawCerts].sort((a, b) => {

@@ -5,7 +5,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif ;
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
 }
 
@@ -76,6 +76,7 @@
     --site-muted: #b8c3d6;
     --site-brand: #22d3ee;
     --site-accent: #fb923c;
+    
   }
 
   html.dark body {
