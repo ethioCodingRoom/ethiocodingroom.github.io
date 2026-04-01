@@ -4,9 +4,17 @@ import { fadeInUp, revealViewport } from '../animations';
 import { useLanguage } from '../i18n';
 
 const rawCerts = [
+    {
+    src: '/conflict_resolution_webinar.png',
+    alt: 'Conflict Resolution Webinar',
+    issuer: 'University of the People (Verified Webinar)',
+    focus: 'Introductory 40-minute online webinar covering conflict resolution strategies, communication techniques, and practical frameworks for managing workplace conflicts.', 
+    impact: 'Gained practical skills in conflict resolution, including effective communication, active listening, and structured approaches to de-escalate and resolve workplace conflicts.',
+    earnedLabel: 'March 11, 2026',
+    earnedSort: 202603,
+  },
 
-  {
-    src: '/data_analysis_in_powerbi_with_chatgpt_365_data_science.png',
+  { src: '/data_analysis_in_powerbi_with_chatgpt_365_data_science.png',
     alt: 'Data Analysis in PowerBI with ChatGPT',
     issuer: '365 Data Science',
     focus: 'Integrating Generative AI with Business Intelligence to streamline the end-to-end data analytics lifecycle.',
@@ -170,6 +178,7 @@ const rawCerts = [
     earnedSort: 202509,
   },
 
+
   {
     src: '/python_programming_fundamentals.png',
     alt: 'Python Programming Fundamentals',
@@ -200,7 +209,8 @@ const rawCerts = [
     earnedLabel: 'September 9, 2024',
     earnedSort: 202409,
   },
-  {
+
+ {
     src: '/data_analysis_with_r_programming_google.png',
     alt: 'Data Analysis with R Programming',
     issuer: 'Google (Coursera)',
