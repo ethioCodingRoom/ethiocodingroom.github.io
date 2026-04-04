@@ -10,6 +10,7 @@ const rawCerts = [
     issuer: 'University of the People (Verified Webinar)',
     focus: 'Introductory 40-minute online webinar covering conflict resolution strategies, communication techniques, and practical frameworks for managing workplace conflicts.', 
     impact: 'Gained practical skills in conflict resolution, including effective communication, active listening, and structured approaches to de-escalate and resolve workplace conflicts.',
+    verifyUrl: 'https://co-curricular-events.uopeople.edu/credentials/770326e8-826e-4b47-95ff-69af6c7bb3b7',
     earnedLabel: 'March 11, 2026',
     earnedSort: 202603,
   },
@@ -90,6 +91,7 @@ const rawCerts = [
     issuer: 'University of the People (Verified Webinar)',
     focus: 'Introductory 40-minute online webinar covering common cyber threats, data protection tools, and strong cyber hygiene practices.',
     impact: 'Gained practical skills in cybersecurity awareness, threat identification, data protection strategies, secure use of digital tools, and personal/professional data security.',
+    verifyUrl: 'https://co-curricular-events.uopeople.edu/credentials/c697ade6-ee03-4741-8809-0c702a4abcea',
     earnedLabel: 'February 18, 2026',
     earnedSort: 202602,
   },
@@ -146,9 +148,22 @@ const rawCerts = [
     issuer: 'Udacity Nanodegree Program',
     focus: 'Descriptive statistics, spreadsheets, and business metrics for practical analytics decision-making',
     impact: 'Established a strong foundation in metrics and analytical thinking for business reporting.',
+    verifyUrl: 'https://www.udacity.com/certificate/e/728f882c-49e6-11ef-b212-17199ed96ea3',
     earnedLabel: 'August 24, 2024',
     earnedSort: 202408,
   },
+{
+  src: '/introduction_to_responsible_ai_udacity.png',
+  alt: 'Introduction to Responsible AI with Google Cloud',
+  issuer: 'Udacity (in collaboration with Google Cloud)',
+  focus: 'AI ethics, fairness, transparency, accountability, privacy, and responsible AI principles',
+  impact: 'Developed strong understanding of ethical AI design, bias mitigation, and responsible decision-making across the AI lifecycle.',
+  verifyUrl: 'https://www.udacity.com/certificate/e/4f087c58-7564-11ee-b3a2-fb74bc70fb42',
+  earnedLabel: 'December 12, 2023',
+  earnedSort: 202312,
+},
+
+
   {
     src: '/bsc_forensic_chemistry_toxicology_arba_minch_university.png',
     alt: 'BSc in Forensic Chemistry and Toxicology',

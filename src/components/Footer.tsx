@@ -44,6 +44,8 @@ export const Footer = () => {
             <a href="https://public.tableau.com/app/profile/asres.yelia/vizzes" target="_blank" rel="noreferrer" aria-label="Tableau Public" title="Tableau Public" className="rounded-lg p-2"><IoLogoTableau className="hover:text-sky-400 transition-colors" /></a>
             <a href="https://www.geeksforgeeks.org/profile/asresgamu/" target="_blank" rel="noreferrer" aria-label="GeeksforGeeks" title="GeeksforGeeks" className="rounded-lg p-2"><SiGeeksforgeeks className="text-gray-400 hover:text-green-500 transition-colors" /></a>
             <a href="https://www.credly.com/users/ethiocodingroom" target="_blank" rel="noreferrer" aria-label="Credly" title="Credly" className="rounded-lg p-2"><SiCredly className="hover:text-orange-400 transition-colors" /></a>
+            <a href="https://edube.org/my-account/achievements" target="_blank" rel="noreferrer" aria-label="edube" title="edube" className="rounded-lg p-2"><SiReact className="hover:text-blue-400 transition-colors" /></a>
+          
           </div>
         </div>
 
